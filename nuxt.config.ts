@@ -110,6 +110,7 @@ export default defineNuxtConfig({
     pageLevelAds: true, // 是否啟用頁面級廣告
     analyticsDomainName: 'bearune.com',
     onPageLoad: true,
+    test: true
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference

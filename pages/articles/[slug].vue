@@ -68,7 +68,7 @@
     </div>
     <div class="col-span-4 flex gap-4 h-full relative lg:hidden">
       <div id="sidebar-articles"
-        class="sticky top-24 flex flex-col gap-8 h-fit max-h-screen overflow-y-auto overscroll-contain">
+        class="sticky top-24 flex flex-col gap-8 h-[calc(80vh)] overscroll-contain overflow-y-auto overflow-x-hidden">
         <div>
           <AnchorCard :anchors="data.body.toc" />
         </div>
@@ -76,15 +76,9 @@
           <h2 class="sidebar-title">文章標籤</h2>
           <TagsSet />
         </div>
-        <!-- <div>
-          <h2 class="sidebar-title">文章分類</h2>
-          <CategorySet />
-        </div> -->
-        <div>
-          <h2 class="sidebar-title">贊助-GOOGLE ADS</h2>
-          <div class="min-h-96 bg-base-200 mt-4">
-            <Adsbygoogle ad-slot="4540073945" ad-format="rspv" />
-          </div>
+        <div class="min-h-96 bg-base-200">
+          <Adsbygoogle ad-slot="7805644924" ad-format="auto" ad-style="display:block"
+            data-full-width-responsive="true" />
         </div>
       </div>
     </div>
