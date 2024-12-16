@@ -8,7 +8,7 @@
               <div class="flex flex-wrap gap-2 h-fit">
                 <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="$route.path">#{{ tag }}</TagCard>
               </div>
-              <h1>{{ doc.title }}</h1>
+              <h1 v-if="doc.title">{{ doc.title }}</h1>
               <div class="flex justify-between items-center">
                 <div class="flex gap-4 text-sm">
                   <IconTextCard class="opacity-70">{{ new Date(doc.date).toISOString().slice(0, 10) }}</IconTextCard>
@@ -37,15 +37,15 @@
             </div>
             <div class="flex text-base-content">
               <ToolTip content="分享至 Facebook">
-                <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://bearune.com${route.fullPath}`"
-                  class="btn btn-icon" target="_blank" rel="noopener noreferrer">
+                <NuxtLink :href="`https://www.facebook.com/sharer/sharer.php?u=https://bearune.com${route.fullPath}`"
+                  class="btn btn-icon" target="_blank" rel="noopener noreferrer" external>
                   <Facebook class="w-5 h-5" />
-                </a>
+                </NuxtLink>
               </ToolTip>
               <ToolTip content="複製連結">
-                <a class="btn btn-icon" @click.prevent="copyLink">
+                <NuxtLink class="btn btn-icon" @click.prevent="copyLink">
                   <Link class="w-5 h-5" />
-                </a>
+                </NuxtLink>
               </ToolTip>
             </div>
           </div>

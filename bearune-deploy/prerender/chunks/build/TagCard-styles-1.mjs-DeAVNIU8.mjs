@@ -1,0 +1,4 @@
+const TagCard_vue_vue_type_style_index_0_scoped_08d84312_lang = ".el-popper.is-customized[data-v-08d84312]{animation-duration:.15s;background-color:oklch(var(--base-100)/var(--tw-bg-opacity,1));border-color:oklch(var(--neutral)/var(--tw-bg-opacity,1));border-width:1px;color:oklch(var(--base-content)/var(--tw-bg-opacity,1));padding:.375rem .75rem;transition-duration:.15s}.el-popper.is-customized .el-popper__arrow[data-v-08d84312]:before{background-color:oklch(var(--primary)/var(--tw-bg-opacity,1))}a[data-v-08d84312],label[data-v-08d84312]{-webkit-user-select:none;-moz-user-select:none;user-select:none}label[data-v-08d84312]{cursor:pointer}label input[data-v-08d84312]{-webkit-appearance:none;-moz-appearance:none;appearance:none;display:none}";
+
+export { TagCard_vue_vue_type_style_index_0_scoped_08d84312_lang as T };
+//# sourceMappingURL=TagCard-styles-1.mjs-DeAVNIU8.mjs.map

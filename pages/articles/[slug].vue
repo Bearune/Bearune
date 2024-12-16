@@ -16,15 +16,16 @@
                 </div>
                 <div class="flex text-base-content">
                   <ToolTip content="分享至 Facebook">
-                    <a :href="`https://www.facebook.com/sharer/sharer.php?u=https://bearune.com${route.fullPath}`"
-                      class="btn btn-icon" target="_blank" rel="noopener noreferrer">
+                    <NuxtLink
+                      :href="`https://www.facebook.com/sharer/sharer.php?u=https://bearune.com${route.fullPath}`"
+                      class="btn btn-icon" target="_blank" rel="noopener noreferrer" external>
                       <Facebook class="w-5 h-5" />
-                    </a>
+                    </NuxtLink>
                   </ToolTip>
                   <ToolTip content="複製連結">
-                    <a class="btn btn-icon" @click.prevent="copyLink">
+                    <NuxtLink class="btn btn-icon" @click.prevent="copyLink">
                       <Link class="w-5 h-5" />
-                    </a>
+                    </NuxtLink>
                   </ToolTip>
                 </div>
               </div>

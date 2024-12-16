@@ -80,6 +80,10 @@ article.normal {
         }
       }
     }
+
+    pre {
+      @apply mt-2 mb-0;
+    }
   }
 
   ul {
@@ -97,6 +101,10 @@ article.normal {
       ul {
         @apply mb-0 pl-8;
       }
+    }
+
+    pre {
+      @apply mt-2 mb-0;
     }
   }
 
@@ -214,19 +222,15 @@ article.short {
   @apply text-lg leading-loose;
 
   h1 {
-    @apply text-2xl font-semibold;
+    @apply text-xl font-semibold;
   }
 
   h2 {
-    @apply pt-2 mb-4 text-xl font-semibold;
+    @apply pt-2 mb-4 text-lg font-semibold;
 
     &:not(:first-child) {
       @apply border-t border-base-200;
     }
-  }
-
-  h3 {
-    @apply pt-2 mb-4 text-lg font-semibold;
   }
 
   a:not(.anchorItem, .badge) {
@@ -244,18 +248,10 @@ article.short {
     >li {
       @apply relative pl-8;
 
-      &:not(:first-child) {
-        @apply pt-2;
-      }
-
       &::before {
-        @apply absolute left-0 top-0 text-primary pb-2;
+        @apply absolute left-0 top-0 text-primary;
         content: counter(main-counter) ". ";
         counter-increment: main-counter;
-
-        &:not(:first-child) {
-          @apply pt-2;
-        }
       }
 
       >ol {
@@ -263,10 +259,10 @@ article.short {
         counter-reset: sub-counter;
 
         >li {
-          @apply relative pl-14 pt-2;
+          @apply relative pl-14;
 
           &::before {
-            @apply absolute left-0 top-0 text-primary py-2;
+            @apply absolute left-0 top-0 text-primary;
             content: counter(main-counter) "-" counter(sub-counter) ". ";
             counter-increment: sub-counter;
           }
@@ -276,10 +272,10 @@ article.short {
             counter-reset: sub-sub-counter;
 
             >li {
-              @apply relative pl-20 pt-2;
+              @apply relative pl-20;
 
               &::before {
-                @apply absolute left-0 top-0 text-primary py-2;
+                @apply absolute left-0 top-0 text-primary;
                 content: counter(main-counter) "-" counter(sub-counter) "-" counter(sub-sub-counter) ". ";
                 counter-increment: sub-sub-counter;
               }
@@ -287,6 +283,10 @@ article.short {
           }
         }
       }
+    }
+
+    pre {
+      @apply mt-2 mb-0;
     }
   }
 
@@ -306,14 +306,18 @@ article.short {
         @apply mb-0 pl-8;
       }
     }
+
+    pre {
+      @apply mt-2 mb-0;
+    }
   }
 
   p {
-    @apply mb-4;
+    @apply mb-2;
   }
 
   pre {
-    @apply mb-4 px-8 rounded-box border border-base-400 bg-base-200;
+    @apply mt-4 mb-2 px-8 rounded-box border border-base-300 bg-base-100;
 
     /* 行號容器樣式 */
     &.shiki {
@@ -324,7 +328,7 @@ article.short {
         @apply border-none bg-transparent;
 
         .line {
-          @apply relative block pl-4 py-0.5 text-sm;
+          @apply relative block pl-4 text-sm;
           font-family: 'Fira Code', 'Courier New', monospace;
 
           &::before {
@@ -346,11 +350,13 @@ article.short {
   }
 
   code {
-    @apply bg-base-200 py-0.5 px-1 rounded-btn border border-base-300;
+    @apply text-primary-content py-px px-1 rounded-btn border;
+    background-color: color-mix(in oklab, oklch(var(--primary, var(--fallback-p)) / 1) 40%, white);
+    border-color: oklch(var(--primary, var(--fallback-p)) / 1);
   }
 
   blockquote {
-    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-4 px-2 relative;
+    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-2 px-2 relative;
 
     >p {
       @apply italic mb-0 text-base-content;
@@ -359,7 +365,7 @@ article.short {
   }
 
   table {
-    @apply rounded-box border-separate border-spacing-0 text-base mb-4;
+    @apply rounded-box border-separate border-spacing-0 text-base mt-4 mb-4 bg-base-100;
 
     th,
     td {
@@ -367,9 +373,15 @@ article.short {
     }
 
     thead {
-      @apply bg-base-200;
-
       tr {
+        @apply text-secondary-content;
+        background-color: color-mix(in oklab, oklch(var(--base-300, var(--fallback-p)) / 1) 40%, white);
+        border-color: oklch(var(--primary, var(--fallback-b3)) / 1);
+
+        th {
+          --tw-bg-opacity: 1;
+        }
+
         th:last-child {
           @apply border-r;
         }
@@ -392,7 +404,7 @@ article.short {
       tr {
         td {
           &:first-child {
-            @apply text-nowrap bg-base-200 font-semibold;
+            @apply text-nowrap font-semibold;
           }
 
           &:last-child {
@@ -419,6 +431,6 @@ article.short {
 
   .info,
   .details-block {
-    @apply mb-4;
+    @apply mb-2;
   }
 }

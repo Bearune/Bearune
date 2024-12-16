@@ -42,6 +42,10 @@
 <script setup>
 import Filter from '~/assets/icons/filter.svg?component';
 
+useHead({
+  title: '文章'
+});
+
 // 初始化：呼叫 Router 及 Route
 const router = useRouter();
 const route = useRoute();
@@ -98,7 +102,7 @@ const updateQuery = useDebounceFn((newTags) => {
     },
   });
   useHead({
-    title: tagList ? `文章 | ${tagList || ''}| – 熊途` : `文章 – 熊途`
+    title: tagList ? `文章 | ${tagList || ''}` : `文章`
   });
 }, 200);
 

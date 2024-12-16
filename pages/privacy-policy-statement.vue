@@ -1,7 +1,7 @@
 <template>
   <div class="privacyPage">
     <div class="columns p-4 mt-8 mb-32 sm:px-4">
-      <article class="col-span-8 col-start-3 md:col-start-1 sm:col-span-4">
+      <article class="normal col-span-8 col-start-3 md:col-start-1 sm:col-span-4">
         <h1>隱私權宣告</h1>
         <div class="w-full text-right pt-4">公告日期：<time>2024-12-10</time></div>
         <p>感謝您蒞臨<span
@@ -44,6 +44,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: '隱私權宣告'
+});
 </script>
 
 <style lang="scss" scoped>
