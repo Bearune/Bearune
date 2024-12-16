@@ -1,0 +1,296 @@
+.btn {
+  @apply border px-2 py-1 rounded-lg cursor-pointer duration-btn ease-out;
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+
+  &:active {
+    @apply scale-btn-focus;
+  }
+
+  & {
+    @apply text-base-content;
+    background-color: oklch(var(--btn-color, var(--base-200)) / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    border-color: oklch(var(--btn-color, var(--base-200)) / var(--tw-border-opacity));
+    --tw-border-opacity: 1;
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--btn-color), var(--fallback-b2);
+      border-color: var(--btn-color), var(--fallback-b2);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        @apply border-base-300 bg-base-300;
+
+        @supports(color: color-mix(in oklab, black, black)) {
+          background-color: color-mix(in oklab,
+              oklch(var(--btn-color, var(--base-200))/var(--tw-bg-opacity, 1)) 95%,
+              black);
+          border-color: color-mix(in oklab,
+              oklch(var(--btn-color, var(--base-200)) / var(--tw-border-opacity, 1)) 95%,
+              black);
+        }
+
+        @supports not (color: oklch(0% 0 0)) {
+          background-color: var(--btn-color, var(--fallback-b2));
+          border-color: var(--btn-color, var(--fallback-b2));
+        }
+      }
+
+      &-active {
+        @supports (color: color-mix(in oklab, black, black)) {
+          background-color: color-mix(in oklab,
+              oklch(var(--btn-color, var(--base-300))/var(--tw-bg-opacity, 1)) 95%,
+              black);
+          border-color: color-mix(in oklab,
+              oklch(var(--btn-color, var(--base-300))/var(--tw-border-opacity, 1)) 95%,
+              black);
+        }
+      }
+
+      &:focus-visible {
+        @apply outline outline-2 outline-offset-2;
+      }
+    }
+  }
+
+  &-primary {
+    @apply text-primary-content outline-primary;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--primary);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-p);
+    }
+  }
+
+  &-secondary {
+    @apply text-secondary-content outline-secondary;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--secondary);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-s);
+    }
+  }
+
+  &-accent {
+    @apply text-accent-content outline-accent;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--accent);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-a);
+    }
+  }
+
+  &-neutral {
+    @apply text-neutral-content outline-neutral;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--neutral);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-n);
+    }
+  }
+
+  /* btn with state colors */
+  &-info {
+    @apply text-info-content outline-info;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--info);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-in);
+    }
+  }
+
+  &-success {
+    @apply text-success-content outline-success;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--success);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-su);
+    }
+  }
+
+  &-warning {
+    @apply text-warning-content outline-warning;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--warning);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-wa);
+    }
+  }
+
+  &-error {
+    @apply text-error-content outline-error;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--error);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-er);
+    }
+  }
+
+  /* glass */
+  &.glass {
+    @apply shadow-none outline-current;
+
+    @media (hover: hover) {
+      &:hover {
+        --glass-opacity: 25%;
+        --glass-border-opacity: 15%;
+      }
+    }
+
+    &.btn-active {
+      --glass-opacity: 25%;
+      --glass-border-opacity: 15%;
+    }
+  }
+
+  /* btn variants */
+  &-ghost {
+    @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply border-transparent;
+      }
+    }
+  }
+
+  &-link {
+    @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply border-transparent bg-transparent underline;
+      }
+    }
+
+    &.btn-active {
+      @apply border-transparent bg-transparent underline;
+    }
+  }
+
+  &-icon {
+    @apply box-content border border-transparent bg-transparent p-2 duration-btn rounded-lg;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply border-transparent;
+      }
+    }
+  }
+
+  &-outline {
+    @apply text-base-content border-current bg-transparent;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply text-neutral-content;
+
+        @supports (color: color-mix(in oklab, black, black)) {
+          background-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-bg-opacity));
+          --tw-bg-opacity: 1;
+          border-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-border-opacity));
+          --tw-border-opacity: 1;
+        }
+      }
+    }
+
+    &.btn-active {
+      @apply border-base-content bg-base-content text-base-100;
+    }
+
+    &.btn-primary {
+      @apply text-primary;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-primary-content;
+        }
+      }
+    }
+
+    &.btn-secondary {
+      @apply text-secondary;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-secondary-content;
+        }
+      }
+    }
+
+    &.btn-accent {
+      @apply text-accent;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-accent-content;
+        }
+      }
+    }
+
+    &.btn-info {
+      @apply text-info;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-info-content;
+        }
+      }
+    }
+
+    &.btn-success {
+      @apply text-success;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-success-content;
+        }
+      }
+    }
+
+    &.btn-warning {
+      @apply text-warning;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-warning-content;
+        }
+      }
+    }
+
+    &.btn-error {
+      @apply text-error;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-error-content;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .columns {
+    @apply max-w-[1199.98px] xl:max-w-[1199.98px] lg:max-w-[989.98px] md:max-w-[767.98px] sm:max-w-[639.98px];
+    @apply grid grid-cols-12 gap-8;
+    @apply md:grid-cols-8;
+    @apply sm:grid-cols-4;
+  }
+
+  .columns-item {
+    @apply lg:col-span-12 md:col-span-8 sm:col-span-4;
+    @apply lg:grid-cols-12 md:grid-cols-8 sm:grid-cols-4;
+  }
+}
+
+@layer components {}
+
+@layer utilities {}
+
+* {
+  @apply tracking-wider transition-[background-color] duration-150;
+  font-family: "Noto Sans TC", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  --rounded-box: 1rem;
+  --rounded-btn: 0.5rem;
+  --rounded-badge: 1.9rem;
+  --animation-btn: .15s;
+  --animation-input: .3s;
+  --btn-focus-scale: 0.97;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.5rem;
+}
+
+html {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+body {
+  @apply bg-base-100 text-base-content;
+
+  &::-webkit-scrollbar {
+    @apply w-3 sm:hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-base-300 rounded-sm;
+  }
+}
+
+.no-style-a {
+  @apply p-0;
+
+  &:hover {
+    @apply bg-transparent;
+  }
+
+  &:active {
+    @apply scale-100;
+  }
+}
+
+.menu {
+  @apply flex flex-wrap leading-5 p-2 px-1 sm:px-0;
+
+  input {
+    @apply hidden;
+  }
+
+  li {
+    @apply relative flex flex-wrap items-stretch;
+
+    a {
+      @apply py-2 px-4 sm:px-2;
+    }
+  }
+}
+
+.swap {
+  @apply relative select-none place-content-center cursor-pointer;
+
+  svg {
+    @apply transition-all duration-input;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
+  }
+
+  input {
+    @apply appearance-none;
+
+    ~.swap-on {
+      @apply absolute top-1/2 -translate-y-1/2 opacity-0 -rotate-45;
+    }
+
+    ~.swap-off {
+      @apply absolute top-1/2 -translate-y-1/2 opacity-100 rotate-0;
+    }
+
+    &:checked {
+      &~.swap-on {
+        @apply opacity-100 rotate-0;
+      }
+
+      &~.swap-off {
+        @apply opacity-0 rotate-45;
+      }
+    }
+  }
+}
+
+h2.sidebar-title {
+  @apply font-semibold;
+}
+
+h1.page-title {
+  @apply font-semibold text-3xl sm:text-2xl;
+}

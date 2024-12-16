@@ -1,0 +1,49 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "generate-theme": "node ./scripts/generate-theme.js"
+  },
+  "dependencies": {
+    "@nuxtjs/eslint-module": "^4.1.0",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@unhead/shared": "^1.11.14",
+    "animate.css": "^4.1.1",
+    "chroma-js": "^3.1.2",
+    "feather-icons": "^4.29.2",
+    "js-cookie": "^3.0.5",
+    "nuxt": "^3.14.1592",
+    "pinia": "^2.2.6",
+    "rss": "^1.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vite": "^5.4.11",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@element-plus/nuxt": "^1.1.0",
+    "@nuxt/content": "^2.13.4",
+    "@nuxt/eslint": "^0.7.2",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@nuxtjs/device": "^3.2.4",
+    "@nuxtjs/google-adsense": "^3.0.0",
+    "@nuxtjs/robots": "^5.0.1",
+    "@nuxtjs/seo": "^2.0.2",
+    "@nuxtjs/sitemap": "^7.0.0",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@pinia/nuxt": "^0.8.0",
+    "@types/rss": "^0.0.32",
+    "@vueuse/nuxt": "^12.0.0",
+    "nuxt-content-assets": "^1.4.4",
+    "nuxt-svgo": "^4.0.8",
+    "sass": "^1.81.1",
+    "sass-loader": "^16.0.3",
+    "vite-plugin-inspect": "^0.8.8"
+  }
+}

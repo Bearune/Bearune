@@ -1,0 +1,9 @@
+@forward 'element-plus/theme-chalk/src/mixins/config.scss' with ($namespace: 'ep');
+
+.el-popper.is-customized {
+  @apply py-1.5 px-3 bg-base-100 text-base-content border border-neutral duration-150;
+}
+
+.el-popper.is-customized .el-popper__arrow::before {
+  @apply bg-primary;
+}

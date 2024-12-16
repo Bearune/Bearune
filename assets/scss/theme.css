@@ -1,0 +1,46 @@
+:root {
+  --primary: 66.30% 0.09 247.87;
+  --primary-content: 15.23% 0.02 201.86;
+  --secondary: 78.93% 0.02 79.05;
+  --secondary-content: 25.24% 0.04 75.28;
+  --accent: 79.38% 0.15 78.61;
+  --accent-content: 16.70% 0.01 51.32;
+  --neutral: 34.26% 0.02 74.80;
+  --neutral-content: 90.73% 0.01 86.79;
+  --base-100: 100% 0 0;
+  --base-200: 97.79% 0.00 56.51;
+  --base-300: 89.33% 0.01 54.53;
+  --base-400: 86.96% 0.01 51.35;
+  --base-content: 32.43% 0.01 285.62;
+  --info: 32.43% 0.01 285.62;
+  --info-content: 100% 0 0;
+  --success: 68.33% 0.14 152.95;
+  --success-content: 100% 0 0;
+  --warning: 82.33% 0.15 88.26;
+  --warning-content: 100% 0 0;
+  --error: 69.73% 0.19 20.29;
+  --error-content: 100% 0 0;
+}
+:root[data-theme="dark"] {
+  --primary: 78.31% 0.09 247.60;
+  --primary-content: 17.26% 0.03 139.86;
+  --secondary: 91.83% 0.07 78.70;
+  --secondary-content: 14.57% 0.03 32.44;
+  --accent: 85.59% 0.14 80.58;
+  --accent-content: 14.90% 0.03 308.87;
+  --neutral: 24.73% 0.02 264.10;
+  --neutral-content: 88.81% 0.02 223.66;
+  --base-100: 30.86% 0.02 264.15;
+  --base-200: 28.04% 0.02 264.19;
+  --base-300: 26.35% 0.02 262.18;
+  --base-400: 22.60% 0.02 264.16;
+  --base-content: 90.45% 0.02 222.62;
+  --info: 90.45% 0.02 222.62;
+  --info-content: 30.86% 0.02 264.15;
+  --success: 86.17% 0.14 166.53;
+  --success-content: 14.90% 0.03 308.87;
+  --warning: 86.16% 0.14 94.81;
+  --warning-content: 14.57% 0.03 32.44;
+  --error: 82.42% 0.10 33.76;
+  --error-content: 14.57% 0.03 32.44;
+}

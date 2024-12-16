@@ -1,0 +1,303 @@
+.badge {
+  @apply border-base-200 bg-base-100 text-base-content rounded-badge border py-0.5 px-2 duration-btn ease-out;
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+
+  & {
+    @apply text-base-content;
+    background-color: oklch(var(--btn-color, var(--base-200)) / var(--tw-bg-opacity));
+    --tw-bg-opacity: 1;
+    border-color: oklch(var(--btn-color, var(--base-200)) / var(--tw-border-opacity));
+    --tw-border-opacity: 1;
+  }
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--btn-color), var(--fallback-b2);
+    border-color: var(--btn-color), var(--fallback-b2);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      @apply border-base-300 bg-base-300;
+
+      @supports(color: color-mix(in oklab, black, black)) {
+        background-color: color-mix(in oklab,
+            oklch(var(--btn-color, var(--base-200))/var(--tw-bg-opacity, 1)) 90%,
+            black);
+        border-color: color-mix(in oklab,
+            oklch(var(--btn-color, var(--base-200)) / var(--tw-border-opacity, 1)) 90%,
+            black);
+      }
+
+      @supports not (color: oklch(0% 0 0)) {
+        background-color: var(--btn-color, var(--fallback-b2));
+        border-color: var(--btn-color, var(--fallback-b2));
+      }
+    }
+
+    &-active {
+      @supports (color: color-mix(in oklab, black, black)) {
+        background-color: color-mix(in oklab,
+            oklch(var(--btn-color, var(--base-300))/var(--tw-bg-opacity, 1)) 90%,
+            black);
+        border-color: color-mix(in oklab,
+            oklch(var(--btn-color, var(--base-300))/var(--tw-border-opacity, 1)) 90%,
+            black);
+      }
+    }
+
+    &:focus-visible {
+      @apply outline outline-2 outline-offset-2;
+    }
+
+    &:active {
+      @apply scale-btn-focus;
+    }
+  }
+
+  &-neutral {
+    @apply text-neutral-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--neutral);
+      --btn-content-color: var(--neutral-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-n);
+      --btn-content-color: var(--fallback-nc);
+    }
+  }
+
+  &-primary {
+    @apply text-primary-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--primary);
+      --btn-content-color: var(--primary-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-p);
+      --btn-content-color: var(--fallback-pc);
+    }
+  }
+
+  &-secondary {
+    @apply text-secondary-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--secondary);
+      --btn-content-color: var(--secondary-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-s);
+      --btn-content-color: var(--fallback-sc);
+    }
+  }
+
+  &-accent {
+    @apply text-accent-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--accent);
+      --btn-content-color: var(--accent-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-a);
+      --btn-content-color: var(--fallback-ac);
+    }
+  }
+
+  &-info {
+    @apply bg-info text-info-content border-transparent;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--info);
+      --btn-content-color: var(--info-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-in);
+      --btn-content-color: var(--fallback-inc);
+    }
+  }
+
+  &-success {
+    @apply text-success-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--success);
+      --btn-content-color: var(--success-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-s);
+      --btn-content-color: var(--fallback-sc);
+    }
+  }
+
+  &-warning {
+    @apply text-warning-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--warning);
+      --btn-content-color: var(--warning-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-wa);
+      --btn-content-color: var(--fallback-wac);
+    }
+  }
+
+  &-error {
+    @apply text-error-content;
+
+    @supports (color: oklch(0% 0 0)) {
+      --btn-color: var(--error);
+      --btn-content-color: var(--error-content);
+    }
+
+    @supports not (color: oklch(0% 0 0)) {
+      --btn-color: var(--fallback-er);
+      --btn-content-color: var(--fallback-erc);
+    }
+  }
+
+  &-ghost {
+    @apply border-transparent bg-transparent;
+  }
+
+  &-outline {
+    @apply border-current border-opacity-50 bg-transparent text-current;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply text-neutral-content;
+
+        @supports (color: color-mix(in oklab, black, black)) {
+
+          background-color: color-mix(in oklab, oklch(var(--btn-color, var(--neutral)) / var(--tw-bg-opacity)) 60%, white);
+          --tw-bg-opacity: 1;
+          border-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-border-opacity));
+          --tw-border-opacity: 1;
+        }
+
+        @supports not (color: oklch(0% 0 0)) {
+          background-color: var(--btn-color, var(--fallback-n));
+          border-color: var(--btn-color, var(--fallback-n));
+        }
+      }
+    }
+
+    &.badge-active {
+      @supports (color: color-mix(in oklab, black, black)) {
+        background-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-bg-opacity));
+        --tw-bg-opacity: 1 !important;
+        border-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-border-opacity));
+        --tw-border-opacity: 1 !important;
+        color: oklch(var(--btn-content-color, var(--neutral-content)) / var(--tw-text-opacity)) !important;
+        --tw-text-opacity: 1;
+      }
+
+      @supports not (color: oklch(0% 0 0)) {
+        background-color: var(--btn-color, var(--fallback-n));
+        border-color: var(--btn-color, var(--fallback-n));
+        color: var(--btn-content-color, var(--fallback-nc));
+      }
+    }
+
+    &:has(>input[type=checkbox]:checked) {
+      @supports (color: color-mix(in oklab, black, black)) {
+        background-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-bg-opacity));
+        --tw-bg-opacity: 1;
+        border-color: oklch(var(--btn-color, var(--neutral)) / var(--tw-border-opacity));
+        --tw-border-opacity: 1;
+        color: oklch(var(--btn-content-color, var(--neutral-content)) / var(--tw-text-opacity));
+        --tw-text-opacity: 1;
+      }
+    }
+
+    &.badge-neutral {
+      @apply text-neutral;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-neutral-content;
+        }
+      }
+    }
+
+    &.badge-primary {
+      @apply text-primary;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-primary-content;
+        }
+      }
+    }
+
+    &.badge-secondary {
+      @apply text-secondary;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-secondary-content;
+        }
+      }
+    }
+
+    &.badge-accent {
+      @apply text-accent;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-accent-content;
+        }
+      }
+    }
+
+    &.badge-info {
+      @apply text-info;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-info-content;
+        }
+      }
+    }
+
+    &.badge-success {
+      @apply text-success;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-success-content;
+        }
+      }
+    }
+
+    &.badge-warning {
+      @apply text-warning;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-warning-content;
+        }
+      }
+    }
+
+    &.badge-error {
+      @apply text-error;
+
+      @media (hover: hover) {
+        &:hover {
+          @apply text-error-content;
+        }
+      }
+    }
+  }
+}

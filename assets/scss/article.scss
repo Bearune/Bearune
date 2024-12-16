@@ -1,0 +1,424 @@
+article.normal {
+  @apply text-lg leading-loose;
+
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  h2 {
+    @apply pt-24 mb-8 text-3xl font-semibold;
+
+    &:not(:first-child) {
+      @apply border-t border-base-200;
+    }
+  }
+
+  h3 {
+    @apply pt-24 mb-8 text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply mb-2 text-xl font-semibold;
+  }
+
+  a:not(.anchorItem, .badge) {
+    @apply text-primary duration-btn transition-colors;
+
+    &:hover {
+      @apply underline underline-offset-2 decoration-wavy saturate-150;
+    }
+  }
+
+  ol {
+    @apply mb-8;
+    counter-reset: main-counter;
+
+    >li {
+      @apply relative pl-8;
+
+      &:not(:first-child) {
+        @apply pt-2;
+      }
+
+      &::before {
+        @apply absolute left-0 top-0 text-primary pb-2;
+        content: counter(main-counter) ". ";
+        counter-increment: main-counter;
+
+        &:not(:first-child) {
+          @apply pt-2;
+        }
+      }
+
+      >ol {
+        @apply mb-0;
+        counter-reset: sub-counter;
+
+        >li {
+          @apply relative pl-14 pt-2;
+
+          &::before {
+            @apply absolute left-0 top-0 text-primary py-2;
+            content: counter(main-counter) "-" counter(sub-counter) ". ";
+            counter-increment: sub-counter;
+          }
+
+          >ol {
+            @apply mb-0;
+            counter-reset: sub-sub-counter;
+
+            >li {
+              @apply relative pl-20 pt-2;
+
+              &::before {
+                @apply absolute left-0 top-0 text-primary py-2;
+                content: counter(main-counter) "-" counter(sub-counter) "-" counter(sub-sub-counter) ". ";
+                counter-increment: sub-sub-counter;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    @apply mb-8 pl-5 list-disc;
+
+    li {
+      &:not(:first-child) {
+        @apply pt-2;
+      }
+
+      &::marker {
+        @apply text-primary;
+      }
+
+      ul {
+        @apply mb-0 pl-8;
+      }
+    }
+  }
+
+  p {
+    @apply mb-8;
+  }
+
+  pre {
+    @apply mb-8 px-8 rounded-box border border-base-400 bg-base-200;
+
+    /* 行號容器樣式 */
+    &.shiki {
+      @apply pl-12 relative;
+      counter-reset: line-number;
+
+      code {
+        @apply border-none bg-transparent;
+
+        .line {
+          @apply relative block pl-4 py-0.5 text-sm;
+          font-family: 'Fira Code', 'Courier New', monospace;
+
+          &::before {
+            @apply absolute -left-10 w-8 text-right text-secondary;
+            content: counter(line-number);
+            counter-increment: line-number;
+          }
+
+          >span {
+            @apply text-wrap;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    @apply w-full rounded-box bg-base-200;
+  }
+
+  code {
+    @apply bg-base-200 py-0.5 px-1 rounded-btn border border-base-300;
+  }
+
+  blockquote {
+    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative;
+
+    >p {
+      @apply italic mb-0 text-base-content;
+      --tw-bg-opacity: .6;
+    }
+  }
+
+  table {
+    @apply rounded-box border-separate border-spacing-0 text-base mb-8;
+
+    th,
+    td {
+      @apply p-4 border-t border-l border-base-400;
+    }
+
+    thead {
+      @apply bg-base-200;
+
+      tr {
+        th:last-child {
+          @apply border-r;
+        }
+
+        &:first-child {
+          th {
+            &:first-child {
+              @apply rounded-tl-box;
+            }
+
+            &:last-child {
+              @apply rounded-tr-box;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          &:first-child {
+            @apply text-nowrap bg-base-200 font-semibold;
+          }
+
+          &:last-child {
+            @apply border-r;
+          }
+        }
+
+        &:last-child {
+          td {
+            @apply border-b;
+
+            &:first-child {
+              @apply rounded-bl-box;
+            }
+
+            &:last-child {
+              @apply rounded-br-box;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+article.short {
+  @apply text-lg leading-loose;
+
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+
+  h2 {
+    @apply pt-2 mb-4 text-xl font-semibold;
+
+    &:not(:first-child) {
+      @apply border-t border-base-200;
+    }
+  }
+
+  h3 {
+    @apply pt-2 mb-4 text-lg font-semibold;
+  }
+
+  a:not(.anchorItem, .badge) {
+    @apply text-primary duration-btn transition-colors;
+
+    &:hover {
+      @apply underline underline-offset-2 decoration-wavy saturate-150;
+    }
+  }
+
+  ol {
+    @apply mb-4;
+    counter-reset: main-counter;
+
+    >li {
+      @apply relative pl-8;
+
+      &:not(:first-child) {
+        @apply pt-2;
+      }
+
+      &::before {
+        @apply absolute left-0 top-0 text-primary pb-2;
+        content: counter(main-counter) ". ";
+        counter-increment: main-counter;
+
+        &:not(:first-child) {
+          @apply pt-2;
+        }
+      }
+
+      >ol {
+        @apply mb-0;
+        counter-reset: sub-counter;
+
+        >li {
+          @apply relative pl-14 pt-2;
+
+          &::before {
+            @apply absolute left-0 top-0 text-primary py-2;
+            content: counter(main-counter) "-" counter(sub-counter) ". ";
+            counter-increment: sub-counter;
+          }
+
+          >ol {
+            @apply mb-0;
+            counter-reset: sub-sub-counter;
+
+            >li {
+              @apply relative pl-20 pt-2;
+
+              &::before {
+                @apply absolute left-0 top-0 text-primary py-2;
+                content: counter(main-counter) "-" counter(sub-counter) "-" counter(sub-sub-counter) ". ";
+                counter-increment: sub-sub-counter;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    @apply mb-4 pl-5 list-disc;
+
+    li {
+      &:not(:first-child) {
+        @apply pt-0;
+      }
+
+      &::marker {
+        @apply text-primary;
+      }
+
+      ul {
+        @apply mb-0 pl-8;
+      }
+    }
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  pre {
+    @apply mb-4 px-8 rounded-box border border-base-400 bg-base-200;
+
+    /* 行號容器樣式 */
+    &.shiki {
+      @apply pl-12 relative;
+      counter-reset: line-number;
+
+      code {
+        @apply border-none bg-transparent;
+
+        .line {
+          @apply relative block pl-4 py-0.5 text-sm;
+          font-family: 'Fira Code', 'Courier New', monospace;
+
+          &::before {
+            @apply absolute -left-10 w-8 text-right text-secondary;
+            content: counter(line-number);
+            counter-increment: line-number;
+          }
+
+          >span {
+            @apply text-wrap;
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    @apply w-full rounded-box bg-base-200;
+  }
+
+  code {
+    @apply bg-base-200 py-0.5 px-1 rounded-btn border border-base-300;
+  }
+
+  blockquote {
+    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-4 px-2 relative;
+
+    >p {
+      @apply italic mb-0 text-base-content;
+      --tw-bg-opacity: .6;
+    }
+  }
+
+  table {
+    @apply rounded-box border-separate border-spacing-0 text-base mb-4;
+
+    th,
+    td {
+      @apply p-4 border-t border-l border-base-400;
+    }
+
+    thead {
+      @apply bg-base-200;
+
+      tr {
+        th:last-child {
+          @apply border-r;
+        }
+
+        &:first-child {
+          th {
+            &:first-child {
+              @apply rounded-tl-box;
+            }
+
+            &:last-child {
+              @apply rounded-tr-box;
+            }
+          }
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          &:first-child {
+            @apply text-nowrap bg-base-200 font-semibold;
+          }
+
+          &:last-child {
+            @apply border-r;
+          }
+        }
+
+        &:last-child {
+          td {
+            @apply border-b;
+
+            &:first-child {
+              @apply rounded-bl-box;
+            }
+
+            &:last-child {
+              @apply rounded-br-box;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .info,
+  .details-block {
+    @apply mb-4;
+  }
+}
