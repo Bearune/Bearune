@@ -37,7 +37,7 @@ jobs:
       - name: Update known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan 172.233.65.93 >> ~/.ssh/known_hosts
+          ssh-keyscan -H 172.233.65.93 >> ~/.ssh/known_hosts
 
       # Step 7: Transfer files using rsync
       - name: Transfer files
