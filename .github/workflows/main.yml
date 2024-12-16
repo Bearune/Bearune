@@ -1,0 +1,55 @@
+name: bearune CICD
+
+on:
+  push:
+    branches: [main]  # 當推送到 main 分支時觸發
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Step 3: npm install
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build
+      - name: Build application
+        run: npm run build  # 根據你的專案需求修改
+
+      # Step 5: Setup SSH Key
+      - name: Install SSH key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.BEARUNE_DEPLOY_SSH }}
+
+      # Step 6: Update known_hosts
+      - name: Update known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H 172.233.65.93 >> ~/.ssh/known_hosts
+
+      # Step 7: Transfer files using rsync
+      - name: Transfer files
+        run: |
+          rsync -avz --delete ./.output root@172.233.65.93:/var/www/node
+        env:
+          SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}  # 確保 SSH 代理可用
+
+      # Step 8: Restart PM2
+      - name: Restart PM2
+        run: |
+          ssh root@172.233.65.93 << 'EOF'
+          cd /var/www/node/.output
+          pm2 restart Bearune || pm2 start npm --name Bearune -- run start
+          EOF
