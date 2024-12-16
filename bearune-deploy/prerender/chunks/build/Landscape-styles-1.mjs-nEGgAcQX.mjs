@@ -1,4 +1,0 @@
-const Landscape_vue_vue_type_style_index_0_scoped_45fdf281_lang = ".el-popper.is-customized[data-v-45fdf281]{animation-duration:.15s;background-color:oklch(var(--base-100)/var(--tw-bg-opacity,1));border-color:oklch(var(--neutral)/var(--tw-bg-opacity,1));border-width:1px;color:oklch(var(--base-content)/var(--tw-bg-opacity,1));padding:.375rem .75rem;transition-duration:.15s}.el-popper.is-customized .el-popper__arrow[data-v-45fdf281]:before{background-color:oklch(var(--primary)/var(--tw-bg-opacity,1))}h3[data-v-45fdf281]{color:oklch(var(--base-content)/var(--tw-bg-opacity,1));font-size:1.5rem;font-weight:600;line-height:2rem}p[data-v-45fdf281]{--tw-text-opacity:1;color:rgb(115 115 115/var(--tw-text-opacity,1))}";
-
-export { Landscape_vue_vue_type_style_index_0_scoped_45fdf281_lang as L };
-//# sourceMappingURL=Landscape-styles-1.mjs-nEGgAcQX.mjs.map

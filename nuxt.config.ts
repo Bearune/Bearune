@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   //   port: 3000, // default: 3000
   //   host: '192.168.0.51' // deafult: 'localhost'
   // },
-  buildDir: 'bearune-deploy',
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },
