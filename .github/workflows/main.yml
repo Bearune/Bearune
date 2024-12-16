@@ -42,7 +42,7 @@ jobs:
       # Step 7: Transfer files using rsync
       - name: Transfer files
         run: |
-          rsync -avz --delete ./.output root@172.233.65.93:/var/www/node/.output
+          rsync -avz --delete ./.output root@172.233.65.93:/var/www/node
         env:
           SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}  # 確保 SSH 代理可用
 
