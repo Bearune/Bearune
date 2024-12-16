@@ -109,8 +109,7 @@ export default defineNuxtConfig({
     id: 'ca-pub-9967002932441195', // 將此處替換為你的 Google Adsense 客戶端 ID
     pageLevelAds: true, // 是否啟用頁面級廣告
     analyticsDomainName: 'bearune.com',
-    onPageLoad: true,
-    test: true
+    onPageLoad: true
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference
