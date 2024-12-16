@@ -19,10 +19,10 @@ export const useContentsStore = defineStore('contents', {
     async fetchShortContents(path = 'cards', without = '') {
       try {
         if (without) {
-          this.shortArticle = await queryContent(path).without(without).sort({ date: -1 }).find();
+          this.shortArticle = await queryContent(path).without(without).sort({ date: -1, _id: -1 }).find();
         }
         else {
-          this.shortArticle = await queryContent(path).sort({ date: -1 }).find();
+          this.shortArticle = await queryContent(path).sort({ date: -1, _id: -1 }).find();
         }
       } catch (error) {
         console.error('無法獲取文章', error);
