@@ -19,34 +19,43 @@ jobs:
         with:
           node-version: 18
 
-      # Step 3: npm install
+      # Step 3: Cache Node.js modules
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Step 4: npm install
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build
+      # Step 5: Build
       - name: Build application
         run: npm run build  # 根據你的專案需求修改
 
-      # Step 5: Setup SSH Key
+      # Step 6: Setup SSH Key
       - name: Install SSH key
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.BEARUNE_DEPLOY_SSH }}
 
-      # Step 6: Update known_hosts
+      # Step 7: Update known_hosts
       - name: Update known_hosts
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H 172.233.65.93 >> ~/.ssh/known_hosts
 
-      # Step 7: Transfer files using rsync
+      # Step 8: Transfer files using rsync
       - name: Transfer files
         run: |
           rsync -avz --delete ./.output root@172.233.65.93:/var/www/node
         env:
           SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}  # 確保 SSH 代理可用
 
-      # Step 8: Restart PM2
+      # Step 9: Restart PM2
       - name: Restart PM2
         run: |
           ssh root@172.233.65.93 << 'EOF'
