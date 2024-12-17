@@ -12,19 +12,24 @@
         <p>努力學習 Nuxt 中……</p>
         <div class="flex gap-1">
           <el-tooltip class="box-item" content="Github" placement="bottom" effect="customized" :hide-after="0">
-            <a href="https://github.com/wenyanlin" class="btn btn-icon" target="_blank">
+            <NuxtLink to="https://github.com/wenyanlin" class="btn btn-icon" target="_blank" external>
               <Github class="w-6 h-6 " />
-            </a>
+            </NuxtLink>
+          </el-tooltip>
+          <el-tooltip class="box-item" content="CodePen" placement="bottom" effect="customized" :hide-after="0">
+            <NuxtLink to="https://codepen.io/Lin-Donna" class="btn btn-icon" target="_blank" external>
+              <CodePen class="w-6 h-6 " />
+            </NuxtLink>
           </el-tooltip>
           <el-tooltip class="box-item" content="Youtube" placement="bottom" effect="customized" :hide-after="0">
-            <a href="https://www.youtube.com/c/SimsEvelyn" class="btn btn-icon" target="_blank">
+            <NuxtLink to="https://www.youtube.com/c/SimsEvelyn" class="btn btn-icon" target="_blank" external>
               <Youtube class="w-6 h-6 " />
-            </a>
+            </NuxtLink>
           </el-tooltip>
           <el-tooltip class="box-item" content="RSS" placement="bottom" effect="customized" :hide-after="0">
-            <a href="https://bearune.com/rss.xml" class="btn btn-icon" target="_blank">
+            <NuxtLink to="https://bearune.com/rss.xml" class="btn btn-icon" target="_blank">
               <RSS class="w-6 h-6 " />
-            </a>
+            </NuxtLink>
           </el-tooltip>
         </div>
       </div>
@@ -37,6 +42,7 @@ import Profile from '~/assets/images/profile.webp';
 import Github from '~/assets/icons/github.svg?component';
 import RSS from '~/assets/icons/rss.svg?component';
 import Youtube from '~/assets/icons/youtube.svg?component';
+import CodePen from '~/assets/icons/codepen.svg?component';
 
 </script>
 

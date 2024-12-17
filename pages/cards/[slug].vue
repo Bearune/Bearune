@@ -59,6 +59,9 @@
             <ProfileLandscape class="sm:hidden" />
             <ProfilePortrait class="hidden sm:flex px-16" />
           </div>
+          <div class="mt-8">
+            <GiscusCard />
+          </div>
         </template>
         <template #not-found>
           <h1>Document not found</h1>

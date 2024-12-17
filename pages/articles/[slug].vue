@@ -60,15 +60,18 @@
             <ProfileLandscape class="sm:hidden" />
             <ProfilePortrait class="hidden sm:flex px-16" />
           </div>
+          <div class="mt-8">
+            <GiscusCard />
+          </div>
         </template>
         <template #not-found>
           <h1>Document not found</h1>
         </template>
       </ContentDoc>
     </div>
-    <div class="col-span-4 flex gap-4 h-full relative lg:hidden">
+    <div class="col-span-4 flex gap-4 min-h-full relative lg:hidden">
       <div id="sidebar-articles"
-        class="sticky top-24 flex flex-col gap-8 h-[calc(80vh)] overscroll-contain overflow-y-auto overflow-x-hidden">
+        class="sticky top-24 flex flex-col gap-8 max-h-[calc(80vh)] overscroll-contain overflow-y-auto overflow-x-hidden">
         <div>
           <AnchorCard :anchors="data.body.toc" />
         </div>
@@ -77,8 +80,7 @@
           <TagsSet />
         </div>
         <div>
-          <Adsbygoogle ad-slot="7805644924" ad-format="auto" ad-style="display:block"
-            data-full-width-responsive="true" />
+          <AdsSidebar />
         </div>
       </div>
     </div>

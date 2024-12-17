@@ -328,7 +328,7 @@ article.short {
         @apply border-none bg-transparent;
 
         .line {
-          @apply relative block pl-4 text-sm;
+          @apply relative block pl-4 text-base;
           font-family: 'Fira Code', 'Courier New', monospace;
 
           &::before {

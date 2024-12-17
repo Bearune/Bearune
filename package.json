@@ -11,6 +11,7 @@
     "generate-theme": "node ./scripts/generate-theme.js"
   },
   "dependencies": {
+    "@giscus/vue": "^3.0.0",
     "@nuxtjs/eslint-module": "^4.1.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@unhead/shared": "^1.11.14",

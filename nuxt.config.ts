@@ -7,6 +7,15 @@ export default defineNuxtConfig({
   // },
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      script: [
+        {
+          src: 'https://cloud.umami.is/script.js',
+          defer: true, // 設置 defer
+          'data-website-id': '04f3f2b1-f83f-4489-92ce-a67fef11ad03',
+        },
+      ],
+    },
   },
   compatibilityDate: '2024-11-18',
   devtools: {
@@ -109,7 +118,8 @@ export default defineNuxtConfig({
     id: 'ca-pub-9967002932441195', // 將此處替換為你的 Google Adsense 客戶端 ID
     pageLevelAds: true, // 是否啟用頁面級廣告
     analyticsDomainName: 'bearune.com',
-    onPageLoad: true
+    onPageLoad: true,
+    test: true
   },
   colorMode: {
     preference: 'system', // default value of $colorMode.preference

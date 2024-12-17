@@ -18,6 +18,12 @@
           <li>
             <NuxtLink to="/cards" class="btn btn-ghost">筆記</NuxtLink>
           </li>
+          <li>
+            <NuxtLink to="/toolbox" class="btn btn-ghost">工具箱</NuxtLink>
+          </li>
+          <!-- <li>
+            <NuxtLink to="/tools" class="btn btn-ghost">組件練習</NuxtLink>
+          </li> -->
         </ul>
       </div>
       <div class="flex items-center gap-1.5 sm:gap-1">

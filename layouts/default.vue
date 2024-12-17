@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-col justify-between">
+  <main class="!min-h-screen relative flex flex-col justify-between">
     <LayoutSiteHeader />
     <div class="flex justify-center mt-20 sm:mt-12">
       <slot />
@@ -7,7 +7,7 @@
     <LayoutSiteFooter />
     <BackTop />
     <!-- <LayoutSiteMobileHeader class="hidden fixed bottom-0 left-0 right-0 sm:block" /> -->
-  </div>
+  </main>
 </template>
 
 <script setup>

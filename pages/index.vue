@@ -6,7 +6,7 @@
                 <img :src="Leaves" alt="" class="w-full">
             </div>
         </div>
-        <div class="col-span-8 grid grid-cols-9 gap-8 h-fit
+        <div class="!min-h-[calc(100vh-20.5rem)] auto-rows-min col-span-8 grid grid-cols-9 gap-8 h-fit
         lg:col-span-12 lg:grid-cols-12 md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
             <LazyContentList v-slot="{ list }" :query="{ path: 'articles', without: ['body'], sort: [{ date: -1 }] }">
                 <ArticleCardLarge class="col-span-9 lg:col-span-12 md:col-span-8 sm:col-span-4" :data="list[0]" />
