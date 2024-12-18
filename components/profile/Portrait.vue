@@ -4,8 +4,9 @@
       <div class="w-full flex flex-col items-center gap-2">
         <h2 class="sidebar-title">關於我</h2>
       </div>
-      <div class="aspect-square w-fit overflow-hidden">
-        <img :src="Profile" alt="熊途" class="max-w-48">
+      <div class="aspect-square w-fit">
+        <!-- <img :src="Profile" alt="熊途" class="max-w-48"> -->
+        <ProfileImg class="w-48 h-48" />
       </div>
       <div class="w-full flex flex-col items-center gap-2">
         <h3>瓜熊</h3>
@@ -38,7 +39,6 @@
 </template>
 
 <script setup>
-import Profile from '~/assets/images/profile.webp';
 import Github from '~/assets/icons/github.svg?component';
 import RSS from '~/assets/icons/rss.svg?component';
 import Youtube from '~/assets/icons/youtube.svg?component';
