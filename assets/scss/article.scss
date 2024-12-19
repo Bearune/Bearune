@@ -112,35 +112,6 @@ article.normal {
     @apply mb-8;
   }
 
-  pre {
-    @apply mb-8 px-8 rounded-box border border-base-400 bg-base-200;
-
-    /* 行號容器樣式 */
-    &.shiki {
-      @apply pl-12 relative;
-      counter-reset: line-number;
-
-      code {
-        @apply border-none bg-transparent;
-
-        .line {
-          @apply relative block pl-4 py-0.5 text-sm;
-          font-family: 'Fira Code', 'Courier New', monospace;
-
-          &::before {
-            @apply absolute -left-10 w-8 text-right text-secondary;
-            content: counter(line-number);
-            counter-increment: line-number;
-          }
-
-          >span {
-            @apply text-wrap;
-          }
-        }
-      }
-    }
-  }
-
   img {
     @apply w-full rounded-box bg-base-200;
   }
@@ -316,35 +287,6 @@ article.short {
     @apply mb-2;
   }
 
-  pre {
-    @apply mt-4 mb-2 px-8 rounded-box border border-base-300 bg-base-100;
-
-    /* 行號容器樣式 */
-    &.shiki {
-      @apply pl-12 relative;
-      counter-reset: line-number;
-
-      code {
-        @apply border-none bg-transparent;
-
-        .line {
-          @apply relative block pl-4 text-base;
-          font-family: 'Fira Code', 'Courier New', monospace;
-
-          &::before {
-            @apply absolute -left-10 w-8 text-right text-secondary;
-            content: counter(line-number);
-            counter-increment: line-number;
-          }
-
-          >span {
-            @apply text-wrap;
-          }
-        }
-      }
-    }
-  }
-
   img {
     @apply w-full rounded-box bg-base-200;
   }
@@ -374,9 +316,7 @@ article.short {
 
     thead {
       tr {
-        @apply text-secondary-content;
-        background-color: color-mix(in oklab, oklch(var(--base-300, var(--fallback-p)) / 1) 40%, white);
-        border-color: oklch(var(--primary, var(--fallback-b3)) / 1);
+        @apply text-base-content bg-base-200;
 
         th {
           --tw-bg-opacity: 1;

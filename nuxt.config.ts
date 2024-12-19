@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     markdown: {
       // anchorLinks: { depth: 3, exclude: [1] },
       anchorLinks: false,
-      toc: { depth: 2, searchDepth: 2 }
+      toc: { depth: 2, searchDepth: 2 },
     },
     sources: {
       // content:{
@@ -77,7 +77,7 @@ export default defineNuxtConfig({
           }
         }
       }
-    },
+    }
   },
   // $production: {
   //   routeRules: {

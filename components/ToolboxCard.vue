@@ -1,8 +1,8 @@
 <template>
   <div class="toolbox-card_container">
     <NuxtLink v-if="data" :to="data.url"
-      class="toolbox-card relative block aspect-video bg-base-200 rounded-box p-4 cursor-pointer" target="_blank"
-      noreferrer @mousemove="hoverEffect">
+      class="toolbox-card relative block aspect-video bg-base-200 rounded-box p-4 cursor-pointer sm:aspect-auto"
+      target="_blank" noreferrer @mousemove="hoverEffect">
       <div class="effect-circle absolute" />
       <div class="h-full flex flex-col justify-between">
         <div>
@@ -41,6 +41,7 @@ const hoverEffect = (e) => {
 <style lang="scss" scoped>
 @media (hover: hover) {
   .toolbox-card_container {
+    @apply w-full;
     perspective: 500px;
     display: inline-block;
   }

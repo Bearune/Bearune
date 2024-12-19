@@ -101,7 +101,7 @@ sitemap:
 
 定義一個數據源 `data`，該數據源包含各個菜品的類別及其對應的子項目。每個類別都包含 `key`（唯一標識）、`title`（顯示標題）和 `child`（子項列表）。以下是數據源的定義：
 
-``` js
+``` javascript
 const data = [
   {
     key: "appetizers",
@@ -188,7 +188,7 @@ ul {
 
 核心作法是：**檢查項目或子項目是否被選中，如果沒有被選中則加入到選中陣列**，這是為了迎合我工作上需要的上傳格式，所以直接將選中的內容拼成一個無序的陣列，實際上只需要在原本的數據源 data 裡面多新增一個變數去紀錄是否選取即可。
 
-```js
+``` javascript
 const selectedProcess = ref([]); // 已選擇的項目陣列
 
 // item為父項；child為子項，預設子項為空
@@ -283,7 +283,7 @@ const toggleProcess = (item, child = null) => {
 
 首先實現條件判斷函式，用來檢查當前項目是否處於選中狀態。此函式接收父項 `item` 和可選的子項 `child` 作為參數，並通過 `key` 進行判斷。
 
-```js
+``` javascript
 const isSelected = (item, child = null) => {
   return selectedProcess.value.some(
     (selection) =>

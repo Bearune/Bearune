@@ -49,17 +49,13 @@
               </ToolTip>
             </div>
           </div>
-          <div class="flex gap-8 justify-between sm:flex-col sm:gap-2">
+          <div class="pb-4 flex gap-8 justify-between border-b border-base-300 sm:flex-col sm:gap-2">
             <SurroundArticleCard v-if="prev" :way="'left'" :data="prev" />
             <div v-else />
             <SurroundArticleCard v-if="next" :way="'right'" :data="next" />
             <div v-else />
           </div>
-          <div class="mt-8">
-            <ProfileLandscape class="sm:hidden" />
-            <ProfilePortrait class="hidden sm:flex px-16" />
-          </div>
-          <div class="mt-8">
+          <div class="mt-16">
             <GiscusCard />
           </div>
         </template>

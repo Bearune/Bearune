@@ -114,25 +114,43 @@ const init = () => {
   noseBgCenterY.value = y;
 }
 
+watch(eyes, () => {
+  if (device && !device.isMobile) {
+    if (eyes.value) {
+      init();
+      window.addEventListener('scroll', init);
+      window.addEventListener('resize', init);
+      document.body.addEventListener('pointermove', animation);
+      document.body.addEventListener('pointerleave', reset);
+    }
+    else {
+      window.removeEventListener('scroll', init);
+      window.removeEventListener('resize', init);
+      document.body.removeEventListener('pointermove', animation);
+      document.body.removeEventListener('pointerleave', reset);
+    }
+  }
+});
+
 onMounted(async () => {
   await nextTick();
   const device = useDevice();
 
   // 只有在桌面端添加事件监听
-  if (!device.isMobile) {
+  if (device && !device.isMobile) {
     init();
-    document.body.addEventListener('resize', init);
+    window.addEventListener('scroll', init);
+    window.addEventListener('resize', init);
     document.body.addEventListener('pointermove', animation);
     document.body.addEventListener('pointerleave', reset);
-  }
+  };
 });
 
 onUnmounted(() => {
-  if (!device.isMobile) {
-    document.body.removeEventListener('resize', init);
-    document.body.removeEventListener('pointermove', animation);
-    document.body.removeEventListener('pointerleave', reset);
-  }
+  window.removeEventListener('scroll', init);
+  window.removeEventListener('resize', init);
+  document.body.removeEventListener('pointermove', animation);
+  document.body.removeEventListener('pointerleave', reset);
 });
 </script>
 

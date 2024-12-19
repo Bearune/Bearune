@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-base-200 rounded-box p-8  shadow">
+  <div class="w-full bg-base-200 rounded-box p-8 shadow">
     <div class="flex flex-col justify-center items-center gap-4 w-full">
       <div class="w-full flex flex-col items-center gap-2">
         <h2 class="sidebar-title">關於我</h2>
