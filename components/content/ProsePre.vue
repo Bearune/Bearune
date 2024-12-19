@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import Clipboard from '~/assets/icons/clipBoard.svg?component';
+import Clipboard from '~/assets/icons/clipboard.svg?component';
 
 const props = defineProps({
   code: {
