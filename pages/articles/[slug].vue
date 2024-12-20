@@ -80,7 +80,8 @@
           <TagsSet />
         </div>
         <div>
-          <AdsSidebar />
+          <h2 class="sidebar-title">最新文章</h2>
+          <LastUpdateArticles />
         </div>
       </div>
     </div>

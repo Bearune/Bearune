@@ -8,6 +8,14 @@
       <TagsSet />
     </div>
     <div>
+      <h2 class="sidebar-title">最新文章</h2>
+      <LastUpdateArticles />
+    </div>
+    <div>
+      <h2 class="sidebar-title">最新筆記</h2>
+      <LastUpdateCards />
+    </div>
+    <div>
       <AdsSidebar />
     </div>
   </div>

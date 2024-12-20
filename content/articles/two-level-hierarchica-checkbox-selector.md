@@ -32,7 +32,7 @@ sitemap:
 
 ## 前言
 
-在網頁設計中，選單一直是相當重要的元素。以往我在製作選單時都會使用網頁預設的[checkbox](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input/checkbox)來實現，但最近在工作中遇到了一個需要特定規則的雙階選擇器──傳統的方式雖然簡單，但在這個需求中使用以往的方式寫對我來說需要控制的因素反而更多。因此，我決定編寫一個自定義的組件，以便更靈活地處理選擇邏輯和顯示樣式，順便紀錄一下這個過程。
+在網頁設計中，選單一直是相當重要的元素。以往我在製作選單時都會使用網頁預設的[checkbox](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input/checkbox){target="_blank"}來實現，但最近在工作中遇到了一個需要特定規則的雙階選擇器──傳統的方式雖然簡單，但在這個需求中使用以往的方式寫對我來說需要控制的因素反而更多。因此，我決定編寫一個自定義的組件，以便更靈活地處理選擇邏輯和顯示樣式，順便紀錄一下這個過程。
 
 ![雙階選擇器成果展示](/img/articles/two-level-hierarchica-checkbox-selector/成果展示.webp)
 
@@ -142,7 +142,7 @@ const data = [
 
 ![CSS 設計](/img/articles/two-level-hierarchica-checkbox-selector/步驟二.webp)
 
-在這個步驟裡大部分的樣式怎麼設定都行，主要需要注意的是我使用 `<li>` 的[偽元素](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) `::before` 及 `::after` 來代表 `checkbox` 正方形的可選框。這裡我是使用SCSS來撰寫，以下為截取的樣式，全部的程式碼可以[點我](https://codepen.io/Lin-Donna/pen/MWNKBrd)。
+在這個步驟裡大部分的樣式怎麼設定都行，主要需要注意的是我使用 `<li>` 的[偽元素](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements){target="_blank"} `::before` 及 `::after` 來代表 `checkbox` 正方形的可選框。這裡我是使用SCSS來撰寫，以下為截取的樣式，全部的程式碼可以[點我](https://codepen.io/Lin-Donna/pen/MWNKBrd){target="_blank"}。
 
 ```css
 ul {
