@@ -10,7 +10,7 @@
       <div class="col-span-12 md:col-span-8 sm:col-span-4">
         <h2 class="text-2xl font-semibold border-b border-base-300 pb-2">{{ item }}</h2>
       </div>
-      <div v-for="card in data[item]" :key="card._id" class="col-span-3 lg:col-span-4">
+      <div v-for="card in data[item]" :key="card._id" class="col-span-4">
         <ToolboxCard :data="card" />
       </div>
     </div>

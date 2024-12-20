@@ -1,6 +1,7 @@
 {
   "url": "https://coolors.co/",
-  "title": "coolors",
+  "icon": "/img/toolbox/Coolors.svg",
+  "title": "Coolors",
   "description": "調色網站，沒靈感的時候還可以探索配色。",
   "category": "設計相關",
   "tags": [
