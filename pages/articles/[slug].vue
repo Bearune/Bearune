@@ -109,12 +109,12 @@ const copyLink = async () => {
 };
 
 // 獲取當前文章數據
-const { data } = await useAsyncData('article', () =>
+const { data } = await useAsyncData('articles', () =>
   queryContent(route.fullPath).findOne()
 );
 
 // 查找上一篇和下一篇
-const [prev, next] = await queryContent()
+const [prev, next] = await queryContent('articles')
   .sort({ date: 1 })
   .where({ category: data.value.category })
   .only(['_path', 'title'])

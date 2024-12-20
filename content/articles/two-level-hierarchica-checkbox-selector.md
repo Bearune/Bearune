@@ -18,7 +18,7 @@ head:
       content: https://bearune.com/img/articles/two-level-hierarchica-checkbox-selector/成果展示.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/two-Level-hierarchica-checkbox-selector/
+      content: https://bearune.com/articles/two-Level-hierarchica-checkbox-selector
   - - meta
     - property: og:description
       content: 使用 Vue 3 Composition API 自定義雙階選擇器，實現靈活且可擴展的選擇功能，提升用戶體驗。
