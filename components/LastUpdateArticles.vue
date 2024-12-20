@@ -35,7 +35,7 @@ onMounted(async () => {
     } else {
       articles.value = await queryContent(category).sort({ date: -1 }).only(['title', '_path']).limit(5).find();
     }
-    console.log(articles.value)
+    // console.log(articles.value)
   } catch (err) {
     console.error('載入文章時發生錯誤：', err);
   }

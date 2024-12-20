@@ -112,8 +112,12 @@ export default defineNuxtConfig({
     '@nuxtjs/robots',
     '@nuxtjs/seo',
     '@nuxtjs/device',
-    '@nuxtjs/google-adsense'
+    '@nuxtjs/google-adsense',
+    'nuxt-gtag'
   ],
+  gtag: {
+    id: 'G-6GT9PJ1X43'
+  },
   googleAdsense: {
     id: 'ca-pub-9967002932441195', // 將此處替換為你的 Google Adsense 客戶端 ID
     pageLevelAds: true, // 是否啟用頁面級廣告
