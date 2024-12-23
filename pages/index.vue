@@ -17,12 +17,18 @@
                         class="md:col-span-1 sm:col-span-2" />
                 </div>
             </LazyContentList>
-            <div class="col-span-9 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4">
-                <ShortArticleCardShort v-for="card in contentsStore.shortArticle" :key="card._path" :data="card" />
-            </div>
         </div>
         <div class="col-span-4 flex gap-4 lg:hidden">
             <CommonSideBar />
+        </div>
+        <!-- <div class="col-span-12 w-full min-h-24 rounded-box flex flex-col gap-4 bg-base-200
+        md:col-span-8 sm:col-span-4 sm:min-h-24">
+            <AdsMultiple />
+        </div> -->
+        <div class="col-span-12 w-full rounded-box grid grid-cols-12 gap-4
+        md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
+            <ShortArticleCardShort v-for="card in contentsStore.shortArticle" :key="card._path" :data="card"
+                class="col-span-6 lg:col-span-12 md:col-span-8 sm:col-span-4" />
         </div>
     </div>
 </template>
