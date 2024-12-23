@@ -1,13 +1,13 @@
 <template>
   <div class="code-block">
-    <div class="code-header">
-      <div class="flex gap-4 items-center">
-        <span v-if="props.language" class="language bg-base-400 text-base-content px-2 py-0.5 rounded-btn">{{
+    <div class="code-header relative">
+      <div class="flex gap-4 items-center sm:gap-2 overflow-x-auto">
+        <span v-if="props.language" class="language bg-base-400 text-base-content py-1 px-1.5 rounded-btn sm:py-0">{{
           props.language }}</span>
         <span v-if="props.filename" class="text-base">{{ props.filename }}</span>
       </div>
       <ToolTip content="複製程式碼">
-        <button class="btn btn-icon" @click="copyCode">
+        <button class="btn btn-icon absolute right-2 -bottom-12" @click="copyCode">
           <Clipboard class="w-5 h-5" />
         </button>
       </ToolTip>
@@ -66,7 +66,15 @@ pre code .line {
   @apply mb-8 rounded-box border border-base-400 overflow-hidden;
 
   .code-header {
-    @apply px-2 py-1 border-b border-base-400 flex justify-between items-center text-base-content text-sm;
+    @apply min-h-12 px-2 pt-1 border-b border-base-400 flex justify-between items-center text-base-content text-sm whitespace-nowrap;
+
+    ::-webkit-scrollbar {
+      @apply h-1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      @apply bg-base-300 rounded-sm;
+    }
   }
 }
 

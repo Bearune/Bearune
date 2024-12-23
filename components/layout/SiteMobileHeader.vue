@@ -1,12 +1,15 @@
 <template>
-  <div class="bg-base-200 z-10">
+  <div class="min-w-fit bg-base-400 text-base-content shadow-md rounded-box px-2">
     <div class="h-fit">
-      <ul class="menu">
+      <ul class="!flex-nowrap menu">
         <li>
-          <NuxtLink :to="`/category?tags=${tagsStore.tags}`" class="btn btn-ghost">文章</NuxtLink>
+          <NuxtLink to="/articles" class="btn btn-ghost">文章</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/" class="btn btn-ghost">卡片</NuxtLink>
+          <NuxtLink to="/cards" class="btn btn-ghost">筆記</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/toolbox" class="btn btn-ghost">工具箱</NuxtLink>
         </li>
       </ul>
     </div>

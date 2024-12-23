@@ -4,9 +4,10 @@
     <div class="flex justify-center mt-20 sm:mt-12">
       <slot />
     </div>
-    <LayoutSiteFooter />
+    <LayoutSiteFooter :class="{ 'pb-24': device.isMobile ? true : false }" class="sm:pb-24" />
     <BackTop />
-    <!-- <LayoutSiteMobileHeader class="hidden fixed bottom-0 left-0 right-0 sm:block" /> -->
+    <LayoutSiteMobileHeader :class="{ 'block': device.isMobile ? true : false }"
+      class="hidden fixed bottom-2 left-1/2 -translate-x-1/2 z-10 sm:block" />
   </main>
 </template>
 
@@ -23,6 +24,8 @@ useHead({
   //   }
   // ]
 });
+
+const device = useDeviceStore();
 </script>
 
 <style lang="scss" scoped></style>

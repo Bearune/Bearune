@@ -1,10 +1,10 @@
 <template>
   <div class="w-full min-h-fit bg-base-200 rounded-box shadow">
     <!-- <ContentDoc :path="data._path"> -->
-    <article class="short p-8">
+    <article class="short p-8 sm:p-2">
       <div class="flex justify-between">
         <div class="flex flex-wrap gap-2 h-fit">
-          <TagCard v-for="tag in data.tags" :key="tag" :tag="tag" :path="$route.path"
+          <TagCard v-for="tag in data.tags" :key="tag" :tag="tag" :path="'/cards'"
             :class="{ 'badge-active': activeTags(tag) }">#{{ tag }}</TagCard>
         </div>
         <ToolTip content="另開頁面">

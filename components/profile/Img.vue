@@ -115,7 +115,7 @@ const init = () => {
 }
 
 watch(eyes, () => {
-  if (device && !device.isMobile) {
+  if (device && device.isDesktop) {
     if (eyes.value) {
       init();
       window.addEventListener('scroll', init);
@@ -137,7 +137,7 @@ onMounted(async () => {
   const device = useDevice();
 
   // 只有在桌面端添加事件监听
-  if (device && !device.isMobile) {
+  if (device && device.isDesktop) {
     init();
     window.addEventListener('scroll', init);
     window.addEventListener('resize', init);

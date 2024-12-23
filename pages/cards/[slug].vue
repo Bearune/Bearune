@@ -1,5 +1,5 @@
 <template>
-  <main class="w-[1200px] px-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:px-4">
+  <main class="w-[1200px] px-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:p-2">
     <div class="col-span-8 h-fit lg:col-span-12 md:col-span-8 sm:col-span-4">
       <ContentDoc :excerpt="true">
         <template #default="{ doc }">

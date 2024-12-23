@@ -1,11 +1,10 @@
 <template>
-  <el-backtop class="!text-base-content !bg-base-400 sm:hidden" :right="60" :bottom="60" />
+  <el-backtop class="!text-base-content !bg-base-400 sm:hidden" :right="padding" :bottom="padding" />
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+const device = useDeviceStore();
+const padding = ref(device.isDesktop ? 60 : 12);
 </script>
 
 <style lang="scss" scoped></style>

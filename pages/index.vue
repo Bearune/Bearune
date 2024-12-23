@@ -1,5 +1,5 @@
 <template>
-    <div class="columns px-4 mt-8 mb-32 sm:px-4">
+    <div class="columns px-4 mt-8 mb-32 sm:px-2">
         <div class="col-span-12 w-full rounded-box flex flex-col gap-4 bg-base-200
         md:col-span-8 sm:col-span-4">
             <div class="max-h-96 rounded-box overflow-hidden">
@@ -17,6 +17,9 @@
                         class="md:col-span-1 sm:col-span-2" />
                 </div>
             </LazyContentList>
+            <div class="col-span-9 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4">
+                <ShortArticleCardShort v-for="card in contentsStore.shortArticle" :key="card._path" :data="card" />
+            </div>
         </div>
         <div class="col-span-4 flex gap-4 lg:hidden">
             <CommonSideBar />
@@ -31,6 +34,11 @@ useHead({
 });
 
 const isClient = ref(false);
+
+// 初始化：取得所有文章
+const contentsStore = useContentsStore();
+await contentsStore.fetchShortContents('cards');
+
 onMounted(() => {
     isClient.value = true;  // 在客戶端掛載後再顯示
 });

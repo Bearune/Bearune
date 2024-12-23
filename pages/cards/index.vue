@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[1200px] px-4 py-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:px-4">
+  <div class="w-[1200px] px-4 py-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:p-2">
     <div
       class="!min-h-[calc(100vh-20.5rem)] auto-rows-min col-span-8 grid grid-cols-8 gap-4 h-fit lg:col-span-12 lg:grid-cols-12 md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
       <div class="col-span-8 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4 sm:gap-2">
@@ -20,7 +20,8 @@
         class="col-span-8 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4">
         <TransitionGroup tag="div" name="list" class="relative p-0  flex flex-col gap-4">
           <!-- <ContentList v-slot=" { list }" :query="{ path: 'cards', sort: [{ date: -1 }] }"> -->
-          <ShortPostCard v-for="card in filteredCards" :key="card._path" :data="card" :tags="selectedTags" appear />
+          <ShortArticleCardCommon v-for="card in filteredCards" :key="card._path" :data="card" :tags="selectedTags"
+            appear />
           <!-- </ContentList> -->
         </TransitionGroup>
       </div>

@@ -1,5 +1,5 @@
 .btn {
-  @apply border px-2 py-1 rounded-lg cursor-pointer duration-btn ease-out;
+  @apply border px-2 py-1 rounded-lg cursor-pointer duration-btn ease-out whitespace-nowrap;
   transition-property: color, background-color, border-color, opacity, box-shadow, transform;
 
   &:active {

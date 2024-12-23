@@ -10,7 +10,7 @@
           </ColorScheme>
         </NuxtLink>
       </div>
-      <div class="flex-1">
+      <div v-if="device.isMobile ? false : true" class="flex-1 sm:hidden">
         <ul class="menu">
           <li>
             <NuxtLink to="/articles" class="btn btn-ghost">文章</NuxtLink>
@@ -53,6 +53,7 @@ import DarkLogo from '~/assets/icons/logo_dark.svg';
 import Github from '~/assets/icons/github.svg?component';
 import Search from '~/assets/icons/search.svg?component';
 
+const device = useDeviceStore();
 const tagsStore = useTagsStore();
 if (!tagsStore.isLoaded) {
   await tagsStore.fetchTags();
