@@ -6,7 +6,7 @@
           <article class="normal grid grid-cols-8 gap-4 border-b border-base-300">
             <div class="col-span-8 pt-4 pb-2 border-b border-base-300 flex flex-col gap-4">
               <div class="flex flex-wrap gap-2 h-fit">
-                <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="$route.path">#{{ tag }}</TagCard>
+                <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="'/articles'">#{{ tag }}</TagCard>
               </div>
               <h1>{{ doc.title }}</h1>
               <div class="flex justify-between items-center">
@@ -34,7 +34,7 @@
           </article>
           <div class="py-4 flex justify-between items-center gap-4 sm:flex-col sm:items-start sm:gap-2">
             <div class="flex flex-wrap gap-2 h-fit">
-              <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="$route.path">#{{ tag }}</TagCard>
+              <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="'/articles'">#{{ tag }}</TagCard>
             </div>
             <div class="flex text-base-content">
               <ToolTip content="分享至 Facebook">
@@ -71,7 +71,7 @@
     </div>
     <div class="col-span-4 flex gap-4 min-h-full relative lg:hidden">
       <div id="sidebar-articles"
-        class="sticky top-24 flex flex-col gap-8 max-h-[calc(80vh)] overscroll-contain overflow-y-auto overflow-x-hidden">
+        class="sticky top-24 flex flex-col gap-8 max-h-[calc(100vh-7rem)] overscroll-contain overflow-y-auto overflow-x-hidden">
         <div>
           <AnchorCard :anchors="data.body.toc" />
         </div>

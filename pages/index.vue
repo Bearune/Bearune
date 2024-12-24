@@ -27,7 +27,7 @@
         </div> -->
         <div class="col-span-12 w-full rounded-box grid grid-cols-12 gap-4
         md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
-            <ShortArticleCardShort v-for="card in contentsStore.shortArticle" :key="card._path" :data="card"
+            <ShortArticleCardCollapse v-for="card in contentsStore.shortArticle" :key="card._path" :data="card"
                 class="col-span-6 lg:col-span-12 md:col-span-8 sm:col-span-4" />
         </div>
     </div>

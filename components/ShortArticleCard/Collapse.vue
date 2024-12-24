@@ -21,8 +21,9 @@
     </article>
     <!-- </ContentDoc> -->
     <div v-if="!show"
-      class="w-full h-32 bg-gradient-to-b absolute bottom-0 left-0 right-0 from-transparent via-base-200 to-base-200 flex justify-center pt-12 cursor-pointer">
-      <span class="text-base-content" style="--tw-bg-opacity:.6" @click="openFullContent">展開全部</span>
+      class="w-full h-32 bg-gradient-to-b absolute bottom-0 left-0 right-0 from-transparent via-base-200 to-base-200 flex justify-center pt-12 cursor-pointer"
+      @click="openFullContent">
+      <span class="text-base-content" style="--tw-bg-opacity:.6">展開全部</span>
     </div>
   </div>
 </template>

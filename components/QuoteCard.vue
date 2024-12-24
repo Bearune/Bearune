@@ -1,6 +1,6 @@
 <template>
   <Transition name="fade" mode="out-in">
-    <div v-if="quote.length" class="my-4">
+    <div v-if="quote.length" class="mt-2">
       <div class="item">
         <QuotationMarks class="w-12 h-12 absolute -top-4 left-4 text-primary" />
         <Transition name="fade" mode="out-in">
@@ -9,7 +9,7 @@
           </p>
         </Transition>
       </div>
-      <div class="w-full h-5 flex justify-end gap-8 pt-4 sm:justify-center">
+      <div class="w-full h-fit flex justify-end gap-8 pt-2 sm:justify-center">
         <button class="h-fit flex justify-center items-center gap-2 btn btn-primary btn-ghost" @click="prevQuote">
           <ChevronLeft class="w-4 h-4" />
           <span>Prev</span>
@@ -55,9 +55,9 @@ onMounted(async () => {
 .item {
   @apply w-full min-h-28 rounded-box border-2 border-primary bg-base-100 px-8 pt-10 pb-4 relative;
 
-  &::before {
-    @apply content-[''] absolute -bottom-1.5 -right-1.5 w-full h-full rounded-box bg-primary -z-10;
-  }
+  // &::before {
+  //   @apply content-[''] absolute -bottom-1.5 -right-1.5 w-full h-full rounded-box bg-primary -z-10;
+  // }
 }
 
 .fade-enter-from,
