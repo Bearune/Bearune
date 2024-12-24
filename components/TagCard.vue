@@ -1,6 +1,6 @@
 <template>
   <!-- 如果有 path 則顯示 NuxtLink，否則顯示 button 並加上 @click.prevent -->
-  <template v-if="tag">
+  <template v-if="path">
     <NuxtLink :to="`${path}?tags=${tag || ''}`" class="badge badge-secondary badge-outline text-sm">
       <slot />
     </NuxtLink>

@@ -5,18 +5,18 @@ description: 深入淺出學習 JavaScript 基礎概念！本系列內容是基�
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-24
 keywords: JavaScript, JavaScript 基礎, JavaScript 教學, JavaScript 運算符, JavaScript 類型轉換, JavaScript 短路行為, JavaScript 比較運算符, JavaScript 邏輯運算符, JavaScript 數字型別, JavaScript 字串處理, JavaScript 自動型別轉換, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript, JavaScript basics, JavaScript tutorial, JavaScript operators, JavaScript type conversion, JavaScript short-circuiting, JavaScript comparison operators, JavaScript logical operators, JavaScript number type, JavaScript string handling, JavaScript automatic type conversion, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
-image: /img/articles/eloquent-JavaScript-chapter1/cover.webp
+image: /img/articles/eloquent-JavaScript/cover1.webp
 
 head:
   - - meta
     - property: og:title
-      content: JavaScript 的十個小知識
+      content: 【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators
   - - meta
     - property: og:type
       content: article
   - - meta
     - property: og:image
-      content: https://bearune.com/img/articles/eloquent-JavaScript-chapter1/cover.webp
+      content: https://bearune.com/img/articles/eloquent-JavaScript/cover1.webp
   - - meta
     - property: og:url
       content: https://bearune.com/articles/eloquent-JavaScript-chapter1
@@ -36,7 +36,7 @@ sitemap:
 > The best programs are those that manage to
 do something interesting while still being easy to understand.
 
-![【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript-chapter1/cover.webp)
+![【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript/cover1.webp)
 
 ## 數字 Numbers
 
