@@ -293,7 +293,7 @@ for (let num = 0; num <= 12; num = num + 2) {
 
 條件檢查得出 `false` 並不是唯一完成循環的方法，若在中間想提早結束循環，可以使用 `break`。
 例如：以下程式使用`break`，只要找出第一個大於或等於 20 且能被 7 整除的數字就跳出迴圈：
-```javascript!
+```javascript
 for (let current = 20; ; current = current + 1) {
     if (current % 7 == 0) {
         console.log(current);

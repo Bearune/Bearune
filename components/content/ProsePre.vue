@@ -1,9 +1,10 @@
 <template>
   <div class="code-block">
     <div class="code-header relative">
-      <div class="flex gap-4 items-center sm:gap-2 overflow-x-auto">
-        <span v-if="props.language" class="language bg-base-400 text-base-content py-1 px-1.5 rounded-btn sm:py-0">{{
-          props.language }}</span>
+      <div class="flex gap-4 items-center sm:gap-2 overflow-x-auto sm:px-2">
+        <span v-if="props.language"
+          class="language bg-base-400 text-base-content py-1 px-1.5 rounded-btn sm:py-0 sm:px-0 sm:bg-base-100">{{
+            props.language }}</span>
         <span v-if="props.filename" class="text-base">{{ props.filename }}</span>
       </div>
       <ToolTip content="複製程式碼">
@@ -12,7 +13,7 @@
         </button>
       </ToolTip>
     </div>
-    <pre :class="props.class"><slot /></pre>
+    <pre :class="props.class" class="mr-8"><slot /></pre>
   </div>
 
 </template>
@@ -62,8 +63,22 @@ pre code .line {
   display: block;
 }
 
+ul,
+ol {
+  li>.code-block {
+    @apply sm:-ml-9;
+  }
+
+  ul,
+  ol {
+    li>.code-block {
+      @apply sm:-ml-[4.2rem];
+    }
+  }
+}
+
 .code-block {
-  @apply mb-8 rounded-box border border-base-400 overflow-hidden;
+  @apply mb-8 rounded-box border border-base-400 overflow-hidden sm:-mx-4 sm:border-none sm:rounded-none;
 
   .code-header {
     @apply min-h-12 px-2 pt-1 border-b border-base-400 flex justify-between items-center text-base-content text-sm whitespace-nowrap;
@@ -122,4 +137,6 @@ pre {
     }
   }
 }
+
+@media screen {}
 </style>

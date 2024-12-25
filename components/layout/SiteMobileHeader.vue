@@ -1,7 +1,7 @@
 <template>
   <div class="min-w-fit bg-base-400 text-base-content shadow-md rounded-box px-2">
     <div class="h-fit">
-      <ul class="!flex-nowrap menu">
+      <ul class="!flex-nowrap menu gap-4">
         <li>
           <NuxtLink to="/articles" class="btn btn-ghost">文章</NuxtLink>
         </li>

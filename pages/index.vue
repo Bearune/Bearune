@@ -1,5 +1,5 @@
 <template>
-    <div class="columns px-4 mt-8 mb-32 sm:px-2">
+    <div class="columns px-4 mt-8 mb-32 sm:px-4">
         <div class="col-span-12 w-full rounded-box flex flex-col gap-4 bg-base-200
         md:col-span-8 sm:col-span-4">
             <div class="max-h-96 rounded-box overflow-hidden">

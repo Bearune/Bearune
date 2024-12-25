@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-[1200px] auto-rows-min !min-h-[calc(100vh-18.5rem)] p-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:p-2">
+    class="w-[1200px] auto-rows-min !min-h-[calc(100vh-18.5rem)] p-4 grid grid-cols-12 gap-8 mt-8 mb-32 md:grid-cols-8 sm:grid-cols-4 sm:p-4">
     <div class="col-span-12 md:col-span-8 sm:col-span-4 flex flex-col gap-4">
       <h1 class="page-title">工具箱</h1>
       <p>收藏幾個瓜熊常用的網站及套件包。</p>
