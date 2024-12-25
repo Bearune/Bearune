@@ -46,14 +46,14 @@ do something interesting while still being easy to understand.
 
 #### 精度問題
 
-JavaScript 的數字型別（`Number`）基於 [IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"} 雙精度浮點數格式，其中 53 位元用於表示數值的有效位數。
+JavaScript 的數字型別 `Number` 基於 [IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"} 雙精度浮點數格式，其中 53 位元用於表示數值的有效位數。
 
 - 整數：整數的精度保證範圍是 `±2^53`
-- 小數：小數計算通常不精確，因為許多數字（例如 `π`）無法用有限的位元精確表示。這種精度損失通常只在特定情況下造成實際問題，因此**需將小數視為「近似值」而非「精確值」**。
+- 小數：小數計算通常不精確，因為許多數字（例如：`π`）無法用有限的位元精確表示。這種精度損失通常只在特定情況下造成實際問題，因此**需將小數視為「近似值」而非「精確值」**。
 
 #### 特殊數字
 
-JavaScript 中存在三個特殊值，都是數字型別`Number`，但其行為與普通數字不同。
+JavaScript 中存在三個特殊值，都是數字型別 `Number`，但其行為與普通數字不同。
 
 - `Infinity` 及 `-Infinity`
     - 分別代表正無窮大及負無窮大
