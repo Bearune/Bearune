@@ -33,8 +33,7 @@ sitemap:
 
 本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="_blank"} 所整理的精簡筆記。
 
-> The best programs are those that manage to
-do something interesting while still being easy to understand.
+> The best programs are those that manage to do something interesting while still being easy to understand.
 
 ![【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript/cover1.webp)
 
@@ -297,3 +296,5 @@ console.log(false == 0); // → true （false 被轉換為 0）
     - 使用 `??` 可更精確地處理 `null` 和 `undefined`，不誤判 `0` 或 `""`。
 3. 運算符優先級  
     瞭解運算符的優先級有助於正確書寫表達式。
+
+以上內容是基於 [1. Values, Types, and Operators - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/01_values.html){target="_blank"} 所整理的精簡筆記。

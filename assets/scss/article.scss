@@ -18,11 +18,11 @@ article.normal {
   }
 
   h4 {
-    @apply mb-2 text-xl font-semibold;
+    @apply pt-2 mb-2 text-xl font-semibold;
   }
 
   h5 {
-    @apply mb-2 font-semibold;
+    @apply pt-2 mb-2 font-semibold;
   }
 
   a:not(.anchorItem, .badge) {
