@@ -3,7 +3,7 @@
     <div class="code-header relative">
       <div class="flex gap-4 items-center sm:gap-2 overflow-x-auto sm:px-2">
         <span v-if="props.language"
-          class="language bg-base-400 text-base-content py-1 px-1.5 rounded-btn sm:py-0 sm:px-0 sm:bg-base-100">{{
+          class="language bg-base-400 text-base-content py-1 px-1.5 rounded-btn sm:py-0 sm:px-0 sm:bg-transparent">{{
             props.language }}</span>
         <span v-if="props.filename" class="text-base">{{ props.filename }}</span>
       </div>
@@ -105,7 +105,7 @@ ol {
 
 .short {
   .code-block {
-    @apply bg-base-100;
+    @apply bg-base-100 sm:bg-base-100 sm:-mx-2 sm:rounded-box;
 
     .code-header {
       @apply bg-base-200;

@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full min-h-fit bg-base-200 rounded-box shadow">
+  <div class="w-full min-h-fit bg-base-200 rounded-box shadow sm:-mx-4 sm:w-auto sm:rounded-none">
     <!-- <ContentDoc :path="data._path"> -->
-    <article class="short p-8 sm:p-2">
+    <article class="short p-8 sm:p-4">
       <div class="flex justify-between">
         <div class="flex flex-wrap gap-2 h-fit">
           <TagCard v-for="tag in data.tags" :key="tag" :tag="tag" :path="'/cards'"
