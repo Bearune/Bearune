@@ -1,10 +1,10 @@
 ---
 category: 前端開發
 title: 【JavaScript 學習筆記 03】Chapter 3 Functions
-description: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
+description: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-26
-keywords: JavaScript, JavaScript 基礎, JavaScript 教學, JavaScript 運算符, JavaScript 類型轉換, JavaScript 短路行為, JavaScript 比較運算符, JavaScript 邏輯運算符, JavaScript 數字型別, JavaScript 字串處理, JavaScript 自動型別轉換, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript, JavaScript basics, JavaScript tutorial, JavaScript operators, JavaScript type conversion, JavaScript short-circuiting, JavaScript comparison operators, JavaScript logical operators, JavaScript number type, JavaScript string handling, JavaScript automatic type conversion, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
+keywords: JavaScript 函數, JavaScript 函數基礎, JavaScript 函數教學, JavaScript 函數定義, JavaScript 函數參數, JavaScript 回傳值, JavaScript 作用域, JavaScript 閉包, JavaScript 呼叫堆疊, JavaScript 遞迴, JavaScript 單一職責原則, JavaScript 函數設計, JavaScript 最佳實踐, JavaScript 箭頭函數, JavaScript 嵌套範圍, JavaScript 堆疊溢出, JavaScript 尾遞迴優化, JavaScript 私有綁定, JavaScript 延遲執行, JavaScript 樹結構遍歷, JavaScript 費氏數列, JavaScript 快速排序, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript functions, JavaScript function basics, JavaScript function tutorial, JavaScript function definition, JavaScript function parameters, JavaScript return values, JavaScript scope, JavaScript closures, JavaScript call stack, JavaScript recursion, JavaScript single responsibility principle, JavaScript function design, JavaScript best practices, JavaScript arrow functions, JavaScript nested scope, JavaScript stack overflow, JavaScript tail call optimization, JavaScript private bindings, JavaScript delayed execution, JavaScript tree traversal, JavaScript Fibonacci sequence, JavaScript quicksort, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
 image: /img/articles/eloquent-JavaScript/cover3.webp
 
 head:
@@ -22,13 +22,13 @@ head:
       content: https://bearune.com/articles/eloquent-JavaScript-chapter3
   - - meta
     - property: og:description
-      content: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
+      content: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
 
 sitemap:
   loc: /articles/eloquent-JavaScript-chapter3
-  lastmod: 2024-12-29
+  lastmod: 2024-12-26
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="_blank"} 所整理的精簡筆記。

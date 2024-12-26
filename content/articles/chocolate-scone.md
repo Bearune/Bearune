@@ -4,7 +4,7 @@ title: 無奶油簡易版巧克力司康
 description: 心血來潮想做點心，但因為家裡的奶油用完了，又想銷耗一些奶油乳酪，就決定來做一個帶奶油乳酪的司康！
 tags: ['自製甜點']
 date: 2024-12-25
-keywords: chocolate scone, 巧克力司康, 司康
+keywords: chocolate scone, 無奶油巧克力司康, 簡易版司康, 巧克力司康食譜, 無奶油甜點, 簡易甜點, 手作司康, 烘焙食譜, 甜點製作, 司康做法, 無奶油烘焙, 自製司康, 巧克力甜點, 熊途 Bearune, 簡單烘焙, 司康食譜, 甜點教學, 烘焙入門, 手作甜點, 無奶油點心, 家庭烘焙
 image: /img/articles/chocolate-scone/chocolate-scone.jpg
 
 head:
@@ -28,7 +28,7 @@ sitemap:
   loc: /articles/chocolate-scone
   lastmod: 2024-12-25
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 ![無奶油版巧克力司康](/img/articles/chocolate-scone/chocolate-scone.jpg)

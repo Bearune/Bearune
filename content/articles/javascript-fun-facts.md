@@ -28,7 +28,7 @@ sitemap:
   loc: /articles/javascript-fun-facts
   lastmod: 2024-12-21
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 ![JavaScript](/img/articles/javascript-fun-facts/javascript.webp)

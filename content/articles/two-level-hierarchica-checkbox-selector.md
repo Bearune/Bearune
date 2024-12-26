@@ -4,6 +4,7 @@ title: 使用 Vue 自定義雙階選擇器：打造更靈活的選擇功能
 description: 使用 Vue 3 Composition API 自定義雙階選擇器，實現靈活且可擴展的選擇功能，提升用戶體驗。
 tags: ['vue', 'javascript','scss', '小組件']
 date: 2024-10-04
+keywords: Vue 3, Composition API, 雙階選擇器, 自定義組件, 父階層, 子階層, 複選, 不可複選, toggle, checkbox, 動態樣式, 條件判斷, SCSS, 點擊事件綁定, 結果顯示, 選中狀態, 父子層次邏輯, 選擇框, Vue 指令, v-for, @click, @click.stop, 動態類別, 視覺效果, 陣列存儲, 資料傳遞, 自訂樣式, 性能優化, 可維護性, Vue 組件, 客製化功能
 image: /img/articles/two-level-hierarchica-checkbox-selector/成果展示.webp
 
 head:
@@ -27,7 +28,7 @@ sitemap:
   loc: /articles/two-level-hierarchica-checkbox-selector
   lastmod: 2024-10-04
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 ## 前言

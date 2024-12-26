@@ -1,10 +1,10 @@
 ---
 category: 前端開發
 title: 【JavaScript 學習筆記 02】Chapter 2 Program Structure
-description: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
+description: 深入淺出學習 JavaScript 程式結構！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋表達式與語句、變數綁定與命名規則、函式定義與回傳值、控制流程（條件語句與迴圈）、程式風格最佳實踐等核心知識，幫助你快速掌握 JavaScript 程式設計的基礎概念與實用技巧。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-25
-keywords: JavaScript, JavaScript 基礎, JavaScript 教學, JavaScript 運算符, JavaScript 類型轉換, JavaScript 短路行為, JavaScript 比較運算符, JavaScript 邏輯運算符, JavaScript 數字型別, JavaScript 字串處理, JavaScript 自動型別轉換, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript, JavaScript basics, JavaScript tutorial, JavaScript operators, JavaScript type conversion, JavaScript short-circuiting, JavaScript comparison operators, JavaScript logical operators, JavaScript number type, JavaScript string handling, JavaScript automatic type conversion, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
+keywords: JavaScript, JavaScript 基礎, JavaScript 教學, JavaScript 表達式, JavaScript 語句, JavaScript 變數, JavaScript 綁定, JavaScript 命名規則, JavaScript 函式, JavaScript 回傳值, JavaScript 控制流程, JavaScript if-else, JavaScript switch, JavaScript 迴圈, JavaScript while 迴圈, JavaScript do 迴圈, JavaScript for 迴圈, JavaScript 程式風格, JavaScript 縮排, JavaScript 註解, JavaScript 命名慣例, JavaScript Pascal 命名法, JavaScript Camel Case, JavaScript Snake Case, JavaScript 程式設計, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript, JavaScript basics, JavaScript tutorial, JavaScript expressions, JavaScript statements, JavaScript variables, JavaScript bindings, JavaScript naming rules, JavaScript functions, JavaScript return values, JavaScript control flow, JavaScript if-else, JavaScript switch, JavaScript loops, JavaScript while loop, JavaScript do loop, JavaScript for loop, JavaScript coding style, JavaScript indentation, JavaScript comments, JavaScript naming conventions, JavaScript Pascal Case, JavaScript Camel Case, JavaScript Snake Case, JavaScript programming, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
 image: /img/articles/eloquent-JavaScript/cover2.webp
 
 head:
@@ -22,13 +22,13 @@ head:
       content: https://bearune.com/articles/eloquent-JavaScript-chapter2
   - - meta
     - property: og:description
-      content: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
+      content: 深入淺出學習 JavaScript 程式結構！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋表達式與語句、變數綁定與命名規則、函式定義與回傳值、控制流程（條件語句與迴圈）、程式風格最佳實踐等核心知識，幫助你快速掌握 JavaScript 程式設計的基礎概念與實用技巧。
 
 sitemap:
   loc: /articles/eloquent-JavaScript-chapter2
   lastmod: 2024-12-25
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="_blank"} 所整理的精簡筆記。

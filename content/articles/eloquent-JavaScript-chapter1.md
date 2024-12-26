@@ -28,7 +28,7 @@ sitemap:
   loc: /articles/eloquent-JavaScript-chapter1
   lastmod: 2024-12-24
   changefreq: monthly
-  priority: 0.8
+  priority: 0.5
 ---
 
 本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="_blank"} 所整理的精簡筆記。
