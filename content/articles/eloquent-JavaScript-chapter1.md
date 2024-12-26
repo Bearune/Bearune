@@ -37,6 +37,8 @@ sitemap:
 
 ![【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript/cover1.webp)
 
+:anchor
+
 ## 數字 Numbers
 
 **JavaScript 中的數字型別以 64 位元儲存**，能表示極大的數值範圍，整數計算通常是精確的，但小數計算可能因精度限制而產生誤差。因此理解這些限制對正確處理數字運算至關重要，尤其在處理小數時，需將其視為近似值而非完全精確的數值。

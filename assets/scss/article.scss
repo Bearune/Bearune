@@ -135,7 +135,8 @@ article.normal {
   blockquote {
     @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative;
 
-    >p {
+    >p,
+    a {
       @apply italic mb-0 text-base-content;
       --tw-bg-opacity: .6;
     }

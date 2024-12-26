@@ -35,6 +35,10 @@ sitemap:
 
 > The best programs are those that manage to do something interesting while still being easy to understand.
 
+![【JavaScript 學習筆記 02】Chapter 2 Program Structure](/img/articles/eloquent-JavaScript/cover2.webp)
+
+:anchor
+
 ## 表達式 Expression
 
 Expression 是能產生一個值的代碼片段。
