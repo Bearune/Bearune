@@ -39,99 +39,259 @@ sitemap:
 
 :anchor
 
-## 數字 Numbers
+## 數字（Numbers）
 
-**JavaScript 中的數字型別以 64 位元儲存**，能表示極大的數值範圍，整數計算通常是精確的，但小數計算可能因精度限制而產生誤差。因此理解這些限制對正確處理數字運算至關重要，尤其在處理小數時，需將其視為近似值而非完全精確的數值。
+JavaScript 中的數字型別是基於** 64 位元的雙精度浮點數格式（[IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"}）**，能表示極大的數值範圍。整數計算通常是精確的，但小數計算可能因精度限制而產生誤差。因此，理解 JavaScript 對數字的處理方式，尤其是小數的限制，是正確進行數值運算的基礎。
 
 > 延伸閱讀：[JavaScript 的十個小知識 - 4. 0.1 + 0.2 !== 0.3](/articles/javascript-fun-facts#_4-01-02-03){target="_blank"}
 
-#### 精度問題
+#### 1. 數字的精度問題
 
-JavaScript 的數字型別 `Number` 基於 [IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"} 雙精度浮點數格式，其中 53 位元用於表示數值的有效位數。
+##### 1.1 整數的精度範圍
 
-- 整數：整數的精度保證範圍是 `±2^53`
-- 小數：小數計算通常不精確，因為許多數字（例如：`π`）無法用有限的位元精確表示。這種精度損失通常只在特定情況下造成實際問題，因此**需將小數視為「近似值」而非「精確值」**。
+   JavaScript 的數字型別 `Number` 能夠表示的整數範圍是 `±2^53`，在此範圍內的整數計算通常是精確的。
 
-#### 特殊數字
+##### 1.2 小數的精度限制
 
-JavaScript 中存在三個特殊值，都是數字型別 `Number`，但其行為與普通數字不同。
+   小數計算可能產生誤差，因為許多數字（例如：`π` 或 `0.1`）無法用有限的位元精確表示。這是由 [IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"} 標準的雙精度浮點數格式所導致的。
 
-- `Infinity` 及 `-Infinity`
-    - 分別代表正無窮大及負無窮大
-    - `Infinity - 1` 仍是 `Infinity`，因此不要相信有 infinity 的運算，它在數學上並不合理。
-- `NaN`
-    - `NaN` 為「**N**ot **a** **N**umber」的縮寫，但它是數字型別 `Number`。
-    - `0/0`、`Infinity - Infinity` 或任何其他不會產生有意義結果的數值運算都會得出 `NaN`。
+>注意：小數應被視為「近似值」而非「精確值」，這種精度損失通常只在特定情況下造成實際問題。
 
-## 字串 Strings
+#### 2. 特殊數值
 
-JavaScript 的字串型別是基於 [Unicode](https://zh.wikipedia.org/zh-tw/Unicode){target="_blank"} 標準。
+JavaScript 中有三個特殊的數值類型，它們屬於 `Number` 型別，但行為與普通數字不同：
 
-JavaScript 的字串可以用以下三種引號來標記字串，只要字串開頭和結尾的引號匹配即可。：
+##### 2.1 Infinity 及 -Infinity
+
+- `Infinity` 表示正無窮大，`-Infinity` 表示負無窮大。
+- 任何數與 `Infinity` 相加或相減，結果仍為 `Infinity`。例如：  
+    ```javascript
+    console.log(Infinity - 1); // → Infinity
+    ```
+- 注意：`Infinity` 是一個數值型別，但在數學上並不合理，因此應避免依賴 `Infinity` 的計算結果。
+
+##### 2.2 NaN（Not a Number）
+
+- `NaN` 是一個特殊的數值，表示「不是一個數字」。
+- 它通常出現於無意義的數值運算中，例如：
+    ```javascript
+    console.log(0 / 0); // → NaN
+    console.log(Infinity - Infinity); // → NaN
+    ```
+- 特性：`NaN` 是唯一一個不等於自身的值：
+    ```javascript
+    console.log(NaN === NaN); // → false
+    ```
+
+## 字串（Strings）
+
+JavaScript 的字串型別是基於 [Unicode](https://zh.wikipedia.org/zh-tw/Unicode){target="_blank"} 標準，用於表示和操作文本數據。字串可以使用以下三種引號來標記，只需確保開頭與結尾的引號類型匹配即可。
+
 ```javascript
 `我是字串`
 '我是字串'
 "我是字串"
 ```
 
-#### 特殊字符處理──引號嵌套
-當字串中包含與外層引號相同的引號時，JavaScript 會將內部的引號視為字串的結束符，導致語法錯誤。
-- 解決方法：
-    1. 使用不同類型的引號嵌套：例如，外層使用單引號 `'`，內部使用雙引號 `"`，或反之。
-        ```javascript
-        console.log('He said "Hello"') // → He said "Hello"
-        console.log("It's a sunny day") // → It's a sunny day
-        ```
-    2. 使用反斜線（\）作為[跳脫字元](https://zh.wikipedia.org/zh-tw/%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6){target="_blank"}：讓內部的引號被視為字串的一部分而非結束符。  
-        ```javascript
-        console.log("He said \"Hello\"") // → He said "Hello"
-        console.log('It\'s a sunny day') // → It's a sunny day
-        ```
+#### 1. 字串的基本用法
 
-## 運算子 Operators
+##### 1.1 定義字串
 
-只使用一個值的運算子稱為 Unary operators，使用兩個值的運算子稱為 Binary operators，後面還會提到 JavaScript 唯一的 Ternary Operator。
+- 單引號、雙引號和反引號都可以用來定義字串：  
+    ```javascript
+    let single = '這是單引號字串';
+    let double = "這是雙引號字串";
+    let template = `這是反引號字串`;
+    ```
+- 注意：反引號字串（模板字串）支持嵌入變數與多行文本，這是其特有的功能。
+   ```javascript
+   let name = "Alice";
+    console.log(`Hello, ${name}`); // → Hello, Alice
+    ```
+##### 1.2 字串的不可變性
 
-#### 單元運算子 Unary Operators
+JavaScript 的字串是不可變的，這意味著一旦創建，字串的內容無法被修改。如果需要更改字串，必須創建一個新的字串：
 
-只使用一個值。
-- 常見的單元運算子
-    - `typeof`：用於檢查值的類型。   
-        ```javascript
-        console.log(typeof 4.5); // → "number"
-        ```
-    - `!`：反轉布林值
-        ```javascript
-        console.log(!true); // → false
-        ```
-#### 二元運算子 Binary Operators
-
-使用兩個值。
-
-- 常見二元運算子  
-    - 算術運算子：`+`、`-`、`*`、`/`、`%`
-    - 比較運算子：`==`、`===`、`!=`、`!==`、`>`、`<`、`>=`、`<=`
-<!--     - 邏輯運算子：`&&`、`||`
-    - 位元運算子：`&`、`|`、`^`、`<<`、`>>`
-    - 賦值運算子：`=`、`+=`、`-=`、`*=`、`/=` 等 -->
-
-#### `-` 的雙重角色
-
-`-` 是一個特殊的運算子，它既可以是 Unary Operator，也可以是 Binary Operator：
 ```javascript
-console.log(- (10 - 2));
-// → -8
+let str = "Hello";
+str[0] = "h"; // 無效操作
+console.log(str); // → Hello
 ```
 
-## 布林值 Boolean values
+#### 2. 特殊字符處理
 
-JavaScript 的布林類型只有兩個值，`true` 和 `false`。
+在處理包含特殊字符或嵌套引號的字串時，可能會遇到語法錯誤。以下是常見情況及解決方法。
 
-#### 比較運算符（Comparison Operators）
+##### 2.1 引號嵌套
 
-比較運算符會產生布林值，用於判斷條件是否成立。
+當字串中包含與外層引號相同的引號時，JavaScript 會將內部的引號視為字串的結束符，導致語法錯誤。
 
-##### 常見運算符
+- 解決方法 1：使用不同類型的引號嵌套  
+  可以使用單引號和雙引號搭配，避免衝突。
+  ```javascript
+  console.log('He said "Hello"'); // → He said "Hello"
+  console.log("It's a sunny day"); // → It's a sunny day
+  ```
+- 解決方法 2：使用跳脫字元（`\`）  
+  使用反斜線（`\`）作為跳脫字元，讓內部的引號被視為字串的一部分而非結束符。
+  ```javascript
+  console.log("He said \"Hello\""); // → He said "Hello"
+  console.log('It\'s a sunny day'); // → It's a sunny day
+  ```
+
+##### 2.2 常見的跳脫字符
+
+除了跳脫引號，JavaScript 還支持其他特殊字符的跳脫，以下是一些常見的例子：
+
+| 跳脫字符 |  說明  | 範例                        |
+| :------: | :----: | :-------------------------- |
+|   `\'`   | 單引號 | `'It\'s a sunny day'`       |
+|   `\"`   | 雙引號 | `"He said \"Hello\""`       |
+|   `\\`   | 反斜線 | `'This is a backslash: \\'` |
+|   `\n`   | 換行符 | `'Line 1\nLine 2'`          |
+|   `\t`   | 製表符 | `'Column1\tColumn2'`        |
+
+#### 3. 字串的 Unicode 支援
+
+JavaScript 的字串基於 [Unicode](https://zh.wikipedia.org/zh-tw/Unicode){target="_blank"}，這意味著它可以表示幾乎所有的文字字符。然而某些特殊字符（例如表情符號或罕見的 Unicode 字元）需要特別處理。
+
+##### 3.1 使用 Unicode 編碼
+
+可以通過 `\u` 或 `\x` 來表示特殊字符：
+
+```javascript
+console.log('\u2764'); // → ❤
+console.log('\u{1F600}'); // → 😀 (需要 ES6 支援)
+```
+
+##### 3.2 字串長度與編碼單位
+
+JavaScript 的 `length` 屬性基於 UTF-16 編碼單位，而非實際字符數。例如：
+```javascript
+let emoji = "😀";
+console.log(emoji.length); // → 2 (UTF-16 編碼單位)
+```
+
+## 運算子（Operators）
+
+JavaScript 中的運算子根據操作數的數量分為以下三種：
+
+1. 單元運算子（Unary Operators）：只使用一個值。
+2. 二元運算子（Binary Operators）：使用兩個值。
+3. 三元運算子（Ternary Operator）：使用三個值（後續會介紹）。
+
+#### 1. 單元運算子（Unary Operators）
+
+單元運算子只需要一個操作數。以下是常見的單元運算子：
+
+##### 1.1 typeof
+
+用於檢查值的類型，返回一個表示類型的字串。
+
+```javascript
+console.log(typeof 4.5); // → "number"
+console.log(typeof "Hello"); // → "string"
+```
+
+##### 1.2 !（邏輯非運算子）  
+
+用於反轉布林值。
+
+```javascript
+console.log(!true); // → false
+console.log(!false); // → true
+```
+
+##### 1.3 -（負號運算子）
+
+用於將數字取負值。
+
+```javascript
+console.log(-10); // → -10
+console.log(-(-10)); // → 10
+```
+
+#### 2. 二元運算子（Binary Operators）
+
+二元運算子需要兩個操作數。以下是常見的二元運算子分類：
+
+##### 2.1 算術運算子  
+用於數值計算：
+
+```javascript
+console.log(10 + 5); // → 15
+console.log(10 % 3); // → 1
+```
+
+##### 2.2 比較運算子  
+用於比較兩個值，返回布林值：
+
+- `==`（相等，會進行類型轉換）
+- `===`（全等，不進行類型轉換）
+- `!=`（不相等，會進行類型轉換）
+- `!==`（不全等，不進行類型轉換）
+- `>`、`<`、`>=`、`<=`
+
+```javascript
+console.log(10 > 5); // → true
+console.log(10 === "10"); // → false
+console.log(10 == "10"); // → true
+```
+
+##### 2.3 邏輯運算子  
+用於布林值的邏輯運算：`&&`（and）、`||`（or）。
+
+```javascript
+console.log(true && false); // → false
+console.log(true || false); // → true
+```
+
+##### 2.4 賦值運算子  
+用於將值賦給變數：`=`、`+=`、`-=`、`*=`、`/=`。
+  
+```javascript
+let x = 10;
+x += 5; // 相當於 x = x + 5
+console.log(x); // → 15
+```
+
+#### 3. 特殊運算子 `-` 的雙重角色
+
+`-` 是一個特殊的運算子，既可以作為單元運算子，也可以作為二元運算子：
+
+##### 3.1 作為單元運算子
+
+用於取負值：
+
+```javascript
+console.log(-10); // → -10
+```
+
+##### 3.2 作為二元運算子
+
+用於數值減法：
+
+```javascript
+console.log(10 - 2); // → 8
+```
+
+##### 3.3 混合使用
+
+單元與二元運算子可以在同一表達式中使用：
+
+```javascript
+console.log(- (10 - 2)); // → -8
+```
+
+## 布林值（Boolean values）
+
+JavaScript 的布林類型只有兩個值，`true` 和 `false`。這些值通常用於判斷條件是否成立，並控制程式的執行流程。
+
+#### 1. 比較運算符（Comparison Operators）
+
+比較運算符用於比較兩個值，結果為布林值 `true` 或 `false`。
+
+##### 1.1 常見比較運算符
 `>`、`<`、`>=`、`<=`、`==`、`!=`
 
 ```javascript
@@ -141,69 +301,119 @@ console.log("Garnet" != "Ruby"); // → true
 console.log("Pearl" == "Amethyst"); // → false
 ```
 
-- `NaN` 是唯一不等於自身的值。
-```javascript
-console.log(NaN == NaN)
-// → false
-```
+##### 1.2 特殊情況：NaN
 
-#### 邏輯運算符（Logical Operators）
-
-邏輯運算符會產生布林值，用於判斷條件是否 `&&`（and）、`||`（or）和 `!`（not）。
-
-|  &&   | true  | false |
-| :---: | :---: | :---: |
-| true  | true  | false |
-| false | false | false |
-
-| \|\|  | true  | false |
-| :---: | :---: | :---: |
-| true  | true  | true  |
-| false | true  | false |
-
-| !   | true  | false |
-| --- | :---: | :---: |
-|     | false | true  |
+`NaN`是唯一不等於自身的值。
 
 ```javascript
-console.log(true && false); // → false
-console.log(true && true); // → true
-
-console.log(false || true); // → true
-console.log(false || false); // → false
-
-console.log(!true); // → false
-console.log(!false); // → true
+console.log(NaN == NaN); // → false
 ```
 
-#### 運算符優先級
+#### 2. 邏輯運算符（Logical Operators）
 
-從左到右由低到高：`||`、`&&`、比較運算符，然後才是其它運算符──選擇此順序是為了在如下所示的典型表達式中，需要盡可能少的括號：
+邏輯運算符用於組合布林值，結果仍為布林值。主要包括以下三種：
+
+##### 2.1 邏輯運算符列表
+
+1. `&&`（邏輯與，AND）  
+   當兩個操作數皆為 `true` 時，結果為 `true`；否則為 `false`。
+   ```javascript
+   console.log(true && false); // → false
+   console.log(true && true);  // → true
+   ```
+2. `||`（邏輯或，OR）  
+   當至少一個操作數為 `true` 時，結果為 `true`；否則為 `false`。
+   ```javascript
+   console.log(false || true);  // → true
+   console.log(false || false); // → false
+   ```
+3. `!`（邏輯非，NOT）  
+   用於反轉布林值。
+   ```javascript
+   console.log(!true);  // → false
+   console.log(!false); // → true
+   ```
+
+##### 2.2 邏輯運算真值表
+
+| 運算符 | `條件 1` | `條件 2` | 結果  |
+| :----: | :------: | :------: | :---: |
+|  `&&`  |   true   |   true   | true  |
+|  `&&`  |   true   |  false   | false |
+|  `&&`  |  false   |   true   | false |
+|  `&&`  |  false   |  false   | false |
+| `\|\|` |   true   |   true   | true  |
+| `\|\|` |   true   |  false   | true  |
+| `\|\|` |  false   |   true   | true  |
+| `\|\|` |  false   |  false   | false |
+|  `!`   |   true   |    -     | false |
+|  `!`   |  false   |    -     | true  |
+
+#### 3. 運算符優先級
+
+在複雜的表達式中，運算符的執行順序由其優先級決定。以下是常見運算符的優先級（從低到高）：
+
+1. `||`
+2. `&&`
+3. 比較運算符（如 `>`、`<`、`==` 等）
+4. 算術運算符（如 `+`、`-`、`*`、`/` 等）
+
+##### 範例
 
 ```javascript
-1 + 1 == 2 && 10 * 10 > 50
+console.log(1 + 1 == 2 && 10 * 10 > 50);
+// → true
 ```
 
-#### 條件運算符（Ternary Operator）
+##### 解析：
 
-JavaScript 唯一的 Ternary Operator，常用於簡化條件判斷。
+1. `1 + 1 == 2` 先計算加法，結果為 `true`。
+2. `10 * 10 > 50` 計算乘法，結果為 `true`。
+3. `true && true`，結果為 `true`。
 
-- `a ? b : c`：若 `a` 為 `true`，則結果為 `b`；否則結果為 `c`。
+#### 4. 條件運算符（Ternary Operator）
 
-    ```javascript
-    console.log(true ? 1 : 2); // → 1
-    console.log(false ? 1 : 2); // → 2
-    ```
+條件運算符是 JavaScript 唯一的三元運算符，用於簡化條件判斷。語法如下：
 
-## 空值 Empty values
+- 語法：`條件 ? 表達式1 : 表達式2`
+  - 若條件為 `true`，則結果為`表達式1`；
+  - 若條件為 `false`，則結果為`表達式2`。
 
-`null` 及 `undefined`，用來表示不存在有意義的值。
+ ```javascript
+console.log(true ? 1 : 2); // → 1
+console.log(false ? 1 : 2); // → 2
+```
+
+#### 應用場景
+
+條件運算符常用於簡化 `if-else` 判斷：
+
+```javascript
+let age = 18;
+let status = age >= 18 ? "成人" : "未成年";
+console.log(status); // → 成人
+```
+
+## 空值（Empty values）
+
+JavaScript 中的空值類型包括 `null` 和 `undefined`，用於表示「不存在」或「未定義」的值。
+
+- `null`：明確表示一個空值，通常用於指示「有意義的空值」。
+- `undefined`：表示變數尚未賦值，或者對不存在的屬性進行訪問時的結果。
+
+```javascript
+let age = null; // 明確表示 age 沒有值
+console.log(age); // → null
+
+let name;
+console.log(name); // → undefined （變數未賦值）
+```
 
 > 延伸閱讀：[JavaScript 的十個小知識 - 9. null 與 undefined 是不同的](/articles/javascript-fun-facts#_9-null-與-undefined-是不同的){target="_blank"}
 
-## 自動型別轉換 Automatic type conversion
+## 自動型別轉換（Automatic type conversion）
 
-當運算符應用於不符合預期類型的值時，JavaScript 會嘗試將值轉換為所需類型，可能會導致意料之外的結果。
+當運算符應用於不符合預期類型的值時，JavaScript 會嘗試將值轉換為所需類型，這種行為稱為隱式型別轉換。雖然方便，但可能導致意料之外的結果。
 
 ```javascript
 console.log(8 * null); // → 0 （null 被轉換為 0）
@@ -213,90 +423,111 @@ console.log("five" * 2); // → NaN （"five" 無法轉換為數字）
 console.log(false == 0); // → true （false 被轉換為 0）
 ```
 
-1. `+` 的特性：字串與數字混合時，`+` 優先執行字串拼接，其餘運算符（如 `-`、`*`）會將字串轉換為數字。
-2. 無法轉換為數字的值（如 `"five"` 或 `undefined`）會變為 `NaN`，`NaN` 是一個特殊值，與任何值比較都為 `false`。
+#### 1. 型別轉換規則
 
-#### 比較運算中的類型轉換
+##### 1.1 `+` 的特性  
 
-- `==` 和 `===` 的區別
-    - `==` 允許類型轉換，並根據一套複雜的規則比較值
-    - `===` 不進行類型轉換，**僅在類型與值都相等**時返回 `true`
-    - 儘量使用 `===` 和 `!==`，避免因類型轉換導致的意外行為。
+   - 字串與數字混合時，`+` 優先執行字串拼接。
+   - 其他運算符（如 `-`、`*`）會將字串轉換為數字。
 
-- 特殊情況
-    - `null` 和 `undefined` 只在相互比較時返回 `true`，在其他情況下不等於任何值（包括自身）。
-        ```javascript
-        console.log(null == undefined); // → true
-        console.log(null == 0); // → false
-        ```
-    - 使用 `===` 可以避免不必要的類型轉換
-        ```javascript
-        console.log("" == false); // → true （類型轉換發生）
-        console.log("" === false); // → false （類型不同）
-        ```
-    - `NaN` 是唯一一個不等於自身的值。
-        ```javascript
-        console.log(NaN == NaN); // → false
-        console.log(NaN === NaN); // → false
-        ```
+##### 1.2 `NaN` 的行為
 
-#### 邏輯運算符的短路行為（Short-Circuiting）
+   - 無法轉換為數字的值（如 `"five"` 或 `undefined`）會變為 `NaN`。
+   - 前面有提到，`NaN` 是一個特殊值，與任何值比較都返回 `false`，包括與自身的比較。
+     ```javascript
+     console.log(NaN == NaN); // → false
+     ```
 
-- `||`  
-    返回左側值（若其可轉換為 `true`），否則返回右側值。
-    ```javascript
-    console.log(null || "user");
-    // → "user" （左側為 null，轉換為 false）
-    console.log("Agnes" || "user");
-    // → "Agnes" （左側為非空字串，轉換為 true）
-    console.log(0 || -1);
-    // → -1 （0 轉換為 false）
-    console.log("" || "!?");
-    // → "!?" （空字串轉換為 false）
-    ```
-- `&&`  
-    返回左側值（若其可轉換為 `false`），否則返回右側值。
-    ```javascript
-    console.log(null && "user");
-    // → null （左側為 null，轉換為 false）
-    console.log("Agnes" && "user");
-    // → "user" （左側為非空字串，轉換為 true）
-    console.log(0 && -1);
-    // → 0 （0 轉換為 false）
-    console.log("Hello" && "World");
-    // → "World" （左側為 true，返回右側）
-    ```
-- `??`   
-    與 `||` 類似，但僅在左側值為 `null` 或 `undefined` 時返回右側值。
-    - 適用於處理空值而不誤判 `0` 或 `""` 等有效值。
-    ```javascript
-    console.log(0 || 100); // → 100 （0 被視為 false）
-    console.log(0 ?? 100); // → 0 （0 不等於 null 或 undefined）
-    console.log(null ?? 100); // → 100
-    ```
-    > 可參考：[Nullish coalescing operator (??) - JavaScript - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing){target="_blank"}
+#### 2. 比較運算中的類型轉換
 
-##### 短路行為應用場景
+##### 2.1 `==` 和 `===` 的區別
 
-- 提供預設值
-    ```javascript
-    const username = null; || "Guest"
-    console.log(username); // → "Guest"
-    ```
-- 避免不必要的計算
-    ```javascript
-    const shouldRun = false;
-    shouldRun && expensiveFunction(); // expensiveFunction 不會被執行
-    ```
+- `==`：允許類型轉換，並根據一套複雜的規則比較值。
+- `===`：不進行類型轉換，僅在類型與值都相等時返回 `true`。
+
+```javascript
+console.log(0 == false);  // → true （型別轉換發生）
+console.log(0 === false); // → false （類型不同）
+console.log("" == false); // → true （型別轉換發生）
+console.log("" === false); // → false （類型不同）
+```
+
+##### 2.2 特殊情況：null 和 undefined
+
+`null` 和 `undefined` 只在相互比較時返回 `true`，在其他情況下不等於任何值：
+
+```javascript
+console.log(null == undefined); // → true
+console.log(null == 0); // → false
+```
+
+##### 2.3 避免型別轉換的建議
+
+儘量使用 `===` 和 `!==`，避免因型別轉換導致意外行為。
+
+## 邏輯運算符的短路行為（Short-Circuiting）
+
+邏輯運算符（`||`、`&&` 和 `??`）在運算時具有「短路」特性，根據條件的布林值決定是否執行右側運算。
+
+#### 1. ||
+
+若左側值為「真值」（truthy），直接返回左側值；否則返回右側值。
+
+```javascript
+console.log(null || "user");    // → "user" （左側為 null，轉換為 false）
+console.log("Agnes" || "user"); // → "Agnes" （左側為非空字串，轉換為 true）
+console.log(0 || -1);           // → -1 （0 轉換為 false）
+console.log("" || "!?");        // → "!?" （空字串轉換為 false）
+```
+
+#### 2. &&
+
+若左側值為「假值」（falsy），直接返回左側值；否則返回右側值。
+
+```javascript
+console.log(null && "user");    // → null （左側為 null，轉換為 false）
+console.log("Agnes" && "user"); // → "user" （左側為 true，返回右側）
+console.log(0 && -1);           // → 0 （0 轉換為 false）
+console.log("Hello" && "World");// → "World" （左側為 true，返回右側）
+```
+
+#### 3. ??（Nullish Coalescing Operator）  
+
+- 與 `||` 類似，但僅在左側值為 `null` 或 `undefined` 時返回右側值。
+- 適用於處理空值而不誤判 `0` 或 `""` 等有效值。
+
+```javascript
+console.log(0 || 100);    // → 100 （0 被視為 false）
+console.log(0 ?? 100);    // → 0 （0 不等於 null 或 undefined）
+console.log(null ?? 100); // → 100
+```
+
+> 延伸閱讀：[Nullish coalescing operator (??) - JavaScript - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing){target="_blank"}
+
+#### 4. 短路行為應用場景
+
+##### 4.1 提供預設值
+
+```javascript
+const username = null; || "Guest"
+console.log(username); // → "Guest"
+```
+
+##### 4.2 避免不必要的計算
+
+```javascript
+const shouldRun = false;
+shouldRun && expensiveFunction(); // expensiveFunction 不會被執行
+```
 
 ## 總結
 
 1. 類型轉換  
-    JavaScript 支援自動類型轉換，但可能導致意料之外的結果，因此建議使用 `===` 和 `!==`，避免不必要的類型轉換。
-2. 邏輯運算符  
-    - `||` 和 `&&` 不僅適用於布林值，還可用於其他類型，並具有短路行為。
-    - 使用 `??` 可更精確地處理 `null` 和 `undefined`，不誤判 `0` 或 `""`。
+    JavaScript 的自動類型轉換提供靈活性，但可能導致預期外的結果。為避免潛在問題，建議優先使用嚴格比較運算符（`===` 和 `!==`）來確保類型與值的精確匹配。
+2. 邏輯運算符的應用  
+    - `||` 和 `&&` 適用於多種類型，並透過短路行為簡化條件判斷與預設值設定。
+    - 使用 `??` 處理空值時更加精準，可避免將有效值如 `0` 或 `""` 誤判為空值。
 3. 運算符優先級  
-    瞭解運算符的優先級有助於正確書寫表達式。
+   理解運算符的優先級能幫助書寫更清晰、正確的表達式，避免不必要的錯誤與混淆。
 
 以上內容是基於 [1. Values, Types, and Operators - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/01_values.html){target="_blank"} 所整理的精簡筆記。

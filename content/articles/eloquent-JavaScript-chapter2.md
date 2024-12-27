@@ -39,98 +39,113 @@ sitemap:
 
 :anchor
 
-## 表達式 Expression
+## 表達式（Expression）
 
-Expression 是能產生一個值的代碼片段。
+表達式（Expression） 是一段能產生值的程式碼片段，無論這個值是數字、字串還是其他類型，都可以用於更複雜的運算或邏輯中。
 
 - 例如：`22`、``"psychoanalysis"``、`1 + 1` 都是表達式。
-- 表達式的作用類似於語言中的「句子片段」，它們可以組合成更複雜的計算。
+- 表達式的功能類似於語言中的「句子片段」，它們是構成程式的基本組件，可以單獨存在，也可以組合成更複雜的計算。
 
-## 語句 Statement
+## 語句（Statement）
 
-Statement 是程式碼中的完整指令，通常用來執行某些動作。
+語句（Statement） 是程式碼中的完整指令，通常用於執行某些動作，例如運算、輸出結果或改變程式的狀態。
 
-- Statement 與 Expression 的區別
-    - Expression 產生值，但 statement 則是完整的指令。
-    - Statement 可以包含 expression，但 statement 可能會對外界產生影響（例如顯示輸出或改變機器的狀態），這種影響稱為「side effects」。
+#### 語句與表達式的區別
+
+1. 表達式產生一個值，作為程式中的組件使用。
+2. 語句是一條完整的指令，用於執行動作，並可能對外界產生影響（稱為副作用（side effects））。
+
+>副作用（side effects）：指語句執行後，對程式或外部環境（如顯示輸出或修改變數）造成的影響。
+
+#### 範例
 
 ```javascript
 1; // Statement，沒有任何副作用。
 console.log("Hello"); // Statement，具有副作用：在控制台顯示 "Hello"。
 ```
 
-## 綁定 Bindings
+- 第一行是一條語句，但它僅執行了一個表達式，沒有改變程式的狀態，因此沒有副作用。
+- 第二行也是一條語句，執行後會在控制台輸出字串 `"Hello"`，這是一種副作用。
 
-Bindings 是程式用來記住數值或狀態的一種方式，也是我們比較常說的**變數（variable）**，以下皆以變數稱之。
+## 綁定（Bindings）
 
-因為程式需要記住某些值或狀態（例如：計算結果或用戶資料）。而變數是用來「抓住」這些值的工具；若沒有變數，計算出的新值會立即消失，無法再被使用。我們不僅可以儲存變數，更可以更新變數：
+綁定（Bindings）是程式用來記住數值或狀態的一種方式。在 JavaScript 中，綁定通常以變數（variables）的形式實現。
 
-- 存取變數  
-    ```javascript
-    let caught = 5 * 5;
-    ```
-- 更新變數  
-    ```javascript
-    let mood = 'light';
-    console.log(mood); // → light
-    mood = 'dark';
-    console.log(mood); // → dark
-    ```
+綁定的作用在於儲存程式執行過程中的數值或狀態，例如計算結果或用戶資料。如果沒有綁定，計算出的新值會立即消失，無法再被使用。綁定不僅可以儲存值，也可以更新值。
 
-#### let、var 和 const
+#### 1. 使用綁定的基本操作
 
-##### let
+##### 1.1 存取綁定 
 
-- 現代 JavaScript 中用於創建變數的主要方式。
-- 區塊範疇（block scope），更安全且易於控制。
+```javascript
+let caught = 5 * 5;
+console.log(caught); // → 25
+```
+
+##### 1.2 更新綁定  
+
+```javascript
+let mood = 'light';
+console.log(mood); // → light
+mood = 'dark';
+console.log(mood); // → dark
+```
+
+#### 2. let、var 和 const
+
+##### 2.1 let
+
+- 現代 JavaScript 中創建綁定的主要方式。
+- 具有區塊範疇（block scope），範圍更安全且易於控制。
 
 > 延伸閱讀：[[JavaScript] 範疇（Scope）](https://hackmd.io/@lunzaizai/H1cR8kB8t){target="_blank"}
 
-##### var
+##### 2.2 var
 
-- 舊版 JavaScript 中的變數方式，現在較少使用。
-- 它的行為與 `let` 有些不同（例如：不受區塊範疇限制），詳細差異會在後續章節提及。
+- 舊版 JavaScript 中的綁定聲明方式，現在已不推薦使用。
+- 不受區塊範疇限制，容易導致不可預期的行為，詳細差異會在後續章節提及。
 
-##### const
+##### 2.3 const
 
-用於創建常量綁定，綁定的值在其生命週期內不能被重新賦值，就是不能改變。
+- 用於創建常量綁定，值在其生命週期內**不可重新賦值**。
+- 適合用於不會改變的數值或參考，能提高程式的可讀性和可靠性。
 
 ```javascript
 const greeting = "Hello";
 console.log(greeting); // → Hello
 
-greeting = "Bye";
-console.log(greeting); // 會報錯
+greeting = "Bye"; // 語法錯誤，因為常量無法重新賦值
 ```
 
-::info
-**小結**
+- `const` 無法重新賦值，但物件或陣列的內容仍然可以被改變： 
+  ```javascript
+  const person = { name: "John" };
+  person.name = "Jane"; // 合法，因為物件內容可以修改
+  console.log(person.name); // → Jane
 
-- `let` 是現代首選：更安全且範疇更清晰。
-- `const` 適用於常量，可以提高程式的可讀性和可靠性。
-- 避免使用 `var`，因其行為不直觀，應盡量避免使用。
-::
+  person = { name: "Mike" }; // 語法錯誤，因為無法重新賦值
+  ```
 
-#### 初始化
+#### 3. 初始化
 
-- 如果變數在定義時沒有賦值，則它的值為 `undefined`。  
+- 如果綁定在定義時沒有賦值，則其值為 `undefined`。  
     ```javascript
     let emptyBinding;
     console.log(emptyBinding); // → undefined
     ```
-- 可以在一個 statement 中定義多個變數，並用逗號分隔。但為了可讀性，我個人**不建議這麼做**。
+- 可以在一條語句中定義多個綁定，但為了程式的可讀性，建議每行定義一個綁定。
     ```javascript
     let one = 1, two = 2;
     console.log(one + two); // → 3
     ```
 
-#### 變數名稱命名規則
+#### 4. 綁定名稱命名規則
 
-##### 有效名稱
+##### 4.1 有效名稱
 
-- 主要由一個或多個字母組成
-- 可以包含數字，但**不能以數字開頭**。
-- 可以包含 **`$`** 和 **`_`**，但不可包含其他標點符號或特殊字符（如：`@`、`#`等）。
+- 必須以字母、`$` 或 `_` 開頭，不能以數字開頭。
+- 名稱可以包含數字，但不得包含特殊字符（如 `@`、`#` 等）。
+ 
 ```javascript
 let catch22 = "valid"; // 合法
 let 22catch = "invalid"; // 非法，會產生語法錯誤
@@ -138,21 +153,23 @@ let $name = "valid"; // 合法
 let _name = "valid"; // 合法
 ```
 
-##### 關鍵字 Keywords
+##### 4.2 關鍵字（Keywords）
 
-JavaScript 中有一些具有特殊意義的詞，稱為 keywords，不能用作變數名稱。
+JavaScript 中有一些具有特殊意義的詞，稱為關鍵字，不能用作綁定名稱。
 
 ```javascript
 let let = 5; // 語法錯誤，因為 "let" 是 keywords
 ```
 
-##### 保留字 Reserved Words
+##### 4.3 保留字（Reserved Words）
 
-有些詞雖然目前在 JavaScript 中未被使用，但被保留為未來版本的 keywords，這些詞也不能用作變數名稱。
+某些詞雖然目前未被使用，但被保留為未來版本的關鍵字，也不能用作綁定名稱。
 
-##### 關鍵字及保留字列表
+#### 5. 關鍵字與保留字列表
 
-```javascript
+以下是 JavaScript 的關鍵字和保留字，這些詞無法用作綁定名稱：
+
+```txt
 break, case, catch, class, const, continue, debugger, default,
 delete, do, else, enum, export, extends, false, finally, for,
 function, if, implements, import, interface, in, instanceof, let,
@@ -160,18 +177,34 @@ new, package, private, protected, public, return, static, super,
 switch, this, throw, true, try, typeof, var, void, while, with, yield
 ```
 
-## 函式 Functions
+## 函式（Functions）
 
-Function 是一段能重複運行的程式碼片段，可以透過呼叫來執行。呼叫 function 需要在函式名稱後面加上括號，而括號中的內容稱為**參數（arguments）**。
+**函式（Function）** 是一段能重複運行的程式碼片段，可以透過呼叫來執行。呼叫函式需要在函式名稱後面加上括號，而括號中的內容稱為**參數（arguments）**。
+
 ```javascript
 prompt("Enter passcode");
 ```
 
-#### 回傳值 Return Values
+#### 1. 定義函式
 
-有些函式執行後會生成一個值，這個值稱為回傳值（return values）。
+在 JavaScript 中，可以使用 `function` 關鍵字來定義函式。以下是基本語法：
 
-##### 實例
+##### 範例：定義與呼叫函式
+
+```javascript
+function greet(name) {
+  return "Hello, " + name + "!";
+}
+
+console.log(greet("Alice")); // → Hello, Alice!
+console.log(greet("Bob"));   // → Hello, Bob!
+```
+
+#### 2. 回傳值（Return Values）
+
+有些函式執行後會生成一個值，這個值稱為回傳值（return values）。可以使用 `return` 關鍵字來指定函式的返回值。
+
+##### 2.1 使用內建函式的回傳值
 
 `Math.max` 是一個內建函式，用於返回多個數字中的最大值。
 
@@ -179,66 +212,87 @@ prompt("Enter passcode");
 console.log(Math.max(2, 4)); // → 4
 ```
 
-而返回值也可以作為更大表達式的一部分來運算：
+回傳值也可以作為更大表達式的一部分來運算：
 
 ```javascript
 console.log(Math.min(2, 4) + 100); // → 102
 ```
 
-::info
-**小結**
-- 函式呼叫本身是一個 expression，因為它能生成值。
-- 函式返回的值可以直接使用於 expression 中，或進一步處理。
-::
+##### 2.2 自定義函式的回傳值
 
-## 控制流程 Control flow
-
-當程式包含多個 statement，這些 statement 正常情況下會由上至下執行。
-
-#### 有條件執行
-
-並非所有項目都是筆直的道路，當程式需要根據某個值執行不同的動作時，可以使用 `if-else` 語句或 `switch` 語句。
-
-##### if-else
+以下是自定義函式返回值的範例：
 
 ```javascript
-if (1 + 1 == 2) console.log("It's true");
-// → It's true
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(5, 3)); // → 8
+console.log(add(10, 20)); // → 30
 ```
 
-##### switch
+> 函式會在第三章琢磨：[【JavaScript 學習筆記 03】Chapter 3 Functions](/articles/eloquent-javascript-chapter3){target="_blank"}
 
-`switch` 結構清晰，適合多條件分派，但語法稍顯笨重，且較容易因為忘記加 `break` 出錯。
+## 控制流程（Control flow）
+
+控制流程決定了程式執行的順序與邏輯，讓程式能根據條件選擇性地執行某些程式碼，或重複執行特定的程式碼段。當程式包含多個語句時，這些語句正常情況下會由上至下執行。
+
+#### 1. 有條件執行
+
+當程式需要根據某個值執行不同的動作時，可以使用 `if-else` 語句或 `switch` 語句。
+
+##### 1.1 if-else
+
+`if-else` 是最常用的條件語句，適合處理範圍檢查或複雜條件。
 
 ```javascript
-switch (expression) {
-  case value1:
-    // 執行的程式碼
+let age = 18;
+
+if (age >= 18) {
+  console.log("You are an adult.");
+} else {
+  console.log("You are a minor.");
+}
+// → You are an adult.
+```
+
+##### 1.2 switch
+
+`switch` 結構清晰，適合多條件分派。當條件值是固定的（如字串或數字）時，`switch` 會更加直觀。
+
+```javascript
+let fruit = "apple";
+
+switch (fruit) {
+  case "apple":
+    console.log("You chose an apple.");
     break;
-  case value2:
-    // 執行的程式碼
+  case "banana":
+    console.log("You chose a banana.");
     break;
   default:
-    // 當沒有匹配的值時執行
+    console.log("Unknown fruit.");
     break;
 }
+// → You chose an apple.
 ```
 
-1. `switch` 會檢查 expression，並從匹配的 `case` 開始執行；如果沒有匹配的值，執行 `default` 區塊。
-2. 如果一個 `case` 區塊中沒有 `break`，無論是否匹配，程式會繼續執行下一個 `case` 的程式碼，所以 `break` 非常重要。
+1. `switch` 會檢查表達式，並從匹配的 `case` 開始執行。
+2. 如果一個 `case` 區塊中沒有 `break`，程式會繼續執行下一個 `case` 的程式碼。
+3. `default` 是可選的，當沒有匹配的值時執行。
 
 ::info
-**小結**
+**有條件執行小結**
 
-- 當處理複雜條件（例如：範圍檢查）時，`if-else` 會更加靈活。
-- 當條件值是固定的（例如：字串或數字）時，`switch` 會更加直觀。
+- `if-else`：適合處理複雜條件（例如：範圍檢查）。
+- `switch`：適合處理固定條件值（例如：字串或數字）。
 ::
 
-#### 循環執行 Loops
+#### 2. 循環執行（Loops）
 
-##### While Loops
+##### 2.1 While Loops
 
-以 `while` 開頭的 statement 會建立一個迴圈，判斷括號裡的 statement 是否為 `true`，若為 `true` 則進入迴圈，直到括號裡的 statement 為 `false`，結束迴圈。
+`while` 迴圈會在每次執行前檢查條件，若條件為 `true` 則執行，否則結束迴圈。
 
 ```javascript
 let number = 0;
@@ -251,9 +305,11 @@ while (number <= 12) {
 // … 直到 number = 14，14 <= 12，跳出迴圈
 ```
 
-##### Do Loops
+- 適用場景：當條件未知，或需要根據某些狀態來決定是否繼續執行時。
 
-和 `while` 不一樣的是，`do` 會在第一次執行後才測試是否停止，也就是說 `do` loop 至少會執行一次。
+##### 2.2 Do Loops
+
+`do-while` 迴圈至少會執行一次，然後再檢查條件是否為 `true`。
 
 ```javascript
 let yourName;
@@ -263,40 +319,35 @@ do {
 console.log("Hello " + yourName);
 ```
 
-##### For Loops
+- 適用場景：當需要確保程式碼至少執行一次時。
 
-提到 `for` 迴圈，可以先了解許多迴圈遵循的計數器模式：
+##### 2.3 For Loops
 
-1. 初始化：定義一個計數器（counter）來追蹤迴圈的進度。
-2. 條件檢查：使用條件表達式檢查是否繼續執行迴圈。
-3. 更新狀態：在每次迴圈結束時更新計數器的值。
-
-而使用 `while` 時，上述步驟通常是分散的：
-
-```javascript
-let number = 0; // 1. 初始化
-while (num <= 12) { // 2. 條件檢查
-  console.log(num);
-  num = num + 2; // 3.更新狀態
-}
-```
-
-`for` 迴圈就是將「初始化」、「條件檢查」和「更新狀態」集中在一起，讓結構更清晰：
+`for` 迴圈是一種結構清晰的迴圈，適合用於已知次數的情況。它將「初始化」、「條件檢查」和「更新狀態」集中在一起。
 
 ```javascript
 for (let num = 0; num <= 12; num = num + 2) {
   console.log(num);
 }
+// → 0
+// → 2
+// …直到 num = 14，跳出迴圈
 ```
 
 1. 初始化：`let num = 0`
 2. 條件檢查：`num <= 12`
 3. 更新計數器：`num = num + 2`
 
-##### 打破循環
+- 適用場景：當需要執行固定次數的迴圈時。
 
-條件檢查得出 `false` 並不是唯一完成循環的方法，若在中間想提早結束循環，可以使用 `break`。
-例如：以下程式使用`break`，只要找出第一個大於或等於 20 且能被 7 整除的數字就跳出迴圈：
+##### 2.4 打破循環
+
+條件檢查得出 `false` 並不是唯一完成迴圈的方法，若在中間想提早結束迴圈，可以使用 `break`。
+
+###### 範例：提早結束迴圈
+
+以下程式碼會找出第一個大於或等於 20 且能被 7 整除的數字，然後跳出迴圈：
+
 ```javascript
 for (let current = 20; ; current = current + 1) {
     if (current % 7 == 0) {
@@ -307,42 +358,94 @@ for (let current = 20; ; current = current + 1) {
 // → 21
 ```
 
-## 程式風格 Coding Style
+::info
+**循環執行小結**
 
-#### 分號
+- `while`：適合條件未知的情況，根據條件執行迴圈。
+- `do-while`：至少執行一次，然後根據條件決定是否繼續。
+- `for`：適合已知次數的迴圈，結構清晰。
+- `break`：用於提早結束迴圈。
+::
 
-在 JavaScript 中，分號用於結束語句。雖然 JavaScript 可以選擇不加分號，但某些情況下可能會導致代碼被錯誤解讀，因此若對分號省略的規則不熟悉，為了避免潛在錯誤，建議在每個語句結尾都加上分號，這是更安全的做法。
+## 程式風格（Coding Style）
 
-> 延伸閱讀：[JS 加不加分號差在哪？ | 卡斯伯's Blog](https://www.casper.tw/development/2020/09/20/js-semi/){target="_blank"}
+#### 1. 分號
 
-#### 縮排
+在 JavaScript 中，分號用於結束語句。雖然 JavaScript 的自動分號插入（Automatic Semicolon Insertion, ASI）機制可以在某些情況下省略分號，但這可能導致代碼被錯誤解讀。因此，建議在每個語句結尾都加上分號，這是更安全的做法。
 
-縮排可以增加程式碼的可讀性，沒有縮排電腦也能正常接受程式，但人類會不好讀。並且根據喜好不同，有人喜歡使用四個空格、有人喜歡用兩個空格代表縮排，都是可以的。
+> 延伸閱讀：[JS 加不加分號差在哪？](https://www.casper.tw/development/2020/09/20/js-semi/){target="_blank"}
 
-#### 大寫
+> 延伸閱讀：[JavaScript 深入淺出 Automatic Semicolon Insertion 自動插入分號機制](https://shawnlin0201.github.io/JavaScript/JavaScript-Automatic-Semicolon-Insertion/){target="_blank"}
 
-當我們想要明確的命名一個變數時，因為變數名稱不包含空格，但依舊可以使用多個單字來描述變數內容，大抵有這四種習慣寫法：
+#### 2. 縮排
+
+縮排是提升程式碼可讀性的重要方式。雖然程式執行時不會對縮排有要求，但對於人類來說，良好的縮排習慣可以讓程式碼結構更加清晰。
+
+##### 常見縮排規範
+
+- 兩個空格：適合程式碼較長或嵌套較深的情況，常見於 Google 的 JavaScript 風格指南。
+- 四個空格：適合程式碼較短或需要更明顯的層次感，常見於一些大型專案。
+
 ```javascript
-fuzzylittleturtle
-fuzzy_little_turtle // Snake Case
-FuzzyLittleTurtle // Pascal
-fuzzyLittleTurtle // Lower Camel-Case
+// 使用兩個空格
+function sayHello() {
+  console.log("Hello, world!");
+}
+
+// 使用四個空格
+function sayHello() {
+    console.log("Hello, world!");
+}
 ```
-最後一種命名方法是大多數程式設計師會遵循的風格──除了第一個單字以外的每個單字開頭都大寫，也稱為 Lower Camel-Case。無論使用哪一種方法，同一份專案遵循相同的約定會讓程式碼更加和諧。
+
+無論選擇哪種縮排方式，**保持一致性**是最重要的。
+
+#### 3. 命名規則
+
+變數和函式的命名應該具有描述性，並遵循統一的命名規則。以下是幾種常見的命名風格：
+
+##### 3.1 命名風格
+
+1. Snake Case：`fuzzy_little_turtle`  
+  常見於某些後端語言（例如 Python）。
+2. Pascal Case：`FuzzyLittleTurtle`  
+   通常用於類名或建構函式名稱，例如：
+   ```javascript
+   class FuzzyLittleTurtle {
+     constructor() {
+       this.name = "Turtle";
+     }
+   }
+   ```
+3. Lower Camel-Case：`fuzzyLittleTurtle`  
+   JavaScript 中最常見的命名方式，適用於變數和函式名稱，例如：
+   ```javascript
+   let fuzzyLittleTurtle = "Turtle";
+   function getTurtleName() {
+     return fuzzyLittleTurtle;
+   }
+   ```
+
+##### 3.2 命名規則的建議
+
+- 使用描述性名稱，例如：`totalAmount` 而非 `x`。
+- 避免縮寫，除非是廣為人知的縮寫（例如：`id` 表示 `identifier`）。
+- 在同一專案中保持命名風格的一致性。
 
 >延伸閱讀：[常見的命名規則(Camel Case, Snake Case, Kebab Case)](https://blog.camel2243.com/posts/common-naming-convention-camel-case-snake-case-kebab-case/)
 
-#### 註解
+#### 4. 註解
 
-原始程式碼有時無法清楚表達程式的意圖，或者可能過於晦澀難懂，這時候註解可以補充說明，幫助程式的讀者理解程式碼的功能與邏輯；同時註解也方便記錄與程式相關的想法、背景資訊等內容，方便後續維護。最棒的是註解不會對程式有任何影響。
+註解的目的是補充程式碼的意圖，幫助讀者理解程式碼的功能與邏輯。良好的註解應該簡潔明確，避免過度冗長。
 
-1. 單行註解 `//`  
+##### 4.1 註解的類型
+
+1. 單行註解：使用 `//`，適合簡短的說明。
     ```javascript
     let accountBalance = calculateBalance(account); // 計算帳戶餘額
     accountBalance.adjust(); // 調整餘額
     ```
-
-2. 多行註解 `/**/`  
+2. 多行註解：使用 `/* */`，適合較長的說明或模組級別的註解。
     ```javascript
     /*
     這段程式碼用於處理帳戶餘額。
@@ -351,15 +454,37 @@ fuzzyLittleTurtle // Lower Camel-Case
     */
     const myNumber = 11213;
     ```
+
+##### 4.2 註解的最佳實踐
+
+- 簡潔明確：註解應該直接說明程式碼的功能或邏輯，不要重複程式碼內容。
+- 避免過度註解：過多的註解可能會使程式碼難以閱讀，應該讓程式碼本身具有自解性。
+- 使用標籤：例如 `TODO`、`FIXME`、`NOTE`，幫助標記需要後續處理的部分。
+
+##### 範例：使用標籤註解
+
+```javascript
+// TODO: 優化此函式的效能
+function processLargeData(data) {
+  // FIXME: 當資料量過大時，可能會導致記憶體不足
+  return data.map(item => item * 2);
+}
+```
+
 > 延伸閱讀：[常用註解標籤 - TODO、FixMe、XXX](https://hackmd.io/@CynthiaChuang/Common-Comment-Keywords){target="_blank"}
+
+::info
+**程式風格小結**
+
+- 分號：建議在每個語句結尾加上分號，避免潛在的語法錯誤。
+- 縮排：選擇兩個或四個空格，並保持一致性。
+- 命名規則：使用描述性名稱，並根據用途選擇合適的命名風格。
+- 註解：簡潔明確，避免過度註解，並善用標籤來記錄待處理事項。
+
+::
 
 ## 總結
 
-現在我們知道程式是由 statement 建構的，statement 可以包含更多更小的 statement。而這些 statement 通常都會包含 expression，並且 expression 還可以由更小的 expression 組成。
-
-我們可以透過有條件執行（`if-else` 及 `switch`）、循環迴圈（`while`、`do` 及 `for`）statement 控制流程的走向。
-
-在我們的程式中，變數用於儲存資料，環境是所有變數的集合，JavaScript 也提供了一些標準變數，讓我們可以更便利的寫程式。
-最後，function 是一段可重複使用的程式碼，可以接受參數並返回結果。
+程式由語句組成，語句可以包含更小的語句，而這些語句通常由表達式構成，表達式也能進一步拆分為更小的表達式。透過條件語句（`if-else`、`switch`）與循環語句（`while`、`do`、`for`），我們可以控制程式的執行流程。而綁定用於儲存資料，環境則是綁定的集合，JavaScript 也提供了一些內建綁定讓程式撰寫更方便。函數則是可重複使用的程式碼，能接受參數並返回結果，關於函數我們將在下一章詳細說明。
 
 以上內容是基於 [2. Program Structure - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/02_program_structure.html){target="_blank"} 所整理的精簡筆記。
