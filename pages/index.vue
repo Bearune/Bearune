@@ -9,7 +9,7 @@
         <div class="!min-h-[calc(100vh-20.5rem)] auto-rows-min col-span-8 grid grid-cols-9 gap-8 h-fit
         lg:col-span-12 lg:grid-cols-12 md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
             <LazyContentList v-slot="{ list }"
-                :query="{ path: 'articles', without: ['body'], sort: [{ date: -1 }], limit: 7 }">
+                :query="{ path: 'articles', without: ['body'], sort: [{ date: -1 }], limit: 8 }">
                 <ArticleCardLarge :key="list[0]._id" class="col-span-9 lg:col-span-12 md:col-span-8 sm:col-span-4"
                     :data="list[0]" />
                 <QuoteCard class="col-span-7 col-start-2 lg:col-span-8 lg:col-start-3 md:col-start-1 sm:col-span-4" />
