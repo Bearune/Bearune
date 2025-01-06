@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 04】Data Structures - Objects and Arrays
+title: 【JavaScript 學習筆記 04】物件與陣列 Chapter 4 Data Structures - Objects and Arrays
 description: 深入淺出學習 JavaScript 資料結構與操作！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋 JavaScript 中的基礎資料結構（陣列、物件）、屬性與方法、現代 JavaScript 特性（解構賦值、展開運算符、可選鏈運算符）、常用陣列方法（map、filter、reduce）以及實用工具（Math 物件、JSON），幫助你快速掌握 JavaScript 資料處理的核心知識與應用技巧。從基礎概念到進階應用，循序漸進地學習如何有效組織和操作數據，提升程式設計能力。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-04
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover4.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 04】Data Structures - Objects and Arrays
+      content: 【JavaScript 學習筆記 04】物件與陣列 Data Structures - Objects and Arrays
   - - meta
     - property: og:type
       content: article

@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators
+title: 【JavaScript 學習筆記 01】基本概念 Chapter 1 Values, Types, and Operators
 description: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-24
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover1.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators
+      content: 【JavaScript 學習筆記 01】基本概念 Chapter 1 Values, Types, and Operators
   - - meta
     - property: og:type
       content: article
@@ -41,7 +41,7 @@ sitemap:
 
 ## 數字（Numbers）
 
-JavaScript 中的數字型別是基於** 64 位元的雙精度浮點數格式（[IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"}）**，能表示極大的數值範圍。整數計算通常是精確的，但小數計算可能因精度限制而產生誤差。因此，理解 JavaScript 對數字的處理方式，尤其是小數的限制，是正確進行數值運算的基礎。
+JavaScript 中的數字型別是基於 **64 位元的雙精度浮點數格式（[IEEE 754](https://zh.wikipedia.org/zh-tw/IEEE_754){target="_blank"}）**，能表示極大的數值範圍。整數計算通常是精確的，但小數計算可能因精度限制而產生誤差。因此，理解 JavaScript 對數字的處理方式，尤其是小數的限制，是正確進行數值運算的基礎。
 
 > 延伸閱讀：[JavaScript 的十個小知識 - 4. 0.1 + 0.2 !== 0.3](/articles/javascript-fun-facts#_4-01-02-03){target="_blank"}
 

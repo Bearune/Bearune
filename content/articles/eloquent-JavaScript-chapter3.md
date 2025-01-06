@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 03】Chapter 3 Functions
+title: 【JavaScript 學習筆記 03】函數 Chapter 3 Functions
 description: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-26
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover3.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 03】Chapter 3 Functions
+      content: 【JavaScript 學習筆記 03】函數 Chapter 3 Functions
   - - meta
     - property: og:type
       content: article
