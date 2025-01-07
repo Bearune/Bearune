@@ -7,7 +7,7 @@
     <LayoutSiteFooter :class="{ 'pb-24': device.isMobile ? true : false }" class="sm:pb-24" />
     <BackTop />
     <LayoutSiteMobileHeader :class="{ 'block': device.isMobile ? true : false }"
-      class="hidden fixed bottom-2 left-1/2 -translate-x-1/2 z-10 sm:block" />
+      class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-10 sm:block" />
   </main>
 </template>
 

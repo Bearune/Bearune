@@ -133,7 +133,7 @@ article.normal {
   }
 
   blockquote {
-    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative;
+    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative sm:text-base sm:py-0.5;
 
     >p,
     a {

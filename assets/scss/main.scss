@@ -44,6 +44,10 @@ html {
 }
 
 @media (max-width: 640px) {
+  * {
+    --rounded-box: .5rem;
+  }
+
   html {
     font-size: 14px;
     line-height: 20px;

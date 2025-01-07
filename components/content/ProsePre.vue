@@ -63,10 +63,22 @@ pre code .line {
   display: block;
 }
 
-ul,
-ol {
+ul {
   li>.code-block {
     @apply mt-2 sm:-ml-9;
+  }
+
+  ul,
+  ol {
+    li>.code-block {
+      @apply mt-2 sm:-ml-[4.2rem];
+    }
+  }
+}
+
+ol {
+  li>.code-block {
+    @apply mt-2 sm:-ml-12;
   }
 
   ul,
