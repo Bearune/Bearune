@@ -28,34 +28,36 @@ const { data } = await useAsyncData(category, () => queryContent(route.fullPath)
 </script>
 
 <style lang="scss" scoped>
-ol {
-  @apply mb-0;
+#anchorArea {
+  ol {
+    @apply mb-0;
 
-  >li {
-    @apply pl-0;
+    >li {
+      @apply pl-0;
 
-    &::before {
-      @apply content-[''];
-    }
+      &::before {
+        @apply content-[''];
+      }
 
-    >ol {
-      @apply mb-0;
+      >ol {
+        @apply mb-0;
 
-      >li {
-        @apply pl-2;
+        >li {
+          @apply pl-2;
 
-        &::before {
-          @apply content-[''];
-        }
+          &::before {
+            @apply content-[''];
+          }
 
-        >ol {
-          @apply mb-0;
+          >ol {
+            @apply mb-0;
 
-          >li {
-            @apply pl-4;
+            >li {
+              @apply pl-4;
 
-            &::before {
-              @apply content-[''];
+              &::before {
+                @apply content-[''];
+              }
             }
           }
         }

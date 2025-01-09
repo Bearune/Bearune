@@ -4,7 +4,7 @@
 
 <script setup>
 const device = useDeviceStore();
-const padding = ref(device.isDesktop ? 60 : 12);
+const padding = ref(device.isDesktop ? 60 : 32);
 </script>
 
 <style lang="scss" scoped></style>
