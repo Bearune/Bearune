@@ -6,7 +6,7 @@ tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-09
 keywords: JavaScript 物件導向, JavaScript 類別, JavaScript 物件, JavaScript 繼承, JavaScript 多型, JavaScript 封裝, JavaScript 原型, JavaScript 原型鏈, JavaScript this, JavaScript constructor, JavaScript 建構子, JavaScript 實例, JavaScript Map, JavaScript Symbol, JavaScript 物件方法, JavaScript 靜態方法, JavaScript getter, JavaScript setter, JavaScript 存取器, JavaScript class, JavaScript 類別繼承, JavaScript extends, JavaScript super, JavaScript instanceof, JavaScript new 運算子, JavaScript 物件複製, JavaScript 物件屬性, JavaScript 私有屬性, JavaScript 程式設計, JavaScript 最佳實踐, JavaScript 學習筆記, JavaScript 入門教學, JavaScript 範例, Eloquent JavaScript, Object-oriented Programming, JavaScript OOP, JavaScript examples
 image: /img/articles/eloquent-JavaScript/cover6.webp
-draft: true
+draft: false
 
 head:
   - - meta
