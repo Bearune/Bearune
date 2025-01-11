@@ -1152,3 +1152,5 @@ console.log(Object.getPrototypeOf(Object.prototype) === null);  // → true
 - 適當使用封裝可以提高程式碼的可維護性
 - `Map` 和 `Symbol` 等現代特性提供了更強大的程式設計工具
 - 合理運用多型可以提升程式碼的彈性和可擴展性
+
+以上內容是基於 [6. The Secret Life of Objects - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/06_object.html) 所整理的精簡筆記。

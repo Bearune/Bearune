@@ -3,7 +3,7 @@ category: 前端開發
 title: 【JavaScript 學習筆記 07】專案練習 Chapter 7 Project - A Robot
 description: 深入淺出學習 JavaScript 狀態管理與演算法優化！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記以一個具體的機器人送包裹案例，展示了如何在 JavaScript 中實現高效的狀態管理和路徑規劃。從基本的隨機移動策略開始，逐步改進到智能尋路算法，完整呈現了程式優化的過程。內容涵蓋了狀態管理模式、不可變性原則、廣度優先搜尋算法等重要概念，並通過實際程式碼展示了這些概念的應用。透過循序漸進的方式，幫助讀者理解如何設計和優化複雜的程式系統。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
-date: 2025-01-10
+date: 2025-01-11
 keywords: JavaScript 狀態管理, JavaScript 演算法, JavaScript 路徑規劃, JavaScript 不可變性, JavaScript 集中式管理, JavaScript 廣度優先搜尋, JavaScript BFS, JavaScript 效能優化, JavaScript 物件導向, JavaScript 類別, JavaScript 資料結構, JavaScript 圖論, JavaScript Map, JavaScript Array, JavaScript 函數式程式設計, JavaScript 純函數, JavaScript 記憶體管理, JavaScript 程式設計原則, JavaScript 最佳實踐, JavaScript 案例研究, JavaScript 程式優化, JavaScript 系統設計, JavaScript 學習筆記, JavaScript 入門教學, JavaScript 範例, Eloquent JavaScript, Algorithm Optimization, State Management, JavaScript examples
 image: /img/articles/eloquent-JavaScript/cover7.webp
 draft: false
@@ -27,7 +27,7 @@ head:
 
 sitemap:
   loc: /articles/eloquent-JavaScript-chapter7
-  lastmod: 2025-01-10
+  lastmod: 2025-01-11
   changefreq: monthly
   priority: 0.5
 ---
@@ -719,3 +719,5 @@ function runRobot(state, robot, memory) {
 - 路徑規劃演算法對效能優化的重要性
 - 合理的抽象和設計能大幅降低系統複雜度
 - 漸進式優化策略能有效提升系統效能
+
+以上內容是基於 [7. Project: A Robot - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/07_robot.html) 所整理的精簡筆記。
