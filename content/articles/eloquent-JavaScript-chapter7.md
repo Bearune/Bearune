@@ -720,4 +720,4 @@ function runRobot(state, robot, memory) {
 - 合理的抽象和設計能大幅降低系統複雜度
 - 漸進式優化策略能有效提升系統效能
 
-以上內容是基於 [7. Project: A Robot - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/07_robot.html) 所整理的精簡筆記。
+以上內容是基於 [7. Project: A Robot - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/07_robot.html){target=_blank} 所整理的精簡筆記。

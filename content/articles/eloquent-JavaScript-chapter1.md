@@ -530,4 +530,4 @@ shouldRun && expensiveFunction(); // expensiveFunction 不會被執行
 3. 運算符優先級  
    理解運算符的優先級能幫助書寫更清晰、正確的表達式，避免不必要的錯誤與混淆。
 
-以上內容是基於 [1. Values, Types, and Operators - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/01_values.html){target="_blank"} 所整理的精簡筆記。
+以上內容是基於 [1. Values, Types, and Operators - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/01_values.html){target=_blank} 所整理的精簡筆記。

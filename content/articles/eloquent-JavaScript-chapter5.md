@@ -565,4 +565,4 @@ console.log(horse.codePointAt(0)); // → 128014（實際的 Unicode 碼點）
 - 合理的抽象化可以提升代碼的可讀性
 - 適當的函數組合能讓程式邏輯更清晰
 
-以上內容是基於 [5. Higher-Order Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/05_higher_order.html) 所整理的精簡筆記。
+以上內容是基於 [5. Higher-Order Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/05_higher_order.html){target=_blank} 所整理的精簡筆記。

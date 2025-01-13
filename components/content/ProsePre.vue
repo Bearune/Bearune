@@ -5,7 +5,7 @@
         <span v-if="props.language && props.language !== 'txt'"
           class="language text-base-content py-1 px-1.5 rounded-btn sm:py-0 sm:px-0 sm:bg-transparent">{{
             props.language }}</span>
-        <span v-if="props.filename" class="text-base">{{ props.filename }}</span>
+        <span v-if="props.filename" class="text-base text-base-content">{{ props.filename }}</span>
       </div>
       <ToolTip content="複製程式碼">
         <button class="btn btn-icon absolute right-2 -bottom-12" @click="copyCode">

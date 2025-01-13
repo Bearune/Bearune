@@ -1212,4 +1212,4 @@ console.log(deserializedData.name); // → "Bearune
    - Math 物件：數學運算和隨機數生成
    - JSON：數據交換和序列化
 
-以上內容是基於 [4. Data Structures: Objects and Arrays - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/04_data.html) 所整理的精簡筆記。
+以上內容是基於 [4. Data Structures: Objects and Arrays - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/04_data.html){target=_blank} 所整理的精簡筆記。

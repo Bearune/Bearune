@@ -25,7 +25,7 @@ const toggleDetails = () => {
 
 <style scoped>
 .details-block {
-  * {
+  *:last-child {
     @apply mb-0 text-base;
   }
 }

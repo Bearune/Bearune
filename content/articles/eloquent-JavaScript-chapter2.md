@@ -487,4 +487,4 @@ function processLargeData(data) {
 
 程式由語句組成，語句可以包含更小的語句，而這些語句通常由表達式構成，表達式也能進一步拆分為更小的表達式。透過條件語句（`if-else`、`switch`）與循環語句（`while`、`do`、`for`），我們可以控制程式的執行流程。而綁定用於儲存資料，環境則是綁定的集合，JavaScript 也提供了一些內建綁定讓程式撰寫更方便。函數則是可重複使用的程式碼，能接受參數並返回結果，關於函數我們將在下一章詳細說明。
 
-以上內容是基於 [2. Program Structure - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/02_program_structure.html){target="_blank"} 所整理的精簡筆記。
+以上內容是基於 [2. Program Structure - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/02_program_structure.html){target=_blank} 所整理的精簡筆記。

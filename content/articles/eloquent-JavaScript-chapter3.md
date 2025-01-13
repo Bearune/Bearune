@@ -296,7 +296,7 @@ const roundTo = (n, step) => {
 ##### 3.1 特點
 
 - 更適合用於小型函數表達式。
-- 與函數表達式的功能幾乎相同（第6章會討論細節），但語法更簡潔。。
+- 與函數表達式的功能幾乎相同（[第6章](/articles/eloquent-javascript-chapter6#_31-this-關鍵字與綁定){target=_blank}會討論細節），但語法更簡潔。。
 - 引入於 2015 年（ES6），主要是為了提高程式碼的可讀性和簡潔性。
 
 #### 4. 函數宣告 vs 函數表達式
@@ -851,4 +851,4 @@ function add(a, b) {
 
 [點我獲取本文心智圖](/img/articles/eloquent-JavaScript/Functions.png){target="_blank"}
 
-以上內容是基於 [3. Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/03_functions.html){target="_blank"} 所整理的精簡筆記。
+以上內容是基於 [3. Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/03_functions.html){target=_blank} 所整理的精簡筆記。
