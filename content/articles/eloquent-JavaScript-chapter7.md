@@ -20,13 +20,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover7.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter7
+      content: https://bearune.com/articles/eloquent-javascript-chapter7
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 狀態管理與演算法優化！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記以一個具體的機器人送包裹案例，展示了如何在 JavaScript 中實現高效的狀態管理和路徑規劃。從基本的隨機移動策略開始，逐步改進到智能尋路算法，完整呈現了程式優化的過程。內容涵蓋了狀態管理模式、不可變性原則、廣度優先搜尋算法等重要概念，並通過實際程式碼展示了這些概念的應用。透過循序漸進的方式，幫助讀者理解如何設計和優化複雜的程式系統。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter7
+  loc: /articles/eloquent-javascript-chapter7
   lastmod: 2025-01-11
   changefreq: monthly
   priority: 0.5

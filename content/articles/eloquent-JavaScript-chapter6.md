@@ -20,13 +20,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover6.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter6
+      content: https://bearune.com/articles/eloquent-javascript-chapter6
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 物件導向程式設計！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從物件導向的基本思維出發，探討封裝、繼承、多型等核心特性的重要性，並深入介紹 JavaScript 中類別與物件的概念與應用。內容包含物件導向的基礎觀念、JavaScript 特有的原型繼承系統，以及現代 JavaScript 中 Map 和 Symbol 的實際應用案例，幫助你掌握 JavaScript 中物件導向程式設計的技巧。從基礎觀念到實務應用，循序漸進地學習如何運用物件導向的方法來組織程式碼，提升程式的可維護性與擴展性。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter6
+  loc: /articles/eloquent-javascript-chapter6
   lastmod: 2025-01-09
   changefreq: monthly
   priority: 0.5

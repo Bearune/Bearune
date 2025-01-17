@@ -29,7 +29,7 @@ article.normal {
     @apply text-primary duration-btn transition-colors;
 
     &:hover {
-      @apply underline underline-offset-2 decoration-wavy saturate-150;
+      @apply underline underline-offset-2 decoration-dotted saturate-150;
     }
   }
 
@@ -129,7 +129,7 @@ article.normal {
   }
 
   code {
-    @apply tracking-tight bg-base-200 text-base mx-px py-px px-1 rounded-btn border border-base-300;
+    @apply tracking-tight bg-base-200 text-base mx-px py-px px-1 rounded-btn border border-base-300 decoration-clone;
   }
 
   blockquote {
@@ -221,7 +221,7 @@ article.short {
     @apply text-primary duration-btn transition-colors;
 
     &:hover {
-      @apply underline underline-offset-2 decoration-wavy saturate-150;
+      @apply underline underline-offset-2 decoration-dotted saturate-150;
     }
   }
 
@@ -305,7 +305,7 @@ article.short {
   }
 
   code {
-    @apply text-primary-content py-px px-1 rounded-btn border;
+    @apply text-primary-content py-px px-1 rounded-btn border decoration-clone;
     background-color: color-mix(in oklab, oklch(var(--primary, var(--fallback-p)) / 1) 40%, white);
     border-color: oklch(var(--primary, var(--fallback-p)) / 1);
   }

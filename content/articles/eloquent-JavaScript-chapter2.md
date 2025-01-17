@@ -19,13 +19,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover2.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter2
+      content: https://bearune.com/articles/eloquent-javascript-chapter2
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 程式結構！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋表達式與語句、變數綁定與命名規則、函式定義與回傳值、控制流程（條件語句與迴圈）、程式風格最佳實踐等核心知識，幫助你快速掌握 JavaScript 程式設計的基礎概念與實用技巧。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter2
+  loc: /articles/eloquent-javascript-chapter2
   lastmod: 2024-12-25
   changefreq: monthly
   priority: 0.5

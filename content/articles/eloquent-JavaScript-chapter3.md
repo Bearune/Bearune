@@ -19,13 +19,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover3.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter3
+      content: https://bearune.com/articles/eloquent-javascript-chapter3
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter3
+  loc: /articles/eloquent-javascript-chapter3
   lastmod: 2024-12-26
   changefreq: monthly
   priority: 0.5

@@ -19,13 +19,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover1.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter1
+      content: https://bearune.com/articles/eloquent-javascript-chapter1
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter1
+  loc: /articles/eloquent-javascript-chapter1
   lastmod: 2024-12-24
   changefreq: monthly
   priority: 0.5

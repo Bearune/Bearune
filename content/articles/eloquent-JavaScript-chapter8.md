@@ -20,14 +20,14 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover8.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter8
+      content: https://bearune.com/articles/eloquent-javascript-chapter8
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 錯誤處理機制！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從錯誤的本質出發，詳細介紹了 JavaScript 中的錯誤預防、檢測和處理機制。從嚴格模式到異常處理，從選擇性捕獲到斷言機制，完整呈現了程式除錯的最佳實踐。內容涵蓋了錯誤類型定義、測試策略、錯誤傳播機制等重要概念，並通過實際程式碼展示了這些概念的應用。透過循序漸進的方式，幫助讀者掌握如何編寫更穩定、可靠的程式。
 
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter8
+  loc: /articles/eloquent-javascript-chapter8
   lastmod: 2025-01-13
   changefreq: monthly
   priority: 0.5

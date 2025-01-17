@@ -20,13 +20,13 @@ head:
       content: https://bearune.com/img/articles/eloquent-JavaScript/cover5.webp
   - - meta
     - property: og:url
-      content: https://bearune.com/articles/eloquent-JavaScript-chapter5
+      content: https://bearune.com/articles/eloquent-javascript-chapter5
   - - meta
     - property: og:description
       content: 深入淺出學習 JavaScript 高階函數！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從程式複雜性問題出發，探討抽象化的重要性，並深入介紹高階函數的概念與應用。內容包含常用的高階函數操作（filter、map、reduce）、函數組合的優缺點分析，以及透過 Unicode 腳本分析的實際案例，幫助你掌握 JavaScript 中高階函數的運用技巧。從基礎觀念到實務應用，循序漸進地學習如何運用高階函數來優化程式碼，提升程式設計的抽象能力。
 
 sitemap:
-  loc: /articles/eloquent-JavaScript-chapter5
+  loc: /articles/eloquent-javascript-chapter5
   lastmod: 2025-01-06
   changefreq: monthly
   priority: 0.5

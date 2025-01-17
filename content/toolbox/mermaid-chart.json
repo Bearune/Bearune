@@ -1,0 +1,11 @@
+{
+  "url": "https://www.mermaidchart.com/",
+  "icon": "/img/toolbox/mermaid-chart.ico",
+  "title": "Mermaid Chart",
+  "description": "Mermaid 是一種基於 JavaScript 的圖表和流程圖工具，能夠通過類似 Markdown 的文本定義來動態創建和修改圖表。製作文章架構或流程圖很好用。",
+  "category": "設計相關",
+  "tags": [
+    "免費",
+    "付費"
+  ]
+}
