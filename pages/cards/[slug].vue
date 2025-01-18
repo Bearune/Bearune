@@ -6,7 +6,7 @@
           <article class="normal grid grid-cols-8 gap-4 border-b border-base-300">
             <div class="col-span-8 pt-4 pb-2 border-b border-base-300 flex flex-col gap-4">
               <div class="flex flex-wrap gap-2 h-fit">
-                <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="$route.path">#{{ tag }}</TagCard>
+                <TagCard v-for="tag in doc.tags" :key="tag" :tag="tag" :path="'/cards'">#{{ tag }}</TagCard>
               </div>
               <h1 v-if="doc.title">{{ doc.title }}</h1>
               <div class="flex justify-between items-center">

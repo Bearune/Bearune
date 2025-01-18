@@ -56,7 +56,7 @@ export default defineNuxtConfig({
       // }
     },
     highlight: {
-      preload: ['vue-html', 'vue', 'javascript', 'html'],
+      preload: ['vue-html', 'vue', 'javascript', 'html', 'ini'],
     },
     experimental: {
       search: {
