@@ -13,7 +13,7 @@
         </button>
       </ToolTip>
     </div>
-    <pre :class="props.class" class="mr-8"><slot /></pre>
+    <pre :class="props.class" class="mr-8 min-h-14"><slot /></pre>
   </div>
 
 </template>

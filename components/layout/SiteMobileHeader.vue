@@ -1,5 +1,5 @@
 <template>
-  <div class="min-w-fit bg-base-400 text-base-content shadow-md rounded-box px-2">
+  <div class="min-w-fit bg-base-400 text-base-content shadow-md rounded-box px-2 z-10 ">
     <div class="h-fit">
       <ul class="!flex-nowrap menu gap-4">
         <li>

@@ -25,11 +25,18 @@ article.normal {
     @apply pt-2 mb-2 font-semibold;
   }
 
-  a:not(.anchorItem, .badge) {
+  a:not(.anchorItem, .badge, .btn) {
     @apply text-primary duration-btn transition-colors;
 
-    &:hover {
-      @apply underline underline-offset-2 decoration-dotted saturate-150;
+    &[href^=http]:after {
+      content: "\2197";
+      display: inline-block;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        @apply underline underline-offset-2 decoration-dotted saturate-150;
+      }
     }
   }
 
@@ -37,7 +44,7 @@ article.normal {
     @apply mb-8;
     counter-reset: main-counter;
 
-    >li {
+    > li {
       @apply relative pl-8;
 
       &:not(:first-child) {
@@ -58,11 +65,11 @@ article.normal {
         @apply mb-0;
       }
 
-      >ol {
+      > ol {
         @apply mb-0;
         counter-reset: sub-counter;
 
-        >li {
+        > li {
           @apply relative pl-14 pt-2;
 
           &::before {
@@ -71,11 +78,11 @@ article.normal {
             counter-increment: sub-counter;
           }
 
-          >ol {
+          > ol {
             @apply mb-0;
             counter-reset: sub-sub-counter;
 
-            >li {
+            > li {
               @apply relative pl-20 pt-2;
 
               &::before {
@@ -135,10 +142,10 @@ article.normal {
   blockquote {
     @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative sm:text-base sm:py-0.5;
 
-    >p,
+    > p,
     a {
       @apply italic mb-0 text-base-content;
-      --tw-bg-opacity: .6;
+      --tw-bg-opacity: 0.6;
     }
   }
 
@@ -220,8 +227,15 @@ article.short {
   a:not(.anchorItem, .badge) {
     @apply text-primary duration-btn transition-colors;
 
-    &:hover {
-      @apply underline underline-offset-2 decoration-dotted saturate-150;
+    &[href^=http]:after {
+      content: "\2197";
+      display: inline-block;
+    }
+    
+    @media (hover: hover) {
+      &:hover {
+        @apply underline underline-offset-2 decoration-dotted saturate-150;
+      }
     }
   }
 
@@ -229,7 +243,7 @@ article.short {
     @apply mb-4;
     counter-reset: main-counter;
 
-    >li {
+    > li {
       @apply relative pl-8;
 
       &::before {
@@ -238,11 +252,11 @@ article.short {
         counter-increment: main-counter;
       }
 
-      >ol {
+      > ol {
         @apply mb-0;
         counter-reset: sub-counter;
 
-        >li {
+        > li {
           @apply relative pl-14;
 
           &::before {
@@ -251,11 +265,11 @@ article.short {
             counter-increment: sub-counter;
           }
 
-          >ol {
+          > ol {
             @apply mb-0;
             counter-reset: sub-sub-counter;
 
-            >li {
+            > li {
               @apply relative pl-20;
 
               &::before {
@@ -313,9 +327,9 @@ article.short {
   blockquote {
     @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-2 px-2 relative;
 
-    >p {
+    > p {
       @apply italic mb-0 text-base-content;
-      --tw-bg-opacity: .6;
+      --tw-bg-opacity: 0.6;
     }
   }
 

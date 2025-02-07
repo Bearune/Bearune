@@ -49,7 +49,7 @@ sitemap:
 // 一個學生成績的資料集（Array）
 let studentScores = [85, 92, 78, 95, 88];
 
-// 一個更複雜的學生資料資料集（Object）
+// 一個更複雜的學生資料集（Object）
 let studentData = {
     name: "小明",
     scores: [85, 92, 78],
@@ -139,8 +139,6 @@ console.log(person["favorite color"]); // → "blue"
 想像一個物件（比如字串、陣列）是一個工具箱：
 - **屬性**是工具箱裡東西的特徵（比如螺絲起子的長度或材質）
 - **方法**是工具箱裡可以執行的動作（比如使用螺絲起子轉動螺絲）
-
-簡單來說：方法就是「物件可以執行的功能」或「物件可以做的事情」
 ::
 
 ```javascript
@@ -163,10 +161,10 @@ let person = {
 
 ```javascript
 let text = "hello world";
-console.log(text.toUpperCase()); // → HELLO WORLD（通過點記號呼叫方法）
+console.log(text.toUpperCase()); // → "HELLO WORLD"，通過點記號呼叫方法
 
 let arr = [1, 2, 3];
-arr.push(4); // → [1, 2, 3, 4]（陣列方法呼叫）
+arr.push(4); // → [1, 2, 3, 4]，陣列方法呼叫
 ```
 
 #### 3. 內建方法概覽
@@ -186,7 +184,7 @@ str.toUpperCase(); // → "HELLO WORLD"
 //移除字串起始及結尾處的空白字元
 str.trim(); // → "Hello World"
 ```
->延伸閱讀：[String 通用方法 - JavaScript - MDN Web Docs ](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String#%E6%96%B9%E6%B3%95){target="_blank"}
+> 延伸閱讀：[String 通用方法 - JavaScript - MDN Web Docs ](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/String#%E6%96%B9%E6%B3%95){target="_blank"}
 
 ##### 3.2 陣列方法
 
@@ -203,7 +201,7 @@ arr.pop(); // → [1, 2, 3]
 arr.join("-"); // → "1-2-3"
 ```
 
->延伸閱讀：[Array 方法 - JavaScript - MDN Web Docs ](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array#%E6%96%B9%E6%B3%95){target="_blank"}
+> 延伸閱讀：[Array 方法 - JavaScript - MDN Web Docs ](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array#%E6%96%B9%E6%B3%95){target="_blank"}
 
 
 #### 4. 自定義方法
@@ -434,7 +432,7 @@ console.log(numbers[10]); // → undefined
 
 #### 2. 字串的方法
 
-字串的方法可以在 MDN Web Docs 的 [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#static_methods){target="_blank"} 查找，這裡僅舉幾個常用的例子。
+字串的方法可以在 MDN Web Docs 的 [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#static_methods){target="_blank"} 查找，這裡舉幾個常用的例子。
 
 ##### 2.1 大小寫轉換：toUpperCase / toLowerCase
 
@@ -554,7 +552,7 @@ console.log(john.greet()); // → "Hello, I'm John"
 
 ##### 2.4 類別語法（ES6+）
 
-類別語法是現代 JavaScript 的物件導向方式。
+類別語法是現代 JavaScript 的物件導向方式，[第六章](/articles/eloquent-javascript-chapter6){target=_blank}會提到。
 
 ```javascript
 class Animal {
@@ -567,7 +565,7 @@ const dog = new Animal("Rex");
 
 #### 3. 物件的屬性
 
-我們先建立一個物件，接下來會以這個物件為例：
+我們先建立一個物件，接下來以這個物件為例：
 
 ```javascript
 const user = {
@@ -624,7 +622,7 @@ Object.hasOwn(user, "name");
 
 #### 4. 物件的方法
 
-物件的方法可以在 MDN Web Docs 的 [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods){target="_blank"} 查找，這裡僅舉幾個常用的例子。
+物件的方法可以在 MDN Web Docs 的 [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods){target="_blank"} 查找，這裡舉幾個常用的例子。
 
 ##### 4.1 Object.keys()
 
@@ -647,7 +645,7 @@ Object.values({x: 0, y: 0, z: 2}); // → [0, 0, 2]
 `Object.entries()` 是一個將物件轉換成 [key, value] 形式陣列的方法
 
 ```javascript
-Object.values({x: 0, y: 0, z: 2}); // → [["x", 0], ["y", 0], ["z", 2]]
+Object.entries({x: 0, y: 0, z: 2}); // → [["x", 0], ["y", 0], ["z", 2]]
 ```
 ##### 4.4 Object.assign()
 
@@ -700,10 +698,11 @@ console.log(obj1 === obj2); // → true
     ```
 1. 深拷貝
     ```javascript
+    const original = {x: 1, y: {z: 2}};
     const deepCopy = JSON.parse(JSON.stringify(original));
     // 深拷貝建立完全獨立的副本
     deepCopy.y.z = 4;
-    console.log(original.y.z); // → 3
+    console.log(original.y.z); // → 2
 
     // 注意：JSON.stringify() 的限制
     // - 無法處理函式
@@ -914,7 +913,7 @@ const allPositive = numbers.every(x => x > 0);
 
 ## 工具與應用
 
-了解完如何完轉資料集，這邊再額外介紹一些書裡提到的工具與應用。
+了解完如何完轉資料集，再額外介紹一些書裡提到的工具與應用。
 
 #### 1. Math 物件
 
@@ -1197,19 +1196,31 @@ console.log(deserializedData.name); // → "Bearune
 
 ## 總結
 
-在這篇文章中，我們深入探討了 JavaScript 中的數據結構和操作方法：
+本文詳細介紹了 JavaScript 中的資料結構和操作方法，著重於物件與陣列的使用與應用。
 
-1. 基礎數據結構
-   - 陣列（Array）：有序集合的實現
-   - 物件（Object）：鍵值對的組織方式
-   - 屬性（Properties）和方法（Methods）的概念和使用
-2. 現代 JavaScript 特性
-   - 解構賦值
-   - 展開運算符
-   - 可選鏈運算符
-   - 其他實用的陣列方法
-3. 實用工具與應用
-   - Math 物件：數學運算和隨機數生成
-   - JSON：數據交換和序列化
+#### 關鍵要點
+
+- **資料結構基礎**
+  - 陣列：有序集合，支援動態長度
+  - 物件：鍵值對結構，靈活的資料組織
+  - 屬性與方法：提供資料存取與操作介面
+
+- **現代特性**
+  - 解構賦值：簡化資料提取
+  - 展開運算符：彈性處理陣列與物件
+  - 可選鏈運算符：安全存取巢狀屬性
+  - 閉包應用：實現資料封裝
+
+- **工具與應用**
+  - Math 物件：數學運算與隨機數生成
+  - JSON：資料序列化與交換格式
+
+#### 實踐建議
+
+- 善用現代語法提升程式碼可讀性
+- 注意物件參考與複製的差異
+- 合理運用陣列方法處理資料
+- 謹記 JSON 的使用限制
+- 適當選擇資料結構以優化效能
 
 以上內容是基於 [4. Data Structures: Objects and Arrays - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/04_data.html){target=_blank} 所整理的精簡筆記。

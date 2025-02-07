@@ -2,7 +2,7 @@
 category: 前端開發
 title: 【JavaScript 學習筆記 03】函數 Chapter 3 Functions
 description: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
-tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
+tags: ["javascript", "Eloquent JavaScript 學習筆記系列"]
 date: 2024-12-26
 keywords: JavaScript 函數, JavaScript 函數基礎, JavaScript 函數教學, JavaScript 函數定義, JavaScript 函數參數, JavaScript 回傳值, JavaScript 作用域, JavaScript 閉包, JavaScript 呼叫堆疊, JavaScript 遞迴, JavaScript 單一職責原則, JavaScript 函數設計, JavaScript 最佳實踐, JavaScript 箭頭函數, JavaScript 嵌套範圍, JavaScript 堆疊溢出, JavaScript 尾遞迴優化, JavaScript 私有綁定, JavaScript 延遲執行, JavaScript 樹結構遍歷, JavaScript 費氏數列, JavaScript 快速排序, JavaScript 入門, JavaScript 學習筆記, JavaScript 範例, Eloquent JavaScript, JavaScript functions, JavaScript function basics, JavaScript function tutorial, JavaScript function definition, JavaScript function parameters, JavaScript return values, JavaScript scope, JavaScript closures, JavaScript call stack, JavaScript recursion, JavaScript single responsibility principle, JavaScript function design, JavaScript best practices, JavaScript arrow functions, JavaScript nested scope, JavaScript stack overflow, JavaScript tail call optimization, JavaScript private bindings, JavaScript delayed execution, JavaScript tree traversal, JavaScript Fibonacci sequence, JavaScript quicksort, JavaScript for beginners, JavaScript learning notes, JavaScript examples, Eloquent JavaScript
 image: /img/articles/eloquent-JavaScript/cover3.webp
@@ -31,13 +31,13 @@ sitemap:
   priority: 0.5
 ---
 
-本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="_blank"} 所整理的精簡筆記。
+本系列內容是基於 [Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/){target="\_blank"} 所整理的精簡筆記。
 
-> The best programs are those that manage to do something interesting while still being easy to understand.
+> People think that computer science is the art of geniuses but the actual reality is the opposite, just many people doing things that build on each other, like a wall of mini stones.── Donald Knuth
 
 ![【JavaScript 學習筆記 03】 Chapter 3 Functions](/img/articles/eloquent-JavaScript/cover3.webp)
 
-函數是 JavaScript 編程中最核心的工具之一，它能將一段程式邏輯封裝成一個值，從而提供了結構化程式碼的能力。
+本文深入探討 JavaScript 的函數系統，從最基本的函數概念到其在程式中的應用。通過實際的程式碼範例，說明如何定義函數、使用參數、回傳值以及作用域等重要特性，讓我們能夠更好地理解函數在 JavaScript 中的核心角色。同時，也介紹了閉包和遞迴等進階概念，幫助開發者提升程式碼的組織性和可維護性。
 
 :anchor
 
@@ -46,8 +46,8 @@ sitemap:
 當我們定義一個函數時，其實就是將函數當作一個值，賦予給一個綁定。以下範例為定義 `square` 函數來產生平方數：
 
 ```javascript
-const square = function(x) {
-    return x * x;
+const square = function (x) {
+  return x * x;
 };
 console.log(square(12));
 // → 144
@@ -55,18 +55,20 @@ console.log(square(12));
 
 #### 1. 參數
 
-一個函數可以有0～多個參數，如下所示：
+一個函數可以有 0 ～多個參數，如下所示：
 
 ```javascript
-const makeNoise = function() { // 沒有參數
-    console.log("Pling!");
+const makeNoise = function () {
+  // 沒有參數
+  console.log("Pling!");
 };
 makeNoise();
 // → Pling!
 
-const roundTo = function(n, step) { //兩個參數
-    let remainder = n % step;
-    return n - remainder + (remainder < step / 2 ? 0 : step);
+const roundTo = function (n, step) {
+  //兩個參數
+  let remainder = n % step;
+  return n - remainder + (remainder < step / 2 ? 0 : step);
 };
 console.log(roundTo(23, 10));
 // → 20
@@ -97,7 +99,7 @@ function doNothing() {
 console.log(doNothing()); // → undefined
 ```
 
-## 綁定和範圍（Bindings and scopes）
+## 綁定和範圍（Bindings and Scopes）
 
 ##### 什麼是作用域（Scope）？
 
@@ -122,40 +124,47 @@ function add(a, b) {
   return sum;
 }
 console.log(add(3, 4)); // → 7
-// console.log(sum); // 錯誤，sum 不可見
+console.log(sum); // 錯誤，sum 不可見
 ```
 
-#### 3. 區塊作用域（Block Scope）
+#### 2.1 區塊作用域（Block Scope）
 
 使用 `let` 或 `const` 聲明的綁定，其作用域限於定義所在的區塊（`{}`）內。
 
 ```javascript
-if (true) {
-  let y = 20; // 區域綁定
+{
+  let y = 20; // 區塊作用域
+  // y 只在這個代碼塊內部可見
 }
-// console.log(y); // 錯誤，y 不可見
 ```
 
-#### 4. 函數作用域（Function Scope）
+#### 2.2 函數作用域（Function Scope）
 
-在 ES6 之前，`var` 是唯一的綁定聲明方式，`var` 聲明的綁定在函數內具有函數作用域，而在全域範圍內聲明時，則具有全域作用域。此外，`var` 不受區塊作用域限制，因此在區塊內聲明的 `var` 綁定也可以在區塊外訪問。
+在 ES6 之前，`var` 是唯一的變數宣告方式，`var` 聲明的綁定在函數內具有函數作用域；在全域範圍內聲明時具有全域作用域。此外 `var` 不受區塊作用域限制，可以在區塊外訪問。
 
 ```javascript
-if (true) {
-  var z = 30; // 全域綁定
+// 函數作用域
+function example() {
+    var x = 10;
+    // x 只在此函數內可見
 }
-console.log(z); // → 30
+
+// 不受區塊作用域限制
+if (true) {
+    var y = 30;
+}
+console.log(y); // 30，不會拋出錯誤
 ```
 
->延伸閱讀：[JavaScript 進階： ES6. ES5 ES6 是什麼？](https://hugh-program-learning-diary-js.medium.com/javascript-%E9%80%B2%E9%9A%8E-es6-3a65102157e6){target="_blank"}
+> 延伸閱讀：[JavaScript 進階： ES6. ES5 ES6 是什麼？](https://hugh-program-learning-diary-js.medium.com/javascript-%E9%80%B2%E9%9A%8E-es6-3a65102157e6){target="\_blank"}
 
-#### 5. 作用域的層級關係（Scope Hierarchy）
+#### 3. 作用域的層級關係（Scope Hierarchy）
 
-- 內層作用域可以訪問外層作用域的綁定。
-- 若內外層作用域中有相同名稱的綁定，內層綁定會遮蔽外層綁定。
+- 內層作用域可以訪問外層的綁定。
+- 如果內外層有相同名稱的綁定，內層的綁定會覆蓋外層的綁定。
 
 ```javascript
-const halve = function(n) {
+const halve = function (n) {
   return n / 2; // 使用的是函數內的 n
 };
 let n = 10; // 全域綁定
@@ -165,30 +174,30 @@ console.log(n); // → 10
 
 ## 嵌套範圍（Nested scope）
 
-JavaScript 不僅有全域與局部綁定，還允許在函數或區塊內再定義其他區塊或函數，形成多層次的局部作用域。這種結構稱為「嵌套範圍」。每個內層範圍可以存取外層範圍的綁定，但外層範圍無法存取內層範圍的綁定。
+JavaScript 不僅有全域與區域綁定，還允許在函數或區塊內再定義新的區塊或函數，形成多層次的區域作用域。這種結構稱為「嵌套範圍」。每個內層範圍可以存取外層範圍的綁定，但外層範圍無法存取內層範圍的綁定。
 
 #### 1. 範例：製作食譜的函數
 
-以下範例展示了嵌套範圍的使用方式。在 `hummus` 函數內部，定義了一個名為 `ingredient` 的函數，`ingredient` 函數可以存取外層函數 `hummus` 的參數 `factor`，並進行計算。
+以下範例展示了嵌套範圍的使用方式。在 `hummus` 函數內部，定義了一個名為 `ingredient` 的函數，可以存取外層函數 `hummus` 的參數 `factor`，並進行計算。
 
 ```javascript
-const hummus = function(factor) {
-    // 內部函數，負責列出食材
-    const ingredient = function(amount, unit, name) {
-        let ingredientAmount = amount * factor; // 存取外層範圍的 factor
-        if (ingredientAmount > 1) {
-            unit += "s"; // 單位複數化
-        }
-        console.log(`${ingredientAmount} ${unit} ${name}`);
-    };
+const hummus = function (factor) {
+  // 內部函數，負責列出食材
+  const ingredient = function (amount, unit, name) {
+    let ingredientAmount = amount * factor; // 存取外層範圍的 factor
+    if (ingredientAmount > 1) {
+      unit += "s"; // 單位複數化
+    }
+    console.log(`${ingredientAmount} ${unit} ${name}`);
+  };
 
-    // 呼叫內部函數，列出食材
-    ingredient(1, "can", "chickpeas");
-    ingredient(0.25, "cup", "tahini");
-    ingredient(0.25, "cup", "lemon juice");
-    ingredient(1, "clove", "garlic");
-    ingredient(2, "tablespoon", "olive oil");
-    ingredient(0.5, "teaspoon", "cumin");
+  // 呼叫內部函數，列出食材
+  ingredient(1, "can", "chickpeas");
+  ingredient(0.25, "cup", "tahini");
+  ingredient(0.25, "cup", "lemon juice");
+  ingredient(1, "clove", "garlic");
+  ingredient(2, "tablespoon", "olive oil");
+  ingredient(0.5, "teaspoon", "cumin");
 };
 ```
 
@@ -197,9 +206,9 @@ const hummus = function(factor) {
 1. 內層範圍可存取外層範圍的綁定  
    在範例中，`ingredient` 函數可以使用外層 `hummus` 函數的參數 `factor`，並將其用於計算每種食材的數量。
 2. 外層範圍無法存取內層範圍的綁定  
-   例如，`hummus` 函數無法直接存取 `ingredient` 函數內部的綁定 `ingredientAmount` 或 `unit`。
+   在範例中，`hummus` 函數無法直接存取 `ingredient` 函數內部的綁定 `ingredientAmount` 或 `unit`。
 3. 範圍的隔離性  
-   每次呼叫 `ingredient` 函數時，都會創建新的局部綁定 `ingredientAmount` 和 `unit`，不會互相干擾。
+   在範例中，每次呼叫 `ingredient` 函數時都會創建新的局部綁定 `ingredientAmount` 和 `unit`，不會互相干擾。
 
 #### 3. 執行結果
 
@@ -216,24 +225,24 @@ const hummus = function(factor) {
 
 ## 函數基礎與表示方式
 
-JavaScript 提供多種方式來定義與使用函數，包括函數綁定、函數宣告、箭頭函數等。以下將逐步介紹這些概念及其特點。
+JavaScript 提供多種方式來定義與使用函數，包括函數表達式、函數宣告、箭頭函數等。以下逐步介紹這些概念及其特點。
 
-#### 1. 函數綁定（Function Binding）
+#### 1. 函數表達式（Function Expression）
 
-函數綁定是將函數值（Function Value）賦值給一個名稱（Binding），用來命名程式中的某段邏輯。在大多數情況下，函數綁定是**定義一次後不會變更的**，但綁定與函數值是兩個不同的概念。
+函數表達式是將函數值（Function Value）賦值給一個名稱（Binding），用來命名程式中的某段邏輯。在大多數情況下，函數表達式是**定義一次後不會變更的**，但名稱與函數值是兩個不同的概念。
 
 ##### 1.1 綁定與函數值的區別
 
-- Function Binding：是綁定的名稱，用來指向函數值。
-- Function Value：函數本身，實際的程式邏輯。
+- 名稱：是指向函數值的變數，用來引用該函數。
+- 函數值：函數本身，實際的程式邏輯。
 
 ```javascript
-let greet = function() {
+let greet = function () {
   console.log("Hello!");
 };
 
-// `greet` 是 Function Binding
-// `function() { console.log("Hello!"); }` 是 Function Value
+// `greet` 是名稱
+// `function() { console.log("Hello!"); }` 是函數值
 ```
 
 ##### 1.2 函數值的獨立性
@@ -241,17 +250,17 @@ let greet = function() {
 函數值是獨立的，可以被多個綁定名稱引用。改變一個綁定的值不會影響其他綁定。
 
 ```javascript
-let greet = function() {
+let greet = function () {
   console.log("Hello!");
 };
 
 let anotherGreet = greet; // 將函數值賦值給另一個綁定
-greet = function() {
+greet = function () {
   console.log("Hi!");
 };
 
 anotherGreet(); // → Hello!
-greet();        // → Hi!
+greet(); // → Hi!
 ```
 
 #### 2. 函數宣告（Function Declaration）
@@ -266,15 +275,43 @@ function square(x) {
 
 ##### 2.1 提升（Hoisting）
 
-函數宣告的提升會將整個函數定義移動到作用域頂部，因此可以在宣告之前調用該函數。而 `var` 聲明的綁定則只會提升名稱（宣告部分），但初始化仍保留在原始位置，因此在初始化之前訪問該綁定會得到 `undefined`。
+JavaScript 中的提升機制主要影響兩種宣告：函數宣告和 `var` 宣告。
 
-```javascript
-console.log("The future says:", future()); // → The future says: You'll never have flying cars
+1. 函數宣告會將整個函數定義移動到作用域頂部，因此可以在宣告之前調用該函數。
+    ```javascript
+    console.log("The future says:", future()); // → The future says: You'll never have flying cars
 
-function future() {
-  return "You'll never have flying cars";
-}
-```
+    function future() {
+      return "You'll never have flying cars";
+    }
+    ```
+2. `var` 宣告的綁定只提升宣告不提升賦值，因此在初始化前訪問該綁定會得到 `undefined`。以下是常見陷阱實例：
+    ```javascript
+    var x = 10;
+
+    function example() {
+        console.log(x); // → undefined（不是 10！）
+        var x = 20;     // 局部的 var x 宣告被提升
+        console.log(x); // → 20
+    }
+
+    example();
+    ```
+    這個例子實際上等同於：  
+    ```javascript
+    var x = 10;
+
+    function example() {
+        var x;          // 宣告被提升到函數作用域頂部
+        console.log(x); // → undefined
+        x = 20;        // 賦值保持在原位置
+        console.log(x); // → 20
+    }
+
+    example();
+    ```
+    雖然外層有 `x = 10`，但因為函數內也宣告了 `var x`，這個局部的 `x` 宣告會被提升到函數作用域的頂部，所以第一個 `console.log` 會輸出 `undefined`，而不是外層的 `10`。
+
 
 ##### 2.2 限制
 
@@ -288,15 +325,15 @@ function future() {
 
 ```javascript
 const roundTo = (n, step) => {
-    let remainder = n % step;
-    return n - remainder + (remainder < step / 2 ? 0 : step);
+  let remainder = n % step;
+  return n - remainder + (remainder < step / 2 ? 0 : step);
 };
 ```
 
 ##### 3.1 特點
 
 - 更適合用於小型函數表達式。
-- 與函數表達式的功能幾乎相同（[第6章](/articles/eloquent-javascript-chapter6#_31-this-關鍵字與綁定){target=_blank}會討論細節），但語法更簡潔。。
+- 與函數表達式的功能幾乎相同（但在 `this` 的綁定上有所不同，詳情見[第 6 章](/articles/eloquent-javascript-chapter6#_31-this-關鍵字與綁定){target=\_blank}）。
 - 引入於 2015 年（ES6），主要是為了提高程式碼的可讀性和簡潔性。
 
 #### 4. 函數宣告 vs 函數表達式
@@ -317,6 +354,7 @@ const roundTo = (n, step) => {
 #### 1. 呼叫堆疊的運作機制
 
 當程式執行時，呼叫堆疊會記錄每個函數的執行上下文（context）。以下是運作流程：
+
 1. 函數被呼叫時：
    - 電腦將當前的執行上下文存入堆疊中。
    - 控制流程跳轉到被呼叫的函數，並開始執行該函數。
@@ -350,7 +388,7 @@ console.log("Bye");
 
 #### 3. 堆疊溢出（Stack Overflow）
 
-呼叫堆疊需要佔用記憶體來儲存上下文。如果函數呼叫過深，堆疊會變得過大，最終導致**堆疊溢出**（stack overflow）。這種情況通常發生於[遞迴](https://zh.wikipedia.org/zh-tw/%E9%80%92%E5%BD%92_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)){target="_blank"}函數中，尤其是遞迴條件未正確處理時。
+呼叫堆疊需要佔用記憶體來儲存上下文。如果函數呼叫過深，堆疊會變得過大，最終導致**堆疊溢出**（stack overflow）。這種情況通常發生於[遞迴](<https://zh.wikipedia.org/zh-tw/%E9%80%92%E5%BD%92_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)>){target="\_blank"}函數中，尤其是遞迴條件未正確處理時。
 
 ##### 範例：遞迴引發堆疊溢出
 
@@ -363,7 +401,7 @@ recurse(); // 堆疊溢出 (Maximum call stack size exceeded)
 
 ## 可選參數（Optional Arguments）
 
-JavaScript 提供多種方式來定義與使用函數，包括函數綁定、函數宣告、箭頭函數等。以下將逐步介紹這些概念及其特點。
+JavaScript 提供多種方式來定義與使用函數，包括函數表達式、函數宣告、箭頭函數等。以下將逐步介紹這些概念及其特點。
 
 #### 1. 過多參數
 
@@ -392,21 +430,20 @@ function greet(who) {
 }
 greet(); // → Hello undefined
 ```
+
 - 行為解釋：`who` 未被提供，預設為 `undefined`，因此輸出 `"Hello undefined"`。
 
 #### 3. 應用範例：模擬減法操作符
 
 利用參數為 `undefined` 的特性，可以設計函數根據參數的數量執行不同的邏輯。
 
-##### 範例
-
 ```javascript
 function minus(a, b) {
   if (b === undefined) return -a; // 如果 b 未提供，返回 -a
   else return a - b; // 如果 b 提供，返回 a - b
 }
-console.log(minus(10));      // → -10
-console.log(minus(10, 5));   // → 5
+console.log(minus(10)); // → -10
+console.log(minus(10, 5)); // → 5
 ```
 
 - 行為解釋：當 `b` 未提供時，函數只處理 `a`；當 `b` 提供時，函數執行減法。
@@ -422,8 +459,8 @@ function roundTo(n, step = 1) {
   let remainder = n % step;
   return n - remainder + (remainder < step / 2 ? 0 : step);
 }
-console.log(roundTo(4.5));      // → 5 （使用預設值 step = 1）
-console.log(roundTo(4.5, 2));   // → 4 （提供了 step = 2）
+console.log(roundTo(4.5)); // → 5 （使用預設值 step = 1）
+console.log(roundTo(4.5, 2)); // → 4 （提供了 step = 2）
 ```
 
 - 行為解釋：`step` 預設為 `1`，當傳入參數時會覆蓋預設值。
@@ -438,13 +475,13 @@ console.log(roundTo(4.5, 2));   // → 4 （提供了 step = 2）
 console.log("C", "O", 2); // → C O 2
 ```
 
-> 在下一章中，將介紹如何在函數內部獲取所有傳入的參數（例如使用 `arguments` 或展開運算符 `...`）。
+> 在[下一章](/articles/eloquent-javascript-chapter4#_2-現代-javascript-特性){target=_blank}中，將介紹如何在函數內部獲取所有傳入的參數（例如使用 `arguments` 或展開運算符 `...`）。
 
 ## 閉包（Closure）
 
-閉包是 JavaScript 中的一個強大概念，指的是**函數可以記住並訪問它創建時的作用域，即使函數在該作用域之外執行**。
+閉包是 JavaScript 中一個強大的概念，指的是**函數可以記住並訪問它創建時的作用域，即使函數在該作用域之外執行**。
 
-簡單來說，閉包是一個函數與其「環境」的結合體。當函數被返回或傳遞時，它會攜帶著它創建時的環境，這就是閉包的核心。
+閉包就像是一個「記憶盒子」—— 函數不只記得自己要做什麼，還記得它被創建時周圍有什麼。即使離開了原本的地方，這個記憶依然存在。
 
 #### 1. 閉包的基本範例
 
@@ -474,7 +511,7 @@ console.log(wrap2()); // → 2
 3. 當呼叫 `wrap1()` 和 `wrap2()` 時：
    - 它們分別返回各自環境中的 `local` 值（即 `1` 和 `2`），互不影響。
 
-#### 2. 關鍵概念：為什麼閉包能記住綁定？
+#### 2. 為什麼閉包能記住綁定？
 
 閉包的核心機制在於**返回的子函數「記住」了它創建時的作用域環境**，即使主函數已經執行完畢。
 
@@ -482,9 +519,9 @@ console.log(wrap2()); // → 2
 
 1. 語彙範疇（Lexical Scope）：
    - 函數的作用域在它「定義時」就已經確定，而不是在「執行時」確定。
-   - 當主函數返回了一個子函數時，這個子函數攜帶了它在「定義時」的作用域環境，這個環境中包含了當時的所有綁定。
+   - 當主函數返回了一個子函數時，這個子函數攜帶了它在定義時的作用域環境，這個環境中包含了當時的所有綁定。
 2. 記憶機制：  
-  當主函數執行完畢後，它的執行上下文通常會被銷毀。但如果返回的子函數仍然引用主函數中的綁定，那些綁定就會被保留在記憶體中，因為子函數需要它們，這就是閉包的本質。
+   當主函數執行完畢後，它的執行上下文通常會被銷毀。但如果返回的子函數仍然引用主函數中的綁定，那些綁定就會被保留在記憶體中，因為子函數需要它們。
 
 #### 3. 應用場景：閉包的實際用法
 
@@ -497,7 +534,7 @@ function counter() {
   let count = 0; // 私有綁定
   return {
     increment: () => count++,
-    getCount: () => count
+    getCount: () => count,
   };
 }
 
@@ -547,15 +584,14 @@ console.log(tripler(5)); // → 15
 - 閉包 = 函數 + 環境。
 - 當一個函數內 `return` 了另一個函數時，閉包就產生了。
 
-> 延伸閱讀：[深入淺出 JavaScript 閉包（closure）](https://pjchender.dev/javascript/js-closure/){target="_blank"}  
+> 延伸閱讀：[深入淺出 JavaScript 閉包（closure）](https://pjchender.dev/javascript/js-closure/){target="\_blank"}  
 > 這篇文章對閉包的解釋非常清楚，推薦閱讀。
-
 
 ## 遞迴（Recursion）
 
 #### 1. 什麼是遞迴？
 
-遞迴（Recursion）是指函數可以呼叫自身的特性。呼叫自身的函數稱為遞迴函數。
+遞迴是指函數可以呼叫自身，呼叫自身的函數稱為遞迴函數。
 
 ##### 範例：計算次方
 
@@ -563,11 +599,11 @@ console.log(tripler(5)); // → 15
 
 ```javascript
 function power(base, exponent) {
-    if (exponent == 0) {
-        return 1; // 基底條件：當指數為 0 時，返回 1
-    } else {
-        return base * power(base, exponent - 1); // 遞迴步驟：base * (base^(exponent-1))
-    }
+  if (exponent == 0) {
+    return 1; // 基底條件：當指數為 0 時，返回 1
+  } else {
+    return base * power(base, exponent - 1); // 遞迴步驟：base * (base^(exponent-1))
+  }
 }
 console.log(power(2, 3)); // → 8
 ```
@@ -576,7 +612,7 @@ console.log(power(2, 3)); // → 8
 
 雖然遞迴的寫法簡潔優雅，但在某些情況下，遞迴的效率可能低於迴圈，特別是當遞迴深度過大時。
 
-> 補充：一些現代 JavaScript 引擎（如 V8）支持[尾遞迴](https://zh.wikipedia.org/zh-tw/%E5%B0%BE%E8%B0%83%E7%94%A8#%E5%B0%BE%E9%80%92%E5%BD%92){target="_blank"}優化，可以在某些條件下減少遞迴的記憶體消耗。
+> 補充：一些現代 JavaScript 引擎（如 V8）支持[尾遞迴](https://zh.wikipedia.org/zh-tw/尾调用#尾递归){target=_blank}優化，可以在某些條件下減少遞迴的記憶體消耗。
 
 以下是使用迴圈實現的次方函數，它的效率通常比遞迴版本更高：
 
@@ -595,8 +631,8 @@ function power(base, exponent) {
 既然遞迴可能效率較低，為什麼還要使用它呢？
 
 1. 可讀性與正確性優先
-   - 遞迴的表達方式通常更接近問題的自然描述，程式更容易理解。
-   - 在設計程式時，應該優先確保程式正確運行，並且易於維護。
+   - 遞迴的表達方式通常更接近自然的描述方式，程式更容易理解。
+   - 設計程式時，應該優先確保程式正確運行，並易於維護。
 2. 效能問題可以延後處理
    - 不需要一開始就過度擔憂效率，因為大多數程式的執行時間並不會成為瓶頸。
    - 如果效能成為問題，可以在完成後進行測量，並根據需要進行優化。
@@ -606,49 +642,39 @@ function power(base, exponent) {
 雖然遞迴在某些情況下效率較低，但它在處理以下類型的問題時非常有用：
 
 1. 需要探索多個分支的問題
-   - 例如：樹結構遍歷、路徑搜索、排列組合等。
+   - 例如：樹的遍歷、路徑搜索、排列組合等。
 2. 問題可以被分解為更小的子問題
    - 例如：費氏數列、快速排序、歐幾里得算法等。
 
 #### 範例：探索操作序列
 
-從數字 1 開始，通過「加 5」或「乘 3」的操作，可以生成一個無限的數字集合。給定一個目標數字，寫一個函數來嘗試找到一組操作序列，使得從 1 開始可以生成這個數字。如果無法生成，則返回 `null`。
-
-解法：我們可以使用遞迴來探索所有可能的操作序列，直到找到目標數字。
+從數字 1 開始，透過反覆執行「＋5」或「×3」兩種操作，找到能到達目標數字的最短操作路徑，若存在多種解法，優先返回最先找到的解法。若無法生成，則返回 `null`。
 
 ```javascript
 function findSolution(target) {
-    function find(current, history) {
-        if (current == target) {
-            return history; // 找到目標，返回操作歷史
-        } else if (current > target) {
-            return null; // 超過目標，停止探索
-        } else {
-            // 遞迴探索兩種可能的操作
-            return find(current + 5, `(${history} + 5)`) ??
-                   find(current * 3, `(${history} * 3)`);
-        }
+  function find(current, history) {
+    if (current == target) {
+      return history; // 找到目標，返回操作歷史
+    } else if (current > target) {
+      return null; // 超過目標，停止探索
+    } else {
+      // 遞迴探索兩種可能的操作
+      return (
+        find(current + 5, `(${history} + 5)`) ??
+        find(current * 3, `(${history} * 3)`)
+      );
     }
-    return find(1, "1"); // 從 1 開始探索
+  }
+  return find(1, "1"); // 從 1 開始探索
 }
 
-console.log(findSolution(24)); 
+console.log(findSolution(24));
 // → (((1 * 3) + 5) * 3)
 ```
- 
-#### 5. 遞迴與迴圈的選擇
-
-1. 適合使用遞迴的情況：
-   - 問題具有明顯的分解結構，例如樹或圖的遍歷。
-   - 需要探索多個分支的情況，例如路徑搜索。
-   - 遞迴的表達方式更接近問題本身的描述。
-2. 適合使用迴圈的情況：
-   - 問題可以用單一的重複操作解決，例如數值計算。
-   - 效率是首要考量，並且遞迴可能導致堆疊溢出時。
 
 ## 如何逐步改進程式設計中的函數設計？
 
-在程式設計中，函數設計的品質直接影響程式碼的可讀性、靈活性和可維護性。這裡我們將以一個簡單的例子——**農場動物數量的格式化輸出**——來展示如何通過逐步改進，讓程式碼變得更加清晰和高效。
+在程式設計中，函數設計的品質直接影響程式碼的可讀性、靈活性和可維護性。這裡我們將以一個簡單的例子——**農場動物數量的格式化輸出**來展示如何通過逐步改進，讓程式碼變得更加清晰和高效。
 
 目標：輸出農場上動物的數量，並將數字格式化為三位數。
 
@@ -663,7 +689,7 @@ function printFarmInventory(cows, chickens) {
     cowString = "0" + cowString;
   }
   console.log(`${cowString} Cows`);
-  
+
   let chickenString = String(chickens);
   while (chickenString.length < 3) {
     chickenString = "0" + chickenString;
@@ -729,7 +755,7 @@ function printFarmInventory(cows, chickens, pigs) {
   console.log(`${zeroPad(pigs, 3)} Pigs`);
 }
 
-printFarmInventory(7, 16, 3);
+printFarmInventory(7, 11, 3);
 ```
 
 ##### 優點：
@@ -737,34 +763,39 @@ printFarmInventory(7, 16, 3);
 `zeroPad` 函數只負責格式化數字，通用性更強，可以在其他場景中重用。
 `printFarmInventory` 的邏輯更加簡單易讀，未來需要新增動物時，只需添加一行代碼。
 
-#### 4. 總結與函數設計的原則
+#### 4. 總結：函數設計原則
 
-1. 單一職責原則 （Single Responsibility Principle）  
-   函數應該只執行一個清晰的任務。
+1. 單一職責原則 （Single Responsibility Principle）：函數應該只執行一個清晰的任務。
+   ::info
    - 初始版本中，格式化數字和打印輸出的邏輯混合在一起，違反了單一職責原則。
    - 在改進版本 2 中，`zeroPad` 和 `printFarmInventory` 的職責更加明確。
-2. 函數的命名  
-   函數名稱應該清晰地表達它的用途。
+   ::
+2. 函數的命名：函數名稱應該清晰地表達它的用途。
+   ::info
    - 例如，`zeroPad` 清楚地表達了它的功能是將數字格式化為指定寬度。
-3. 適度的通用性  
-   函數的設計應該根據實際需求來確定通用性，而不是過度設計。
-   - 在改進版本 2 中，`zeroPad` 的通用性足以應對大多數場景，但並沒有過度設計。
+   ::
+3. 適度的通用性：函數的設計應該根據實際需求來確定通用性，而不是過度設計。
+   ::info
+   - 在改進版本 2 中，`zeroPad` 的通用性足以應對大多數場景，沒有過度設計。
+   ::
 4. 平衡代碼的重複性與可讀性
+   ::info
    - 從重複代碼開始，逐步抽取公共邏輯，減少冗餘。
    - 避免過早優化或過度設計，應根據實際需求進行改進。
+   ::
 
 ## 功能與副作用：理解函數的兩種角色
 
 函數是程式設計的核心工具，它們的主要作用可以分為兩類：
 
-1. 執行操作：與外部世界交互，產生副作用。
+1. 執行操作：與外部世界交互以產生副作用。
 2. 計算值：根據輸入產生並返回結果。
 
-接下來，我們將詳細討論這兩種類型的函數，以及如何在設計中平衡它們的使用。
+接下來我們詳細討論這兩種類型的函數，以及如何在設計中平衡使用。
 
 #### 1. 副作用函數
 
-副作用函數的主要目的是執行某些操作，這些操作會影響外部世界或外部狀態。常見的副作用包括：
+副作用函數的主要目的是執行某些操作，這些操作會影響外部世界。常見的副作用包括：
 
 1. 修改外部綁定
 2. 寫入檔案
@@ -841,14 +872,26 @@ function add(a, b) {
    - 副作用函數應該只負責執行操作，而不應包含複雜的邏輯。
    - 將邏輯提取到純函數中，讓程式的核心部分保持純粹。
 
->程式設計的挑戰在於如何平衡純函數與副作用的使用，從而提升程式的可讀性、可測試性和效率。
+> 程式設計的挑戰在於如何平衡純函數與副作用的使用，從而提升程式的可讀性、可測試性和效率。
 
 ## 總結
 
-本章介紹了三種定義函數的方式：**函數宣告**、**函數表達式**和**箭頭函數**，並深入探討了作用域的概念。每個區塊都會創建一個新的作用域，而 `var` 關鍵字的特殊性在於它不受區塊限制，會被提升到最近的函數或全域作用域。
+本文透過深入淺出的方式，探討了 JavaScript 中的函數系統。從最基本的函數定義到參數、回傳值及作用域的運用，逐步展示了如何有效地使用函數來組織和管理程式碼。同時也說明了閉包、遞迴等進階概念的應用，強調了函數設計的最佳實踐。
 
-函數的核心價值在於能夠減少代碼重複，幫助清晰地組織程式碼，從而提升可讀性和靈活性。特別是命名良好的函數，能夠直觀地表達其用途，讓程式更易於理解與維護。掌握函數的使用與最佳實踐，是撰寫高品質程式碼的關鍵。
+#### 關鍵要點
 
-[點我獲取本文心智圖](/img/articles/eloquent-JavaScript/Functions.png){target="_blank"}
+- 函數是 JavaScript 編程的核心工具，能夠封裝程式邏輯
+- 參數和回傳值是函數的重要特性
+- 作用域決定了變數和函數的可見性
+- 閉包允許函數記住其創建時的環境
+- 遞迴是一種強大的解決問題的技術
 
-以上內容是基於 [3. Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/03_functions.html){target=_blank} 所整理的精簡筆記。
+#### 實踐建議
+
+- 善用函數的參數和回傳值機制
+- 理解作用域的概念，避免變數衝突
+- 利用閉包來創建私有變數
+- 在適當情況下使用遞迴來解決問題
+- 注意函數的命名，保持清晰與一致性
+
+以上內容是基於 [3. Functions - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/03_functions.html){target=\_blank} 所整理的精簡筆記。

@@ -15,7 +15,7 @@
       <div v-if="inputValue">
         搜尋<span class="font-semibold text-primary px-1">{{ inputValue }}</span>的結果如下：
       </div>
-      <div class="h-[28.5rem] overflow-auto">
+      <div class="h-[31.5rem] overflow-auto md:h-[calc(100vh-5rem)] searchResult">
         <div v-if="filteredProducts.length === 0 && inputValue" class="text-center text-lg">
           找不到符合搜尋字詞「<span class="font-semibold text-primary px-1">{{ inputValue }}</span>」的文章。</div>
         <div v-else class="overflow-y-auto">
@@ -118,4 +118,14 @@ onUnmounted(() => {
 // })
 </script>
 
-<style scoped></style>
+<style scoped>
+.searchResult{
+  &::-webkit-scrollbar {
+    @apply w-3 sm:hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    @apply bg-base-300 rounded-sm;
+  }
+}
+</style>
