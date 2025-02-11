@@ -74,7 +74,7 @@ sitemap:
     console.log(sum(range(1, 10)));
     ```
 
-- 兩種方式比較
+##### 兩種方式比較
 
 | 面向     | 直接實現             | 使用抽象函數     |
 | -------- | -------------------- | ---------------- |
@@ -104,7 +104,7 @@ sitemap:
   將豌豆浸泡 12 小時。炖煮 2 小時。切碎並加入蔬菜。繼續烹飪 10 分鐘。
   ```
 
-第二個顯然更短也更容易看懂，但需要理解更多烹飪相關詞語（如：浸泡、燉煮等等）。在寫程式的過程中我們也不能期待所有需要的詞語都能出現在字典裡，所以我們常常會陷入第一個食譜的模式──逐一敲出程式執行的步驟，而忽略了很多程式其實可以直接用抽象去表達。
+第二個顯然更短也更容易看懂，但需要理解更多烹飪相關詞語（如：浸泡、燉煮等等）。在寫程式的過程中我們也不能期待所有需要的詞語都能掌握，所以我們常常會陷入第一個食譜的模式──逐一敲出程式執行的步驟，而忽略了很多程式其實可以直接用抽象去表達。
 
 這種抽象的概念在程式設計中非常重要，它能幫助我們建立更清晰、更容易維護的程式碼，同時也減少了出錯的機會。就像食譜一樣，**好的抽象可以讓複雜的任務變得更容易理解和執行**。
 
@@ -142,7 +142,7 @@ function multiplier(factor) {
 
 #### 2. 常見形式
 
-高階函數能夠對操作，而不僅僅是值進行抽像，有如下幾種抽象形式：
+高階函數能夠對操作而不僅僅是值進行抽象，有如下幾種抽象形式：
 
 ##### 2.1 創建新函數
 
@@ -285,79 +285,11 @@ repeat(3, n => {
 
 > 延伸閱讀：[Array.prototype.reduce() - JavaScript - MDN Web Docs](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce){target="_blank"}
 
-函數組合
-
-函數組合是一種將多個簡單函數組合成一個更複雜函數的技術。就像樂高積木一樣，我們可以將小的、可重用的函數片段組合成更大的功能單元。這種方法不僅提高了代碼的可維護性，也使得程式邏輯更容易理解和測試。
-
-#### 1. 組合的優勢
-
-##### 1.1 代碼可讀性
-
-每個函數都有明確的名稱和功能，邏輯分層清晰，代碼意圖容易理解，因此使用函數組合可以將複雜操作表達得更接近問題本身的描述。
-
-```javascript
-// 使用函數組合的方式更易讀
-const processData = compose(
-    sum,
-    arr => arr.map(double),
-    arr => arr.filter(isPositive)
-);
-```
-
-##### 1.2 維護性
-
-函數組合可以將複雜操作分解成小的、獨立的部分，每個函數能單獨測試，並且其容易修改和擴展。
-
-##### 1.3 靈活性
-
-函數組合還可以根據需求靈活組合不同的函數，易於適應需求變化，並提高代碼復用率，可以像搭積木一樣組合出新的功能。
-
-#### 2. 組合的劣勢──性能考慮
-
-##### 2.1 內存使用
-
-**函數組合可能會創建額外的中間數組**，因此處理大資料集時需要注意內存開銷，我們可以通過優化減少創建中間狀態。
-
-##### 2.2 運行效率
-
-每次函數調用都有開銷，因此多次遍歷可能影響性能。在某些場景下，直接的命令式編程可能會更快。
-
-##### 2.3 使用場景權衡
-
-什麼時候使用函數組合，我們需要考慮以下因素：
-
-- 數據規模大小
-- 執行頻率
-- 代碼維護需求
-- 團隊開發經驗
-
-這邊建議：
-
-- 對於小型資料集，優先考慮代碼可讀性
-- 對於大型資料集或性能關鍵場景，可以選擇更直接的實現方式
-- 需要在可讀性和性能之間找到平衡點
-
-```javascript
-// 小資料集：優先可讀性
-const processSmallData = compose(sum, map(double), filter(isPositive));
-
-// 大資料集：優先性能
-function processLargeData(data) {
-    let result = 0;
-    for (let i = 0; i < data.length; i++) {
-        if (data[i] > 0) {
-            result += data[i] * 2;
-        }
-    }
-    return result;
-}
-```
-
 ## 實際應用──Unicode腳本分析
 
 本章節將介紹如何運用前面學到的高階函數來分析 [Unicode 腳本資料集](https://zh.wikipedia.org/zh-tw/%E6%96%87%E5%AD%97_(Unicode)){target="_blank"}。
 
-#### 1. 數據結構
+#### 1. Unicode 腳本資料集介紹
 
 Unicode 腳本資料集（[SCRIPTS](https://eloquentjavascript.net/code/scripts.js){target="_blank"}）是一個包含了世界上各種書寫系統資訊的集合。每個腳本對象包含以下重要屬性：
 
@@ -382,11 +314,13 @@ const SCRIPTS = [
 - living：表示該腳本是否仍在現代使用
 - link：相關維基百科連結
 
-#### 2. 實用操作
+#### 2. 函數組合的實際應用
+
+讓我們看看如何運用函數組合來分析這些資料：
 
 ##### 2.1 查找活躍腳本
 
-我們可以使用 `filter` 和 `map` 找出現今仍在使用的腳本名稱：
+使用 `filter` 和 `map` 的組合找出現今仍在使用的腳本名稱：
 
 ```javascript
 console.log(SCRIPTS.filter(script => script.living).map(script => script.name));
@@ -398,7 +332,7 @@ console.log(SCRIPTS.filter(script => script.living).map(script => script.name));
 
 ##### 2.2 查找字幅最多的腳本
 
-要查找字幅最多的腳本，我們需要計算每個腳本共包含多少字符，可以使用 `reduce` 加總其 Unicode 範圍：
+組合 `reduce` 來計算和比較字符數量：
 
 ```javascript
 function characterCount(script) {
@@ -415,18 +349,21 @@ console.log(SCRIPTS.reduce((biggest, current) => characterCount(biggest) < chara
 2. 再來比較由 `characterCount` 回傳的每個腳本的字符總數
 3. 得出最大的字符腳本：漢字
 
-##### 2.3 比較活躍及死亡腳本的平均起源年份
+##### 2.3 比較腳本平均年份
 
-要分別找到活躍及死亡腳本，並計算出平均起源年份，可以使用 `filter`、`map` 及 `reduce` 進行組合操作：
+要分別找到活躍及死亡腳本，並計算出平均起源年份，可以結合 `filter`、`map` 和 `reduce` 來計算平均值：
 
 ```javascript
 function average(array) {
   return array.reduce((a, b) => a + b) / array.length;
 }
 
+// 活躍腳本平均年份
 console.log(Math.round(average(
   SCRIPTS.filter(s => s.living).map(s => s.year))));
 // → 1165
+
+// 死亡腳本平均年份
 console.log(Math.round(average(
   SCRIPTS.filter(s => !s.living).map(s => s.year))));
 // → 204
@@ -435,125 +372,6 @@ console.log(Math.round(average(
 1. 首先建立 `average` 函式，以 `reduce` 計算陣列加總的平均
 2. 再來分別使用 `filter` 過濾活躍及死亡的起始年份，並使用 `map` 回傳起始年份，代入 `average` 中
 3. 得出平均起始年代，活躍腳本為 1165 年；死亡腳本為 204 年。顯而易見，我們發現死亡腳本平均比存活的腳本更老。
-
-#### 3. 字符串與字符代碼
-
-與高級函數無關，本小節補充關於**JavaScript 的字串問題**。
-
-在[第一章的字串](/articles/eloquent-javascript-chapter1#字串strings){target="_blank"}中有提到：
-
-> JavaScript 的字串型別是基於 Unicode 標準
-
-Unicode 最初設計為 16 位編碼（2^16），當時認為這足夠表示世界上所有的文字符號，後來才發現 65,536 個字符明顯不夠用（大量漢字、歷史文字、表情符號等等），於是有了後來的 UTF-16，可以表示超過 100 萬個字符。目前 JavaScript 仍然使用 UTF-16 作為內部字符串編碼。
-
-::info
-**UTF-16**
-使用「代理對」(Surrogate Pairs) 機制
-- 基本字符：使用一個 16 位代碼單元，稱為[基本多文種平面（Basic Multilingual Plane, BMP）](https://zh.wikipedia.org/zh-tw/Unicode%E5%AD%97%E7%AC%A6%E5%B9%B3%E9%9D%A2%E6%98%A0%E5%B0%84#%E5%9F%BA%E6%9C%AC%E5%A4%9A%E6%96%87%E7%A7%8D%E5%B9%B3%E9%9D%A2){target="_blank"}
-- 擴展字符：使用兩個 16 位代碼單元
-::
-
-然而，因為 UTF-16 的編碼範圍限制，當我們在 JavaScript 中處理字符串時需要特別注意以下幾點：
-
-##### 3.1 字符長度問題
-
-超出基本多文種平面的字符需要使用兩個 16 位代碼單元來表示，就會造成長度輸出上有異常。
-
-```javascript
-// 基本多文種平面內的字符
-let simple = "x";
-console.log(simple.length); // → 1
-
-// 超出BMP的字符（如emoji）
-let emoji = "🎮";
-console.log(emoji.length); // → 2
-```
-
-##### 3.2 字符串操作方法
-
-JavaScript 提供了多種處理字符代碼的方法：
-
-```javascript
-// 獲取代碼單元
-let horse = "🐎";
-console.log(horse.charCodeAt(0)); // → 55357（第一個代碼單元）
-console.log(horse.charCodeAt(1)); // → 56334（第二個代碼單元）
-
-// 獲取完整的代碼點
-console.log(horse.codePointAt(0)); // → 128014（實際的 Unicode 碼點）
-```
-
-##### 3.3 正確的字符遍歷
-
-為了正確處理包含代理對的字符串，應該使用：
-
-1. `for...of` 循環
-    ```javascript
-    let text = "🌟A中";
-    for (let char of text) {
-        console.log(char);
-    }
-    // → 🌟
-    // → A
-    // → 中
-    ```
-2. 展開運算符
-    ```javascript
-    let text = "🌟A中";
-    let chars = [...text];
-    console.log(chars.length); // → 3
-    ```
-3. **不推薦**：傳統 `for` 循環
-    ```javascript
-    let text = "🌟A中";
-    // 可能會把一個字符拆成兩半
-    for (let i = 0; i < text.length; i++) {
-        console.log(text[i]); // 可能輸出亂碼
-    }
-    // → �
-    // → �
-    // → A
-    // → 中
-    ```
-##### 3.4 字符串比較和搜索
-
-在進行字符串操作時，需要注意：
-
-1. 字符串比較
-    ```javascript
-    console.log("Z" > "A"); // → true
-    console.log("🌟" > "A"); // → true，但比較的是代碼點值
-    ```
-2. 字符串搜索
-    ```javascript
-    let message = "Hello 🌟 World";
-    console.log(message.indexOf("🌟")); // → 6
-    ```
-##### 3.5 創建字符串的方法
-
-可以使用 Unicode 代碼點來創建字符：
-
-1. 使用 `\u` 表示法（僅適用於基本多文種平面）
-    ```javascript 
-    console.log("\u0041"); // → "A"
-    ```
-2. 使用 `\u{}` 表示法（可表示任何 Unicode 字符）
-    ```javascript 
-    console.log("\u{1F31F}"); // → "🌟"
-    ```
-3. 使用 `String.fromCodePoint`
-    ```javascript 
-    console.log(String.fromCodePoint(0x1F31F)); // → "🌟"
-    ```
-
-##### 3.6 注意事項
-
-1. 在處理用戶輸入或國際化文本時，應該特別注意字符編碼問題
-2. 使用現代的字符串方法（如 `codePointAt()`）而不是舊方法（如 `charCodeAt()`）
-3. **計算字符串長度時，考慮使用 `[...str].length` 獲取實際字符數**
-4. 在需要精確處理 Unicode 字符時，使用專門的字符串處理庫可能是更好的選擇
-
-> 延伸閱讀：[文字 (Unicode) - 維基百科](https://zh.wikipedia.org/wiki/%E6%96%87%E5%AD%97_(Unicode)){target="_blank"}
 
 ## 總結
 
