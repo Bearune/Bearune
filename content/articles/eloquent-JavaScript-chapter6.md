@@ -44,7 +44,7 @@ sitemap:
 
 ## 物件導向基礎概念
 
-物件導向程式設計（Object-Oriented Programming, OOP）是一種以「物件」為中心的程式設計方法。它包含四個核心概念：物件導向思維作為基礎，封裝、繼承、多型作為三大特性，抽象資料類型作為設計方法，以及物件與類別作為實現手段。這些概念相互關聯，共同構成了完整的物件導向體系。
+物件導向程式設計（Object-Oriented Programming, OOP）是一種以「物件」為中心的程式設計方法。它包含四個核心概念：**物件導向思維**作為基礎，**封裝、繼承、多型**作為三大特性，**抽象資料類型**作為設計方法，**物件與類別**作為實現手段。這些概念相互關聯，共同構成了完整的物件導向體系。
 
 ![OOP基礎概念架構](/img/articles/eloquent-JavaScript/OOP基礎概念架構.svg)
 
@@ -125,19 +125,22 @@ sitemap:
 - 物件 ＝ 具體的動物個體（小黑、大橘等）
 ::
 
-- 一個類別可以有多個物件（貓這個物種可以有很多隻具體的貓）
-- 每個物件都有自己的屬性，但共享類別定義的方法（每隻貓都有自己的年齡、毛色，但是所有的貓都會「喵喵叫」）。
-- 物件是類別的實例化結果，代表了真實世界中的具體事物（真實存在的某一隻貓）
+- 一個類別可以有多個物件
+  > 貓這個物種可以有很多隻具體的貓
+- 每個物件都有自己的屬性，但共享類別定義的方法
+  > 每隻貓都有自己的年齡、毛色，但是所有的貓都會「喵喵叫」。
+- 物件是類別的實例化結果，代表了真實世界中的具體事物
+  > 真實存在的某一隻貓
 
 ```javascript
 // 貓的類別（定義了所有貓的共同特徵）
 class Cat {
     constructor(name, color, age) {
-        this.name = name;    // 名字（屬性）
-        this.color = color;  // 毛色（屬性）
-        this.age = age;      // 年齡（屬性）
+        this.name = name; // 名字（屬性）
+        this.color = color; // 毛色（屬性）
+        this.age = age; // 年齡（屬性）
     }
-    meow() {                 // 所有的貓都會喵喵叫（共享的方法）
+    meow() { // 所有的貓都會喵喵叫（共享的方法）
         return `${this.name}：喵喵！`;
     }
 }
@@ -148,9 +151,8 @@ console.log(blackCat.meow()); // 輸出：小黑：喵喵！
 console.log(whiteCat.meow()); // 輸出：小花：喵喵！
 ```
 
-#### 小結
-
 ::info
+**小結**  
 這四個概念形成了一個完整的體系：
 
 1. 物件導向思維幫助我們以物件的方式思考問題
@@ -266,6 +268,7 @@ kitty2.meow(); // 輸出: 喵～
       handleClick = () => {
         console.log(`按鈕 ${this.text} 被點擊`);
       }
+      // 箭頭函數的特性是它不會重新綁定自己的 this，而是會繼承外層的 this。
     }
     ```
 
@@ -337,7 +340,7 @@ class Cat {
 
 #### 5. 靜態方法 (Static Methods)
 
-**靜態方法屬於類別本身**，而不是類別的實例：
+**靜態方法屬於類別本身**，不需要實例化就能使用：
 
 ```javascript
 class Temperature {
@@ -399,8 +402,41 @@ console.log(boil.celsius);
 
 - 直接通過類別呼叫，不需要建立實例
 - 無法訪問 `this` 關鍵字所指向的實例
--  可以訪問其他靜態方法和靜態屬性
+- 可以訪問其他靜態方法和靜態屬性
 - 常用於實作工廠方法或公用程式函數
+
+```javascript
+class MathHelper {
+    // 實例屬性
+    constructor() {
+        this.value = 10;
+    }
+
+    // 靜態方法
+    static square(x) {
+        // 這裡不能使用 this.value，因為 this 不指向實例
+        return x * x;
+    }
+
+    // 靜態屬性
+    static PI = 3.14159;
+
+    // 靜態方法可以使用其他靜態成員
+    static calculateCircleArea(radius) {
+        // 這裡可以使用 this.PI，因為 PI 是靜態屬性
+        return this.PI * this.square(radius);
+    }
+}
+
+// 使用靜態方法
+console.log(MathHelper.square(5)); // 25
+console.log(MathHelper.calculateCircleArea(2)); // 12.56636
+
+// 如果試圖在靜態方法中使用實例屬性會失敗
+const math = new MathHelper();
+console.log(math.value); // 10
+// MathHelper.square() 中無法訪問 math.value
+```
 
 ##### 5.3 什麼時候適合使用？
 
@@ -510,7 +546,7 @@ class BruceLee extends KungFuMaster {
   }
 }
 ```
-在這個例子中，`BruceLee` 類別繼承自 `KungFuMaster` 類別，並且覆寫了 `punch` 方法。當我們創建一個 `BruceLee` 的實例並呼叫 `punch` 方法時，會看到不同的結果：
+在這個例子中，`BruceLee` 類別繼承自 `KungFuMaster` 類別，並且覆寫了 `punch` 方法。當我們創建一個 `BruceLee` 的實例並呼叫 `punch` 方法時，會看到不同的結果。
 
 ##### 1.2 super 呼叫
 
@@ -674,7 +710,7 @@ console.log(rabbit.hop());  // "跳跳跳！" (自己的方法)
     ```
 
 ::info
-- 類別繼承像是「複印機」：創建新實例時會複製所有屬性
+- 類別繼承像是「影印機」：創建新實例時會複製所有屬性
 - 原型繼承像是「參考書」：所有物件共享同一本書，不複製內容
 ::
 
@@ -978,9 +1014,10 @@ console.log(obj); // → {name: "Boris", age: 39}
 let objToMap = new Map(Object.entries(obj));
 ```
 
-##### 小結
-
+::info
+**小結**  
 相比普通物件，Map 提供了更多的內建方法和更好的彈性，特別適合用於需要頻繁增刪改查的場景，或是需要使用非字串類型作為鍵的情況。
+::
 
 > 延伸閱讀：[Map - JavaScript - MDN Web Docs - Mozilla](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Map){target="_blank"}
 
