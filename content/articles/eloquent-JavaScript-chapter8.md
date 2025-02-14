@@ -47,7 +47,7 @@ sitemap:
 
 ![程式錯誤的本質](/img/articles/eloquent-JavaScript/程式錯誤的本質.svg)
 
-Bugs（程式錯誤）實際上是程式設計師自己造成的，可分為兩類：
+Bugs 實際上是程式設計師自己造成的，可分為兩類：
 
 1. 思維邏輯混亂導致的錯誤
 2. 將想法轉換為程式碼時產生的錯誤
@@ -62,7 +62,7 @@ Bugs（程式錯誤）實際上是程式設計師自己造成的，可分為兩�
 
 JavaScript 是一種弱型別語言，它允許在不進行顯式型別檢查的情況下進行操作。這種特性在某些情況下可以提高開發效率，但在更多情況下可能會導致程式錯誤。
 
-> 如果一個函數期望接收一個特定型別的參數，但實際上接收了另一個型別的參數，JavaScript 是不會主動拋出錯誤的，它還會自己嘗試轉換類型，萬一它轉換成功，那麼程式就會繼續執行下去，結果可能不是我們預期的，我們還不知道問題出在哪。
+> 如果一個函數期望接收一個特定型別的參數，但實際上接收了另一個型別的參數，JavaScript 是不會主動拋出錯誤的，它還會自己嘗試轉換類型，萬一它轉換成功，那麼程式就會繼續執行下去，這導致結果可能不是我們預期的，我們卻不知道問題出在哪。
 
 當然，它還是有拋出錯誤的時候──如果我們編了一個不符合語法的程式，它就會立刻報錯。包括結果不如預期的錯誤，這種尋找程式 bug 的過程稱為**調試（debugging）**。
 
@@ -71,7 +71,7 @@ JavaScript 是一種弱型別語言，它允許在不進行顯式型別檢查的
 為了解決語言太寬鬆導致容易出錯的問題，我們可以通過啟用嚴格模式使 JavaScript 變得稍微嚴格一點，具體做法如下：
 
 - 通過在文件或函數頂部添加字符串 `"use strict"` 來實現。
-- [類（class）](/articles/eloquent-javascript-chapter6){target=_blank}與組件（module，會在第10章中討論）內部的函數默認啟用嚴格模式。
+- [類（class）](/articles/eloquent-javascript-chapter6){target=_blank}與組件（module，在[第10章](/articles/eloquent-javascript-chapter10){target=_blank}中討論）內部的函數默認啟用嚴格模式。
 
 ##### 實例一
 
@@ -93,7 +93,7 @@ canYouSpotTheProblem();
 
 ```javascript[not-use-strict.js]
 function Person(name) { this.name = name; }
-let ferdinand = Person("Ferdinand");  // oops
+let ferdinand = Person("Ferdinand");  // 沒有使用 new 調用構造函數
 console.log(name);
 // → Ferdinand
 ```
@@ -112,7 +112,7 @@ console.log(name);
 ```javascript[use-strict.js]
 "use strict";
 function Person(name) { this.name = name; }
-let ferdinand = Person("Ferdinand");  // forgot new
+let ferdinand = Person("Ferdinand");  // 沒有使用 new 調用構造函數
 // → TypeError: Cannot set property 'name' of undefined
 ```
 
@@ -139,7 +139,7 @@ let ferdinand = Person("Ferdinand");  // forgot new
 
 #### 2. 型別系統
 
-JavaScript 在運行時才會檢查型別，並且就算型別有問題，它也經常採用隱式類型轉換把值轉成它期望的類型，因此對於調試沒有多大幫助。但這種問題通常發生在進入或退出函數的值上，如果我們把這些信息記錄下來，也能解決我們的困惑。
+JavaScript 在運行時才會檢查型別。就算型別有問題，它也經常採用隱式類型轉換把值轉成它期望的類型，因此對於調試並沒有多大幫助，但這種問題通常發生在進入或退出函數的值上，若我們能註記這些信息，大部分情況下能解決我們的困惑。
 
 ```javascript
 // (graph: Object, from: string, to: string) => string[]
@@ -159,7 +159,7 @@ function findRoute(graph, from, to) {
 
 ##### 3.1 自動化測試
 
-雖然寫測試會比手動測試的前置工作量還大，但一旦我們完成，就會獲得超能力！它只需要幾秒就可以驗證我們的程式是不是正常運作，並且我們不小心破壞某些程式，它也能協助我們立刻意識到。
+雖然寫測試會比手動測試的前置工作量還大，可只要完成我們就會獲得超能力！它只需要幾秒就能驗證我們的程式是不是正常運作，並且我們若不小心破壞某些程式，它也能協助我們立刻意識到。
 
 測試通常採用小的標記程式形式：例如針對 `toUpperCase` 函數，我們可以寫一個測試來檢查它是否能正確地將小寫轉換成大寫。
 
@@ -302,7 +302,7 @@ if (number === null) {
 
 選擇性捕獲就像是一個「智慧型過濾網」，只處理特定類型的錯誤，讓其他錯誤繼續傳遞。主張不是所有錯誤都需要處理，有些可以直接往上拋。
 
-> JavaScript 沒有提供直接支持選擇性捕獲異常，要麼全捕要麼不捕，這導致我們很容易不知道到底哪裡導致異常。
+> JavaScript 沒有提供直接支持選擇性捕獲異常，要麼全捕要麼不捕，這導致我們很容易不知道到底哪裡導致異常，因此需要靠我們自己實作。
 
 我們可以定義一個全新錯誤類型並使用 `instanceof` 來判斷錯誤類型。
 
@@ -328,7 +328,7 @@ try {
         // 處理預期內的輸入錯誤
         console.log("請重新輸入");
     } else {
-        // 重新拋出其他類型的錯誤
+        // 拋出其他類型的錯誤
         throw e;
     }
 }
@@ -347,11 +347,11 @@ try {
 
 ##### 4.1 斷言是什麼？
 
-斷言就像是程式的「安全檢查點」，確保關鍵假設成立。如此可以及早發現程式設計錯誤，使其能在開發階段就暴露問題。主張某些條件是必須滿足的，可以直接終止程式而不是返回特殊值。
+斷言就像是程式的「安全檢查點」，確保關鍵假設成立。如此可以及早發現程式設計錯誤，使其能在開發階段就暴露問題。主張某些條件是必須滿足的，若不滿足可以直接終止程式。
 
 ##### 4.2 基本語法
 
-如果 `firstElement` 為一個永遠不應該在空陣列上調用的函數，我們可以這樣寫：
+假設 `firstElement` 為一個永遠不應該在空陣列上調用的函數，我們可以這樣寫：
 
 ```javascript
 function firstElement(array) {
@@ -361,6 +361,7 @@ function firstElement(array) {
   return array[0];
 }
 
+let arr = [];
 let first = firstElement(arr);
 console.log(first + 1);  // 直接使用，無需檢查
 ```

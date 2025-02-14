@@ -292,8 +292,8 @@ console.log(pattern.test("HELLO"));  // → true
 ```javascript
 let sticky = /abc/y;
 sticky.lastIndex = 3;
-console.log(sticky.test("123abc"));  // → false
-console.log(sticky.test("abc123"));  // → true，當 lastIndex = 0 時
+console.log(sticky.test("123abc"));  // → true
+console.log(sticky.test("abc123"));  // → false
 ```
 
 #### 4. u（unicode）
@@ -427,7 +427,7 @@ console.log(digit.exec("and now: 1"));  // → null，因為 lastIndex 沒有重
 
 #### 2. match 方法
 
-字串的 `match` 方法與 `exec` 方法類似，但有一些重要區別：
+字串的 `match` 方法與正則表達式的 `exec` 方法類似，但有一些重要區別：
 
 ```javascript
 let match = "one two 100 200".match(/\d+/);
@@ -520,9 +520,11 @@ console.log(matches);
 
 ##### 1.1 如何使用 replace 方法？
 
-`replace` 方法用於在字串中替換匹配的字串。它接受兩個參數：`要替換的字串`或`正則表達式`，以及`替換的內容`。當在正則式之後添加 `g` 選項，將會替換所有匹配項。
+`replace` 方法用於在字串中替換匹配的字串。它接受兩個參數：`要替換的字串`或`正則表達式`，以及`替換的內容`。當在正則表達式之後添加 `g` 選項，還能替換所有匹配項。
 
 ```javascript
+let str = "cat, cat, cat";
+
 // 只替換第一個匹配
 console.log(str.replace("cat", "dog"));  // → "dog, cat, cat"
 console.log(str.replace(/cat/, "dog"));  // → "dog, cat, cat"
@@ -772,15 +774,15 @@ INI 檔案是一種常見的設定檔格式，主要用來儲存程式的設定�
     - 設定項格式：`名稱=值`
 
 ```ini
-searchengine=https://duckduckgo.com/?q=$1  ; 一般設定
+searchengine=https://duckduckgo.com/?q=$1 ; 一般設定
 spitefulness=9.7
 
 ; 這是註解
-[larry]                                     ; 區段開始
+[larry] ; 區段開始
 fullname=Larry Doe
 type=kindergarten bully
 
-[davaeorn]                                 ; 另一個區段
+[davaeorn] ; 另一個區段
 fullname=Davaeorn
 type=evil wizard
 ```
@@ -794,7 +796,7 @@ string.split(/\r?\n/)
 ```
 
 - 用正則表達式 `/\r?\n/` 來處理不同作業系統的換行符
-- `\r?` 表示可能有或沒有回車符（Windows 用 \r\n，Unix 用 \n）
+- `\r?` 表示可能有或沒有回車符（Windows 用 `\r\n`，Unix 用 `\n`）
 
 ##### 2.2 核心邏輯
 
