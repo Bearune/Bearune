@@ -11,25 +11,31 @@
       </div>
       <button class="hidden btn btn-primary md:inline-block" @click="closeSearch">關閉</button>
     </div>
-    <div class="w-full h-fit flex flex-col pt-2 gap-2">
+    <div class="w-full h-[32rem] flex flex-col pt-2 gap-2 md:h-[calc(100vh-5rem)]">
       <div v-if="inputValue">
         搜尋<span class="font-semibold text-primary px-1">{{ inputValue }}</span>的結果如下：
       </div>
-      <div class="h-[31.5rem] overflow-auto md:h-[calc(100vh-5rem)] searchResult">
+      <div v-else-if="searchHistory.length > 0" class="flex justify-between gap-4">
+        <span class="font-semibold text-primary px-1">Recent</span>
+        <div class="cursor-pointer transition-colors duration-150 text-sm hover:text-primary" @click="clearHistory">清空紀錄
+        </div>
+      </div>
+      <div class="h-fit overflow-auto searchResult">
         <div v-if="filteredProducts.length === 0 && inputValue" class="text-center text-lg">
-          找不到符合搜尋字詞「<span class="font-semibold text-primary px-1">{{ inputValue }}</span>」的文章。</div>
-        <div v-else class="overflow-y-auto">
+          找不到符合「<span class="font-semibold text-primary px-1">{{ inputValue }}</span>」的文章。</div>
+        <div v-else-if="filteredProducts.length" class="overflow-y-auto">
           <div class="flex flex-col gap-1 mr-2">
-            <div v-for="result in filteredProducts " :key="result._path"
+            <div v-for="result in filteredProducts" :key="result._path"
               class="w-full h-16 flex items-center px-4 border border-base-300 bg-base-100 rounded-md hover:bg-primary group">
               <RouterLink :to="result._path" class="no-style-a w-full h-full flex flex-col justify-center"
-                @click="closeSearch">
+                @click="storeToHistory(result)">
                 <div class="font-semibold tracking-wide text-base-content group-hover:text-white"
                   v-html="result.title" />
               </RouterLink>
             </div>
           </div>
         </div>
+        <div v-else class="pt-4 text-center text-lg opacity-70">沒有搜尋紀錄</div>
       </div>
     </div>
   </div>
@@ -42,6 +48,7 @@ const inputValue = ref('');
 const inputRef = ref(null);
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation());
+
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value;
 
@@ -57,23 +64,68 @@ const closeSearch = () => {
   html.value.style.overflow = 'auto';
 }
 
-const highlightQuery = (title, { text, regex }) => {
-  if (!text) return title;
+// 從 localStorage 讀取歷史記錄，如果沒有則初始化為空陣列
+const searchHistory = ref(
+  JSON.parse(localStorage.getItem('searchHistory') || '[]')
+);
 
+const storeToHistory = (result) => {
+  const MAX_HISTORY_LENGTH = 5;
+
+  // 添加歷史紀錄
+  const addToHistory = (rawItem) => {
+    const item = { title: rawItem.title.replace(/<span[^>]*>(.*?)<\/span>/g, '$1'), _path: rawItem._path };
+    // 檢查是否已經存在
+
+    const existingIndex = searchHistory.value.findIndex(
+      record => record._path === item._path
+    );
+
+    // 如果存在，先刪除舊的
+    if (existingIndex !== -1) {
+      searchHistory.value.splice(existingIndex, 1);
+    }
+
+    // 添加新記錄到開頭
+    searchHistory.value.unshift(item);
+    if (searchHistory.value.length > MAX_HISTORY_LENGTH) {
+      searchHistory.value.pop();
+    }
+
+    // 如果超過最大數量，刪除最舊的
+    localStorage.setItem('searchHistory', JSON.stringify(searchHistory.value));
+  };
+
+  addToHistory(result);
+
+  closeSearch();
+}
+
+const clearHistory = () => {
+  searchHistory.value = [];
+  localStorage.removeItem('searchHistory');
+}
+
+const highlightQuery = (title, text) => {
+  if (!text) return title;
+  const regex = new RegExp(`(${text})`, 'gi');
   return title.replace(regex, '<span class="text-primary font-semibold group-hover:text-white group-hover:border-b group-hover:border-white group-hover:font-normal">$1</span>');
 };
 
 const filteredProducts = computed(() => {
-  const query = inputValue.value.toLowerCase();
+  const query = inputValue.value.toLowerCase().trim();
 
-  const regex = new RegExp(`(${query})`, 'gi');
-  return navigation.value[0].children.filter((item) => item.title.toLowerCase().includes(query))
-    .map((item) => {
-      return {
-        ...item,
-        title: highlightQuery(item.title, { text: query, regex }),
-      };
-    });
+  if (!query) {
+    return searchHistory.value;
+  }
+
+  return (navigation.value?.[0]?.children || [])
+    .filter((item) => item?.title?.toLowerCase().includes(query))
+    .map((item) => ({
+      ...item,
+      title: highlightQuery(item.title, query
+      ),
+    }));
 });
 
 const clearInput = () => {
@@ -119,7 +171,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.searchResult{
+.searchResult {
   &::-webkit-scrollbar {
     @apply w-3 sm:hidden;
   }
