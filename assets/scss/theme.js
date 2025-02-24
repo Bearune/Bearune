@@ -8,7 +8,7 @@ export const themeColorsLight = {
   neutral: '#40372b',
   'neutral-content': '#e4e0d7',
   'base-100': '#ffffff',
-  'base-200': '#faf7f5',
+  'base-200': '#f9f8f6',
   'base-300': '#e2dad5',
   'base-400': '#dbd2cd',
   'base-content': '#33333b',

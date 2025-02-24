@@ -1,5 +1,5 @@
 <template>
-  <div class="card flex min-h-36 lg:card-side bg-base-100 md:flex-col">
+  <div class="card flex min-h-36 lg:card-side md:flex-col">
     <div
       class="overflow-hidden rounded-box w-1/3 aspect-video flex justify-center items-center bg-base-200 h-fit shadow md:w-full">
       <NuxtLink :to="props.data._path" class="no-style-a block w-full h-full">

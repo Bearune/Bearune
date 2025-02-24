@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-base-100 w-full">
+  <div class="card w-full">
     <div class="overflow-hidden rounded-box w-full h-fit bg-base-200 shadow">
       <NuxtLink :to="props.data._path" class="no-style-a">
         <figure class="aspect-video overflow-hidden flex justify-center items-center">
