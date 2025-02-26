@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 10】模組 Chapter 10 Modules
+title: JS 筆記#10 - 模組 | Chapter 10 Modules
 description: 深入淺出學習 JavaScript 模組化系統！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。從基本的模組概念出發，詳細介紹了 ES 模組系統、NPM 套件管理、打包工具等核心內容。透過循序漸進的方式，幫助讀者掌握如何組織和管理現代 JavaScript 程式碼。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-20
@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 10】模組 Chapter 10 Modules
+      content:  JS 筆記#10 - 模組 | Chapter 10 Modules
   - - meta
     - property: og:type
       content: article
@@ -37,7 +37,7 @@ sitemap:
 
 > Write code that is easy to delete, not easy to extend.── Tef, programming is terrible
 
-![【JavaScript 學習筆記 10】模組 Chapter 10 Modules](/img/articles/eloquent-JavaScript/cover10.webp)
+![JS 筆記#10 - 模組 | Chapter 10 Modules](/img/articles/eloquent-JavaScript/cover10.webp)
 
 本文深入探討 JavaScript 的模組化系統，從最基本的模組概念，到 ES 模組的具體實現。通過實際的程式碼範例，說明如何運用 import/export、打包工具等重要特性來提升程式碼的組織性和可維護性。同時也介紹了 NPM 生態系統，以及模組設計的最佳實踐原則。
 

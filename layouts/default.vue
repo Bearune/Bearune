@@ -1,5 +1,6 @@
 <template>
   <main class="!min-h-screen relative flex flex-col justify-between">
+    <!-- <div class="bg fixed top-0 inset-0 -z-40 opacity-80"></div> -->
     <LayoutSiteMobileHeader :class="{ 'block': device.isMobile ? true : false }"
       class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 sm:block" />
     <LayoutSiteHeader />
@@ -28,4 +29,9 @@ useHead({
 const device = useDeviceStore();
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// .bg {
+//   background-image: url('~/assets/images/contemporary_china.webp');
+//   background-position: center;
+//   background-attachment: fixed;
+// }</style>

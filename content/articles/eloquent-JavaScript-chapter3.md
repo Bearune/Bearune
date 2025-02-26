@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 03】函數 Chapter 3 Functions
+title: JS 筆記#03 - 函數 | Chapter 3 Functions
 description: 深入淺出學習 JavaScript 函數概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋函數定義、參數與回傳值、作用域與閉包、呼叫堆疊、遞迴及函數設計最佳實踐，幫助你快速掌握 JavaScript 函數的核心知識與應用技巧。
 tags: ["javascript", "Eloquent JavaScript 學習筆記系列"]
 date: 2024-12-26
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover3.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 03】函數 Chapter 3 Functions
+      content: JS 筆記#03 - 函數 | Chapter 3 Functions
   - - meta
     - property: og:type
       content: article
@@ -35,7 +35,7 @@ sitemap:
 
 > People think that computer science is the art of geniuses but the actual reality is the opposite, just many people doing things that build on each other, like a wall of mini stones.── Donald Knuth
 
-![【JavaScript 學習筆記 03】 Chapter 3 Functions](/img/articles/eloquent-JavaScript/cover3.webp)
+![JS 筆記#03 - 函數 | Chapter 3 Functions](/img/articles/eloquent-JavaScript/cover3.webp)
 
 本文深入探討 JavaScript 的函數系統，從最基本的函數概念到其在程式中的應用。通過實際的程式碼範例，說明如何定義函數、使用參數、回傳值以及作用域等重要特性，讓我們能夠更好地理解函數在 JavaScript 中的核心角色。同時，也介紹了閉包和遞迴等進階概念，幫助開發者提升程式碼的組織性和可維護性。
 

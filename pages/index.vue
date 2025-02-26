@@ -1,13 +1,13 @@
 <template>
     <div class="columns px-4 mt-8 mb-32 sm:px-4">
-        <div class="!min-h-[calc(100vh-20.5rem)] auto-rows-min col-span-8 grid grid-cols-9 gap-8 h-fit
+        <div class="!min-h-[calc(100vh-20.5rem)] auto-rows-min col-span-8 grid grid-cols-8 gap-8 h-fit
         lg:col-span-12 lg:grid-cols-12 md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
             <LazyContentList v-slot="{ list }"
                 :query="{ path: 'articles', without: ['body'], sort: [{ date: -1 }], limit: 8 }">
-                <ArticleCardLarge :key="list[0]._id" class="col-span-9 lg:col-span-12 md:col-span-8 sm:col-span-4"
+                <ArticleCardLarge :key="list[0]._id" class="col-span-8 lg:col-span-12 md:col-span-8 sm:col-span-4"
                     :data="list[0]" />
                 <div
-                    class="col-span-9 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4 md:grid md:grid-cols-2">
+                    class="col-span-8 flex flex-col gap-4 lg:col-span-12 md:col-span-8 sm:col-span-4 md:grid md:grid-cols-2">
                     <ArticleCardMedium v-for="article in list.slice(1)" :key="article._id" :data="article"
                         class="md:col-span-1 sm:col-span-2" />
                 </div>

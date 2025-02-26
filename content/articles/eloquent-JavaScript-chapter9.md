@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 09】正則表達式 Chapter 9 Regular Expressions
+title: JS 筆記#09 - 正則表達式 | Chapter 9 Regular Expressions
 description: 深入淺出學習 JavaScript 正則表達式！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從正則表達式的基本概念出發，詳細介紹了 JavaScript 中的字元集合、重複模式、分組匹配等核心機制。從基礎語法到進階應用，從匹配原理到效能優化，完整呈現了正則表達式的實戰技巧。內容涵蓋了貪婪匹配、前瞻後顧、邊界條件等重要概念，並通過實際案例展示了這些概念的應用。透過循序漸進的方式，幫助讀者掌握如何靈活運用正則表達式進行文字處理。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-18
@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 09】正則表達式 Chapter 9 Regular Expressions
+      content: JS 筆記#09 - 正則表達式 | Chapter 9 Regular Expressions
   - - meta
     - property: og:type
       content: article
@@ -37,7 +37,7 @@ sitemap:
 
 > Some people, when confronted with a problem, think ‘I know, I’ll use regular expressions.’ Now they have two problems.── Jamie Zawinski
 
-![【JavaScript 學習筆記 09】正則表達式 Chapter 9 Regular Expressions](/img/articles/eloquent-JavaScript/cover9.webp)
+![JS 筆記#09 - 正則表達式 | Chapter 9 Regular Expressions](/img/articles/eloquent-JavaScript/cover9.webp)
 
 本文深入探討 JavaScript 中的正則表達式機制，從基礎的字元集合定義，到進階的匹配策略。透過實際的程式碼範例，說明如何運用重複模式、分組匹配、貪婪匹配等重要特性來提升文字處理的效率和靈活性。同時也介紹了 JavaScript 特有的正則表達式方法，以及 INI 檔案解析實際應用場景的重要實踐。
 

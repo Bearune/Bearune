@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 07】專案練習 Chapter 7 Project - A Robot
+title: JS 筆記#07 - 專案練習 | Chapter 7 Project - A Robot
 description: 深入淺出學習 JavaScript 狀態管理與演算法優化！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記以一個具體的機器人送包裹案例，展示了如何在 JavaScript 中實現高效的狀態管理和路徑規劃。從基本的隨機移動策略開始，逐步改進到智能尋路算法，完整呈現了程式優化的過程。內容涵蓋了狀態管理模式、不可變性原則、廣度優先搜尋算法等重要概念，並通過實際程式碼展示了這些概念的應用。透過循序漸進的方式，幫助讀者理解如何設計和優化複雜的程式系統。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-11
@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 07】專案練習 Chapter 7 Project - A Robot
+      content: JS 筆記#07 - 專案練習 | Chapter 7 Project - A Robot
   - - meta
     - property: og:type
       content: article
@@ -36,7 +36,7 @@ sitemap:
 
 > The question of whether Machines Can Think [...] is about as relevant as the question of whether Submarines Can Swim.── Edsger Dijkstra, The Threats to Computing Science
 
-![【JavaScript 學習筆記 07】專案練習 Chapter 7 Project - A Robot](/img/articles/eloquent-JavaScript/cover7.webp)
+![JS 筆記#07 - 專案練習 | Chapter 7 Project - A Robot](/img/articles/eloquent-JavaScript/cover7.webp)
 
 本文將使用 JavaScript 物件導向實作一個機器人送包裹的案例，並透過這個案例，深入理解物件導向程式設計的原理與技巧。
 

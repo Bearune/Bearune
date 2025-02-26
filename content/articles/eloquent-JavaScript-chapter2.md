@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 02】程式結構 Chapter 2 Program Structure
+title: JS 筆記#02 - 程式結構 | Chapter 2 Program Structure
 description: 深入淺出學習 JavaScript 程式結構！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋表達式與語句、變數綁定與命名規則、函式定義與回傳值、控制流程（條件語句與迴圈）、程式風格最佳實踐等核心知識，幫助你快速掌握 JavaScript 程式設計的基礎概念與實用技巧。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2024-12-25
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover2.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 02】程式結構 Chapter 2 Program Structure
+      content: JS 筆記#02 - 程式結構 | Chapter 2 Program Structure
   - - meta
     - property: og:type
       content: article
@@ -35,7 +35,7 @@ sitemap:
 
 > The best programs are those that manage to do something interesting while still being easy to understand.
 
-![【JavaScript 學習筆記 02】Chapter 2 Program Structure](/img/articles/eloquent-JavaScript/cover2.webp)
+![JS 筆記#02 - 程式結構 | Chapter 2 Program Structure](/img/articles/eloquent-JavaScript/cover2.webp)
 
 本文深入探討 JavaScript 的程式結構，從最基本的表達式和語句概念，到綁定、函式及控制流程的具體實現。通過實際的程式碼範例，說明如何有效地使用這些基本組件來組織程式碼，提升可讀和可維護性。同時也介紹了程式風格的最佳實踐，幫助開發者撰寫更清晰易懂的程式碼。
 

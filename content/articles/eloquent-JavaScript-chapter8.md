@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 08】程式錯誤 Chapter 8 Bugs and Errors
+title: JS 筆記#08 - 程式錯誤 | Chapter 8 Bugs and Errors
 description: 深入淺出學習 JavaScript 錯誤處理機制！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從錯誤的本質出發，詳細介紹了 JavaScript 中的錯誤預防、檢測和處理機制。從嚴格模式到異常處理，從選擇性捕獲到斷言機制，完整呈現了程式除錯的最佳實踐。內容涵蓋了錯誤類型定義、測試策略、錯誤傳播機制等重要概念，並通過實際程式碼展示了這些概念的應用。透過循序漸進的方式，幫助讀者掌握如何編寫更穩定、可靠的程式。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-13
@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 08】程式錯誤 Chapter 8 Bugs and Errors
+      content: JS 筆記#08 - 程式錯誤 | Chapter 8 Bugs and Errors
   - - meta
     - property: og:type
       content: article
@@ -37,7 +37,7 @@ sitemap:
 
 > Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.── Brian Kernighan and P.J. Plauger, The Elements of Programming Style
 
-![【JavaScript 學習筆記 08】程式錯誤 Chapter 8 Bugs and Errors](/img/articles/eloquent-JavaScript/cover8.webp)
+![JS 筆記#08 - 程式錯誤 | Chapter 8 Bugs and Errors](/img/articles/eloquent-JavaScript/cover8.webp)
 
 本文深入探討 JavaScript 中的錯誤處理機制，從基礎的錯誤類型定義，到進階的異常處理策略。透過實際的程式碼範例，說明如何運用嚴格模式、斷言、異常處理等重要特性來提升程式的穩定性和可維護性。同時也介紹了 JavaScript 特有的錯誤處理機制，以及自動化測試等現代程式開發的重要實踐。
 

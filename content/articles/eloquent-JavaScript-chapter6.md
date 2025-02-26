@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 06】物件導向 Chapter 6 The Secret Life of Objects
+title: JS 筆記#06 - 物件導向 | Chapter 6 The Secret Life of Objects
 description: 深入淺出學習 JavaScript 物件導向程式設計！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記從物件導向的基本思維出發，探討封裝、繼承、多型等核心特性的重要性，並深入介紹 JavaScript 中類別與物件的概念與應用。內容包含物件導向的基礎觀念、JavaScript 特有的原型繼承系統，以及現代 JavaScript 中 Map 和 Symbol 的實際應用案例，幫助你掌握 JavaScript 中物件導向程式設計的技巧。從基礎觀念到實務應用，循序漸進地學習如何運用物件導向的方法來組織程式碼，提升程式的可維護性與擴展性。
 tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-01-09
@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 06】物件導向 Chapter 6 The Secret Life of Objects
+      content: JS 筆記#06 - 物件導向 | Chapter 6 The Secret Life of Objects
   - - meta
     - property: og:type
       content: article
@@ -36,7 +36,7 @@ sitemap:
 
 > An abstract data type is realized by writing a special kind of program […] which defines the type in terms of the operations which can be performed on it.── Barbara Liskov, Programming with Abstract Data Types
 
-![【JavaScript 學習筆記 06】物件導向 Chapter 6 The Secret Life of Objects](/img/articles/eloquent-JavaScript/cover6.webp)
+![JS 筆記#06 - 物件導向 | Chapter 6 The Secret Life of Objects](/img/articles/eloquent-JavaScript/cover6.webp)
 
 本文深入探討 JavaScript 中物件導向程式設計的核心概念，從基礎的類別與物件定義，到進階的繼承機制與多型應用。透過實際的程式碼範例，說明如何運用封裝、繼承、多型等物件導向的重要特性來組織和管理程式碼。同時也介紹了 JavaScript 特有的原型系統，以及 `Map`、`Symbol` 等現代 JavaScript 的重要功能。
 

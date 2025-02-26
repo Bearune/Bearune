@@ -1,6 +1,6 @@
 ---
 category: 前端開發
-title: 【JavaScript 學習筆記 01】基本概念 Chapter 1 Values, Types, and Operators
+title: JS 筆記#01 - 基本概念 | Chapter 1 Values, Types, and Operators
 description: 深入淺出學習 JavaScript 基礎概念！本系列內容是基於 Eloquent JavaScript 4th edition (2024) 所整理的精簡筆記。本篇筆記涵蓋數字與字串處理、運算符、布林值、邏輯運算符短路行為、自動型別轉換等核心知識，幫助你快速掌握 JavaScript 的基本操作與注意事項。
 tags: ["javascript", "Eloquent JavaScript 學習筆記系列"]
 date: 2024-12-24
@@ -10,7 +10,7 @@ image: /img/articles/eloquent-JavaScript/cover1.webp
 head:
   - - meta
     - property: og:title
-      content: 【JavaScript 學習筆記 01】基本概念 Chapter 1 Values, Types, and Operators
+      content: JS 筆記#01 - 基本概念 | Chapter 1 Values, Types, and Operators
   - - meta
     - property: og:type
       content: article
@@ -35,7 +35,7 @@ sitemap:
 
 > The best programs are those that manage to do something interesting while still being easy to understand.
 
-![【JavaScript 學習筆記 01】Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript/cover1.webp)
+![JS 筆記#01 - 基本概念 | Chapter 1 Values, Types, and Operators](/img/articles/eloquent-JavaScript/cover1.webp)
 
 本文深入探討 JavaScript 的基礎概念，包含值、型別和運算子等核心要素。透過實際的程式碼範例，說明數字、字串、布林值等基本型別的特性和使用方式，以及各種運算子的行為模式。同時也介紹了自動型別轉換機制，以及如何正確處理空值和特殊數值。
 
@@ -140,13 +140,13 @@ console.log(str);  // → Hello
 
 除了跳脫引號，JavaScript 還支持其他特殊字符的跳脫，以下是一些常見的例子：
 
-| 跳脫字符 |  說明  | 範例                        | 結果                    |
-| :------: | :----: | :-------------------------- | :---------------------- |
-|   `\'`   | 單引號 | `'It\'s a sunny day'`       | It's a sunny day        |
-|   `\"`   | 雙引號 | `"He said \"Hello\""`       | He said "Hello"         |
-|   `\\`   | 反斜線 | `'This is a backslash: \\'` | This is a backslash: \  |
-|   `\n`   | 換行符 | `'Line 1\nLine 2'`          | Line 1<br>Line 2        |
-|   `\t`   | 製表符 | `'Column1\tColumn2'`        | Column1 Column2         |
+| 跳脫字符 |  說明  | 範例                        | 結果                   |
+| :------: | :----: | :-------------------------- | :--------------------- |
+|   `\'`   | 單引號 | `'It\'s a sunny day'`       | It's a sunny day       |
+|   `\"`   | 雙引號 | `"He said \"Hello\""`       | He said "Hello"        |
+|   `\\`   | 反斜線 | `'This is a backslash: \\'` | This is a backslash: \ |
+|   `\n`   | 換行符 | `'Line 1\nLine 2'`          | Line 1<br>Line 2       |
+|   `\t`   | 製表符 | `'Column1\tColumn2'`        | Column1 Column2        |
 
 #### 3. 字串的 Unicode 支援
 
