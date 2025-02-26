@@ -1,5 +1,5 @@
 <template>
-  <div id="siteHeader" class="fixed -top-0.5 left-0 right-0 backdrop-blur border-b border-base-300 z-10">
+  <div id="siteHeader" class="fixed -top-0.5 left-0 right-0 backdrop-blur z-10">
     <div
       class="siteHeader_inner flex justify-between items-center w-full h-20 px-6 py-2 text-base-content sm:px-2 sm:h-16"
       style="--tw-bg-opacity: 1">
