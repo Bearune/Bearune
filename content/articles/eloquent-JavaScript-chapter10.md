@@ -309,3 +309,5 @@ CommonJS 的模組加載機制設計得相當巧妙。當使用 `require` 函數
 - 優先使用簡單的資料結構
 - 在適當時機重構模組結構
 - 謹慎評估是否使用外部套件
+
+以上內容是基於 [10. Modules - Eloquent JavaScript 4th edition (2024)](https://eloquentjavascript.net/10_modules.html){target="_blank"} 所整理的精簡筆記。
