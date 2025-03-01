@@ -6,11 +6,7 @@ article.normal {
   }
 
   h2 {
-    @apply pt-24 mb-8 text-3xl font-semibold;
-
-    &:not(:first-child) {
-      @apply border-t border-base-200;
-    }
+    @apply relative pt-24 mb-8 text-3xl font-semibold;
   }
 
   h3 {
@@ -35,7 +31,7 @@ article.normal {
 
     @media (hover: hover) {
       &:hover {
-        @apply underline underline-offset-2 decoration-dotted saturate-150;
+        @apply underline underline-offset-2 decoration-solid saturate-150;
       }
     }
   }
@@ -132,20 +128,55 @@ article.normal {
   }
 
   img {
-    @apply w-full rounded-box bg-base-200 shadow;
+    @apply w-full rounded-box shadow backdrop-blur-sm;
+    background-color: oklch(var(--base-300)/.2);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-b2);
+      color: var(--fallback-bc);
+    }
   }
 
   code {
-    @apply tracking-tight bg-base-200 text-base mx-px py-px px-1 rounded-btn border border-base-300 decoration-clone;
+    @apply tracking-tight bg-base-200 text-base mx-px py-px px-1 rounded-btn decoration-clone;
+    background-color: oklch(var(--accent)/.2);
+
+    @supports(color: color-mix(in oklab, black, black)) {
+      color: color-mix(in oklch, oklch(var(--accent)) 80%, oklch(var(--accent-content)));
+    }
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-a);
+      color: var(--fallback-ac);
+    }
   }
 
   blockquote {
-    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-8 px-2 relative sm:text-base sm:py-0.5;
+    @apply rounded mb-8 ml-4 px-2 relative sm:text-base sm:py-0.5;
+
+    background-color: oklch(var(--accent)/.2);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-a);
+    }
+
+    &::before {
+      @apply w-2 h-full absolute -left-4 top-1/2 -translate-y-1/2 rounded;
+      content: '';
+      background-color: oklch(var(--accent)/1);
+
+      @supports not(color: oklch(0% 0 0)) {
+        background-color: var(--fallback-a);
+      }
+    }
 
     >p,
-    a {
-      @apply italic mb-0 text-base-content;
-      --tw-bg-opacity: 0.6;
+    >p a {
+      @apply italic mb-0;
+
+      @supports(color: color-mix(in oklab, black, black)) {
+        color: color-mix(in oklch, oklch(var(--accent)) 80%, oklch(var(--accent-content))) !important;
+      }
     }
   }
 
@@ -218,10 +249,6 @@ article.short {
 
   h2 {
     @apply pt-2 mb-4 text-lg font-semibold;
-
-    &:not(:first-child) {
-      @apply border-t border-base-200;
-    }
   }
 
   a:not(.anchorItem, .badge) {
@@ -234,7 +261,7 @@ article.short {
 
     @media (hover: hover) {
       &:hover {
-        @apply underline underline-offset-2 decoration-dotted saturate-150;
+        @apply underline underline-offset-2 decoration-solid saturate-150;
       }
     }
   }
@@ -315,21 +342,55 @@ article.short {
   }
 
   img {
-    @apply w-full rounded-box bg-base-100 shadow;
+    @apply w-full rounded-box shadow;
+    background-color: oklch(var(--base-100)/.2);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-b1);
+      color: var(--fallback-bc);
+    }
   }
 
   code {
-    @apply text-primary-content py-px px-1 rounded-btn border decoration-clone;
-    background-color: color-mix(in oklab, oklch(var(--primary, var(--fallback-p)) / 1) 40%, white);
-    border-color: oklch(var(--primary, var(--fallback-p)) / 1);
+    @apply tracking-tight bg-base-200 text-base mx-px py-px px-1 rounded-btn decoration-clone;
+    background-color: oklch(var(--accent)/.2);
+
+    @supports(color: color-mix(in oklab, black, black)) {
+      color: color-mix(in oklch, oklch(var(--accent)) 80%, oklch(var(--accent-content)));
+    }
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-a);
+      color: var(--fallback-ac);
+    }
   }
 
   blockquote {
-    @apply border-l-8 border-base-400 bg-base-200 rounded-r-box mb-2 px-2 relative;
+    @apply rounded mb-8 ml-4 px-2 relative;
 
-    >p {
-      @apply italic mb-0 text-base-content;
-      --tw-bg-opacity: 0.6;
+    background-color: oklch(var(--accent)/.2);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-a);
+    }
+
+    &::before {
+      @apply w-2 h-full absolute -left-4 top-1/2 -translate-y-1/2 rounded;
+      content: '';
+      background-color: oklch(var(--accent)/1);
+
+      @supports not(color: oklch(0% 0 0)) {
+        background-color: var(--fallback-a);
+      }
+    }
+
+    >p,
+    >p a {
+      @apply italic mb-0;
+
+      @supports(color: color-mix(in oklab, black, black)) {
+        color: color-mix(in oklch, oklch(var(--accent)) 80%, oklch(var(--accent-content))) !important;
+      }
     }
   }
 

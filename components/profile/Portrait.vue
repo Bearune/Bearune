@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-base-200 rounded-box p-8 shadow">
+  <div class="profile-portrait w-full rounded-box p-8">
     <div class="flex flex-col justify-center items-center gap-4 w-full">
       <div class="w-full flex flex-col items-center gap-2">
         <h2 class="sidebar-title">關於我</h2>
@@ -10,7 +10,7 @@
       </div>
       <div class="w-full flex flex-col items-center gap-2">
         <h3>瓜熊</h3>
-        <p>努力學習 Nuxt 中……</p>
+        <p>你好，我是瓜熊，熱愛研究新鮮的東西。</p>
         <div class="flex gap-1">
           <el-tooltip class="box-item" content="Github" placement="bottom" effect="customized" :hide-after="0">
             <NuxtLink to="https://github.com/wenyanlin" class="btn btn-icon" target="_blank" external>
@@ -47,6 +47,14 @@ import CodePen from '~/assets/icons/codepen.svg?component';
 </script>
 
 <style lang="scss" scoped>
+.profile-portrait {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b3);
+  }
+}
+
 h3 {
   @apply text-2xl font-semibold text-base-content;
 }

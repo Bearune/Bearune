@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-w-96 w-fit h-fit bg-base-200 border border-base-400 rounded-box py-5 px-4 hidden flex-col gap-2 text-base mb-8 lg:flex sm:w-full sm:min-w-full sm:text-lg">
+    class="anchor min-w-96 w-fit h-fit border border-base-400 rounded-box py-5 px-4 hidden flex-col gap-2 text-base mb-8 lg:flex sm:w-full sm:min-w-full sm:text-lg">
     <div class="flex justify-start">
       <IconTextCard :icon="'align-right'" style="--tw-bg-opacity:1">目錄</IconTextCard>
     </div>
@@ -28,6 +28,14 @@ const { data } = await useAsyncData(category, () => queryContent(route.fullPath)
 </script>
 
 <style lang="scss" scoped>
+.anchor {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b2);
+  }
+}
+
 #anchorArea {
   ol {
     @apply mb-0;

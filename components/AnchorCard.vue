@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-fit bg-base-200 border border-base-400 rounded-box py-5 px-4 flex flex-col gap-2">
+  <div class="anchorCard w-full h-fit rounded-box py-5 px-4 flex flex-col gap-2">
     <div class="flex justify-start">
       <IconTextCard class="text-base-content" :icon="'align-right'"><span class="font-semibold">目錄</span></IconTextCard>
     </div>
@@ -99,9 +99,22 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.anchorCard {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b2);
+  }
+}
+
 #anchorArea {
   .active {
-    @apply text-primary;
+
+    @apply font-semibold;
+
+    @supports(color:color-mix(in oklab, black, black)) {
+      color: color-mix(in oklch, oklch(var(--primary)) 90%, oklch(var(--primary-content)));
+    }
   }
 }
 </style>

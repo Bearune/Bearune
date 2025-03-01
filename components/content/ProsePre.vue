@@ -95,6 +95,12 @@ ol {
   .code-header {
     @apply min-h-8 px-2 border-b border-base-400 flex justify-between items-center text-base-content text-sm whitespace-nowrap;
 
+    background-color: oklch(var(--code-header-bg)/var(--code-header-bg-opacity));
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-b1);
+    }
+
     ::-webkit-scrollbar {
       @apply h-1;
     }
@@ -107,20 +113,34 @@ ol {
 
 .normal {
   .code-block {
-    @apply bg-base-200;
+    @apply backdrop-blur-sm;
+
+    background-color: oklch(var(--base-300)/.2);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-b2);
+    }
 
     .code-header {
-      @apply bg-base-100;
+      --code-header-bg: var(--base-100);
+      --code-header-bg-opacity: .6;
     }
   }
 }
 
 .short {
   .code-block {
-    @apply bg-base-100 sm:bg-base-100 sm:-mx-2 sm:rounded-box;
+    @apply backdrop-blur-sm sm:-mx-2 sm:rounded-box;
+
+    background-color: oklch(var(--base-100)/.6);
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-color: var(--fallback-b2);
+    }
 
     .code-header {
-      @apply bg-base-200;
+      --code-header-bg: var(--base-100);
+      --code-header-bg-opacity: .9;
     }
   }
 }

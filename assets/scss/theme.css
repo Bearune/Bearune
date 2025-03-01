@@ -21,6 +21,7 @@
   --error: 69.73% 0.19 20.29;
   --error-content: 100% 0 0;
 }
+
 :root[data-theme="dark"] {
   --primary: 78.31% 0.09 247.60;
   --primary-content: 17.26% 0.03 139.86;

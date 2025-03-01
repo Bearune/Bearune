@@ -1,6 +1,9 @@
 <template>
   <main class="!min-h-screen relative flex flex-col justify-between">
-    <!-- <div class="bg fixed top-0 inset-0 -z-40 opacity-80"></div> -->
+    <div class="shape fixed inset-0 -z-40">
+      <div class="shape_grid w-full h-full" />
+    </div>
+    <!-- <div class="fixed inset-0 backdrop-blur-[100px] -z-30"></div> -->
     <LayoutSiteMobileHeader :class="{ 'block': device.isMobile ? true : false }"
       class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 sm:block" />
     <LayoutSiteHeader />
@@ -30,8 +33,26 @@ const device = useDeviceStore();
 </script>
 
 <style lang="scss" scoped>
-// .bg {
-//   background-image: url('~/assets/images/contemporary_china.webp');
-//   background-position: center;
-//   background-attachment: fixed;
-// }</style>
+.shape {
+  @apply bg-base-100;
+
+  &_grid {
+    --bg-opacity: .6;
+    background-image:
+      linear-gradient(oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px),
+      linear-gradient(90deg, oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px);
+    background-size: 3.35rem 3.35rem;
+    mask: linear-gradient(-20deg, transparent 20%, white);
+
+    /* 固定背景，不隨滾動移動 */
+    background-attachment: fixed;
+
+    @supports not(color: oklch(0% 0 0)) {
+      background-image:
+        linear-gradient(var(--fallback-b3) 1px, transparent 1px),
+        linear-gradient(90deg, var(--fallback-b3) 1px, transparent 1px);
+      opacity: .6;
+    }
+  }
+}
+</style>

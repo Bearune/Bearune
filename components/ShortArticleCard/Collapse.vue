@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ '!h-fit': show }" class="w-full h-96 bg-base-200 rounded-box shadow overflow-hidden relative">
+  <div :class="{ '!h-fit': show }" class="short-article-card_collapse w-full h-96 rounded-box overflow-hidden relative">
     <!-- <ContentDoc :path="data._path"> -->
     <article class="short p-8 sm:p-2">
       <div class="flex justify-between">
@@ -40,4 +40,12 @@ const openFullContent = () => {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.short-article-card_collapse {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b3);
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-fit bg-base-200 rounded-box shadow sm:-mx-4 sm:w-auto sm:rounded-none">
+  <div class="short-article-card_common w-full min-h-fit bg-base-200 rounded-box sm:-mx-4 sm:w-auto sm:rounded-none">
     <!-- <ContentDoc :path="data._path"> -->
     <article class="short p-8 sm:p-4">
       <div class="flex justify-between">
@@ -30,4 +30,12 @@ const { data, tags } = defineProps({ 'data': { type: Object, default: () => { } 
 const activeTags = (tag) => tags.find(t => t.tag === tag)
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.short-article-card_common {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b2);
+  }
+}
+</style>

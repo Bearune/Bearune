@@ -92,7 +92,19 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 #siteHeader {
-  @apply bg-base-100;
+  --bg-opacity: .2;
+  background-image:
+    linear-gradient(oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px);
+  background-size: 3.35rem 3.35rem;
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-image:
+      linear-gradient(var(--fallback-b3) 1px, transparent 1px),
+      linear-gradient(90deg, var(--fallback-b3) 1px, transparent 1px);
+    opacity: .6;
+  }
+
   --tw-bg-opacity: 0.2;
 
   .menu .router-link-active {

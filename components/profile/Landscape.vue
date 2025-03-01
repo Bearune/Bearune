@@ -1,12 +1,12 @@
 <template>
-  <div class="w-full bg-base-200 rounded-box py-8  shadow px-24 md:px-16">
+  <div class="profile-landscape w-full rounded-box py-8 px-24 md:px-16">
     <div class="flex justify-center items-center gap-8 w-full">
       <div class="aspect-square h-fit w-4/12">
         <ProfileImg class="w-full" />
       </div>
       <div class="w-8/12 flex flex-col gap-2">
         <h3>瓜熊</h3>
-        <p>努力學習 Nuxt 中……</p>
+        <p>你好，我是瓜熊，熱愛研究新鮮的東西。</p>
         <div class="flex gap-1">
           <el-tooltip class="box-item" content="Github" placement="bottom" effect="customized" :hide-after="0">
             <NuxtLink to="https://github.com/wenyanlin" class="btn btn-icon" target="_blank" external>
@@ -43,6 +43,14 @@ import CodePen from '~/assets/icons/codepen.svg?component';
 </script>
 
 <style lang="scss" scoped>
+.profile-landscape {
+  background-color: oklch(var(--base-300)/.2);
+
+  @supports not(color: oklch(0% 0 0)) {
+    background-color: var(--fallback-b3);
+  }
+}
+
 h3 {
   @apply text-2xl font-semibold text-base-content;
 }

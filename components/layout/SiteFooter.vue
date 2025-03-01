@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer bg-base-200 text-base-content items-center p-4 flex justify-between gap-4 sm:flex-col">
+  <footer class="footer text-base-content items-center p-4 flex justify-between gap-4 sm:flex-col">
     <aside class="items-center">
       <p>熊途 Bearune © {{ new Date().getFullYear() }} - All right reserved</p>
     </aside>

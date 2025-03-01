@@ -8,7 +8,7 @@
     <div v-for="item in Object.keys(data)" :key="item"
       class="col-span-12 grid grid-cols-12 gap-4 md:col-span-8 md:grid-cols-8 sm:col-span-4 sm:grid-cols-4">
       <div class="col-span-12 md:col-span-8 sm:col-span-4">
-        <h2 class="text-2xl font-semibold border-b border-base-300 pb-2">{{ item }}</h2>
+        <h2 class="text-2xl font-semibold pb-2">{{ item }}</h2>
       </div>
       <div v-for="card in data[item]" :key="card._id" class="col-span-4">
         <ToolboxCard :data="card" />
