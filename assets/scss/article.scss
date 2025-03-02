@@ -128,7 +128,7 @@ article.normal {
   }
 
   img {
-    @apply w-full rounded-box shadow backdrop-blur-sm;
+    @apply w-full rounded-box;
     background-color: oklch(var(--base-300)/.2);
 
     @supports not(color: oklch(0% 0 0)) {
@@ -189,7 +189,12 @@ article.normal {
     }
 
     thead {
-      @apply bg-base-200;
+      @apply backdrop-blur-sm;
+      background-color: oklch(var(--base-300)/.2);
+
+      @supports not(color: oklch(0% 0 0)) {
+        background-color: var(--fallback-b2);
+      }
 
       tr {
         th:last-child {
@@ -214,7 +219,12 @@ article.normal {
       tr {
         td {
           &:first-child {
-            @apply text-nowrap bg-base-200 font-semibold;
+            @apply text-nowrap font-semibold backdrop-blur-sm;
+            background-color: oklch(var(--base-300)/.2);
+
+            @supports not(color: oklch(0% 0 0)) {
+              background-color: var(--fallback-b2);
+            }
           }
 
           &:last-child {
@@ -342,7 +352,7 @@ article.short {
   }
 
   img {
-    @apply w-full rounded-box shadow;
+    @apply w-full rounded-box;
     background-color: oklch(var(--base-100)/.2);
 
     @supports not(color: oklch(0% 0 0)) {

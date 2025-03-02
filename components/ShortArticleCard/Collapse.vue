@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ '!h-fit': show }" class="short-article-card_collapse w-full h-96 rounded-box overflow-hidden relative">
+  <div :class="{ '!h-fit': show }" class="short-article-card_collapse h-96 rounded-box overflow-hidden relative">
     <!-- <ContentDoc :path="data._path"> -->
     <article class="short p-8 sm:p-2">
       <div class="flex justify-between">

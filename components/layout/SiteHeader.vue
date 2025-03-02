@@ -1,8 +1,7 @@
 <template>
   <div id="siteHeader" class="fixed -top-0.5 left-0 right-0 backdrop-blur z-10">
     <div
-      class="siteHeader_inner flex justify-between items-center w-full h-20 px-6 py-2 text-base-content sm:px-2 sm:h-16"
-      style="--tw-bg-opacity: 1">
+      class="siteHeader_inner flex justify-between items-center w-full h-20 px-6 py-2 text-base-content sm:px-2 sm:h-16">
       <div class="min-w-32 flex gap-4 py-1 h-full sm:py-0">
         <NuxtLink to="/" class="btn btn-ghost">
           <ColorScheme>
@@ -93,8 +92,8 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 #siteHeader {
   --bg-opacity: .2;
-  background-image:
-    linear-gradient(oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px),
+
+  background-image: linear-gradient(oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px),
     linear-gradient(90deg, oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px);
   background-size: 3.35rem 3.35rem;
 
@@ -104,8 +103,6 @@ onUnmounted(() => {
       linear-gradient(90deg, var(--fallback-b3) 1px, transparent 1px);
     opacity: .6;
   }
-
-  --tw-bg-opacity: 0.2;
 
   .menu .router-link-active {
     @apply relative;

@@ -1,7 +1,7 @@
 <template>
-  <div class="card flex min-h-36 lg:card-side md:flex-col">
+  <div class="article-card-short flex min-h-36 lg:card-side md:flex-col">
     <div
-      class="overflow-hidden rounded-box w-1/3 aspect-video flex justify-center items-center bg-base-200 h-fit shadow md:w-full">
+      class="article-card-short_img overflow-hidden rounded-box w-1/3 aspect-video flex justify-center items-center h-fit md:w-full">
       <NuxtLink :to="props.data._path" class="no-style-a block w-full h-full">
         <figure class="aspect-video overflow-hidden flex justify-center items-center">
           <img :src="props.data.image ? props.data.image : 'https://picsum.photos/1600/1600'"
@@ -38,7 +38,15 @@ const props = defineProps({ 'data': { type: Object, default: () => { } }, 'tags'
 </script>
 
 <style lang="scss" scoped>
-.card {
+.article-card-short {
+  &_img {
+    background-color: oklch(var(--base-300)/.2);
+
+    @supports not(color:oklch(0% 0 0)) {
+      background-color: var(--fallback-b2);
+    }
+  }
+
   img {
     @apply duration-input transition-transform;
   }

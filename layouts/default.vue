@@ -1,7 +1,6 @@
 <template>
   <main class="!min-h-screen relative flex flex-col justify-between">
-    <div class="shape fixed inset-0 -z-40">
-      <div class="shape_grid w-full h-full" />
+    <div class="shape fixed top-0 left-0 w-full h-screen scale-100 -z-40">
     </div>
     <!-- <div class="fixed inset-0 backdrop-blur-[100px] -z-30"></div> -->
     <LayoutSiteMobileHeader :class="{ 'block': device.isMobile ? true : false }"
@@ -34,9 +33,9 @@ const device = useDeviceStore();
 
 <style lang="scss" scoped>
 .shape {
-  @apply bg-base-100;
-
-  &_grid {
+  &::after {
+    @apply absolute top-0 left-0 w-full h-full;
+    content: '';
     --bg-opacity: .6;
     background-image:
       linear-gradient(oklch(var(--base-300)/var(--bg-opacity)) 1px, transparent 1px),
@@ -44,8 +43,8 @@ const device = useDeviceStore();
     background-size: 3.35rem 3.35rem;
     mask: linear-gradient(-20deg, transparent 20%, white);
 
-    /* 固定背景，不隨滾動移動 */
-    background-attachment: fixed;
+    /* 固定背景，不隨滾動移動 ps 手機端支援不佳 */
+    // background-attachment: fixed;
 
     @supports not(color: oklch(0% 0 0)) {
       background-image:
