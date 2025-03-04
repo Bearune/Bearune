@@ -6,7 +6,7 @@ tags: ['javascript', 'Eloquent JavaScript 學習筆記系列']
 date: 2025-03-03
 keywords: Egg 語言, 程式語言設計, 解析器, Evaluator, 表達式樹, 語法規則, value, word, apply, 函數調用, 語法特點, 跳脫序列, 綁定名, 遞迴下降, 語法錯誤, 特殊形式, if, while, do, define, fun, 環境設置, 作用域, 全局作用域, 基本運算子, 輸出函數, 直譯器, 編譯器, Egg 語言實作, JavaScript, 語言設計
 image: /img/articles/eloquent-JavaScript/cover12.webp
-draft: true
+draft: false
 
 head:
   - - meta
