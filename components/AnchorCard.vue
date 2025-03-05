@@ -67,7 +67,7 @@ const onScroll = () => {
   const windowHeight = window.innerHeight;
   flattedAchors.forEach((section, index) => {
     // const sectionElement = document.getElementById(section.id);
-    if (sectionElement.value[index] && scrollY >= sectionElement.value[index].offsetTop) {
+    if (sectionElement.value[index] && scrollY + windowHeight / 2 >= sectionElement.value[index].offsetTop) {
       tocMaker.value.style.top = `calc(0.25rem + ${index || 0} * 2rem)`;
       tocMaker.value.style.display = 'block';
       activeToc.value = section.id;

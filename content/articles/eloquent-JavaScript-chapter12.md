@@ -11,7 +11,7 @@ draft: false
 head:
   - - meta
     - property: og:title
-      content:  JS 筆記#12 - 創造一個程式語言 Egg
+      content: JS 筆記#12 - 創造一個程式語言 Egg
   - - meta
     - property: og:type
       content: article
@@ -27,7 +27,7 @@ head:
 
 
 sitemap:
-  loc: /articles/eloquent-javascript-chapter10
+  loc: /articles/eloquent-javascript-chapter12
   lastmod: 2025-03-03
   changefreq: monthly
   priority: 0.5
