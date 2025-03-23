@@ -181,7 +181,7 @@ article.normal {
   }
 
   table {
-    @apply rounded-box border-separate border-spacing-0 text-base mb-8;
+    @apply rounded-box border-separate border-spacing-0 text-base;
 
     th,
     td {
@@ -405,7 +405,7 @@ article.short {
   }
 
   table {
-    @apply rounded-box border-separate border-spacing-0 text-base mt-4 mb-4 bg-base-100;
+    @apply rounded-box border-separate border-spacing-0 text-base mt-4 bg-base-100;
 
     th,
     td {
