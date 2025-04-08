@@ -13,6 +13,11 @@
               <Github class="w-6 h-6 " />
             </NuxtLink>
           </el-tooltip>
+          <el-tooltip class="box-item" content="作品集" placement="bottom" effect="customized" :hide-after="0">
+            <NuxtLink to="https://portfolio.bearune.com" class="btn btn-icon" target="_blank">
+              <Globe class="w-6 h-6 " />
+            </NuxtLink>
+          </el-tooltip>
           <el-tooltip class="box-item" content="CodePen" placement="bottom" effect="customized" :hide-after="0">
             <NuxtLink to="https://codepen.io/Lin-Donna" class="btn btn-icon" target="_blank" external>
               <CodePen class="w-6 h-6 " />
@@ -39,6 +44,7 @@ import Github from '~/assets/icons/github.svg?component';
 import RSS from '~/assets/icons/rss.svg?component';
 import Youtube from '~/assets/icons/youtube.svg?component';
 import CodePen from '~/assets/icons/codepen.svg?component';
+import Globe from '~/assets/icons/globe.svg?component';
 
 </script>
 

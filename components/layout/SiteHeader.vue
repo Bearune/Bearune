@@ -36,8 +36,13 @@
           effect="customized" :hide-after="0">
           <DarkModeToggle class="btn btn-icon" />
         </ToolTip>
+        <ToolTip content="作品集">
+          <a href="https://portfolio.bearune.com" class="btn btn-icon" target="_blank">
+            <Globe class="w-6 h-6" />
+          </a>
+        </ToolTip>
         <ToolTip content="Github">
-          <a href="https://github.com/wenyanlin" class="btn btn-icon" target="_blank">
+          <a href="https://github.com/Bearune/Bearune" class="btn btn-icon" target="_blank">
             <Github class="w-6 h-6" />
           </a>
         </ToolTip>
@@ -51,6 +56,7 @@
 import LightLogo from '~/assets/icons/logo_light.svg';
 import DarkLogo from '~/assets/icons/logo_dark.svg';
 import Github from '~/assets/icons/github.svg?component';
+import Globe from '~/assets/icons/globe.svg?component';
 import Search from '~/assets/icons/search.svg?component';
 
 const device = useDeviceStore();
